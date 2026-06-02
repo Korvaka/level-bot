@@ -267,7 +267,7 @@ class _ExerciseDetailContent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Icon(
-                    Icons.lightbulb_outline_rounded,
+                    Icons.lightbulb_outline,
                     size: 18,
                     color: AppColors.accentYellow,
                   ),

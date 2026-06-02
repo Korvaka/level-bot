@@ -24,7 +24,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'app_router.g.dart';
 
 @riverpod
-GoRouter appRouter(Ref ref) {
+GoRouter appRouter(AppRouterRef ref) {
   final authStateChanges = FirebaseAuth.instance.authStateChanges();
 
   return GoRouter(

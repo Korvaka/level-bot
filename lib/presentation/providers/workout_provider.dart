@@ -194,7 +194,7 @@ class ActiveWorkoutNotifier extends StateNotifier<ActiveWorkoutState> {
     state = state.copyWith(session: updated);
   }
 
-  void addSet({required String exerciseId, required workoutSetEntity}) {
+  void addSet({required String exerciseId, required WorkoutSetEntity workoutSetEntity}) {
     if (state.session == null) return;
 
     final exercises = state.session!.exercises.map((ex) {

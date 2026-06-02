@@ -42,7 +42,7 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
 
     return PopScope(
       canPop: false,
-      onPopInvoked: (_) => _confirmCancel(context),
+      onPopInvokedWithResult: (didPop, _) { if (!didPop) _confirmCancel(context); },
       child: Scaffold(
         appBar: _buildAppBar(context, workoutState),
         body: Column(
@@ -258,7 +258,7 @@ class _ExerciseCardState extends ConsumerState<_ExerciseCard> {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: context.colorScheme.surfaceVariant,
+        color: context.colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(

@@ -221,7 +221,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         Expanded(
           child: _SocialButton(
             label: 'Apple',
-            icon: Icons.apple_rounded,
+            icon: Icons.apple,
             onPressed: _signInWithApple,
           ),
         ),
