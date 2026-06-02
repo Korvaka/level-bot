@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({
@@ -16,9 +17,12 @@ class AppTextField extends StatelessWidget {
     this.onFieldSubmitted,
     this.maxLines = 1,
     this.minLines,
+    this.maxLength,
     this.readOnly = false,
     this.onTap,
     this.enabled = true,
+    this.inputFormatters,
+    this.textCapitalization = TextCapitalization.none,
   });
 
   final TextEditingController controller;
@@ -34,9 +38,12 @@ class AppTextField extends StatelessWidget {
   final void Function(String)? onFieldSubmitted;
   final int? maxLines;
   final int? minLines;
+  final int? maxLength;
   final bool readOnly;
   final VoidCallback? onTap;
   final bool enabled;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextCapitalization textCapitalization;
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +52,16 @@ class AppTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
+      textCapitalization: textCapitalization,
       onFieldSubmitted: onFieldSubmitted,
       maxLines: obscureText ? 1 : maxLines,
       minLines: minLines,
+      maxLength: maxLength,
       readOnly: readOnly,
       onTap: onTap,
       enabled: enabled,
       validator: validator,
+      inputFormatters: inputFormatters,
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,

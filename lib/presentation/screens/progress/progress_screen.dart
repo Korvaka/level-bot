@@ -132,20 +132,20 @@ class _OverviewTabState extends ConsumerState<_OverviewTab> {
                   ),
                   _StatCard(
                     label: 'Total Volume',
-                    value: formatVolume(totalVolume),
+                    value: Formatters.formatVolume(totalVolume),
                     icon: Icons.bar_chart_rounded,
                     color: AppColors.secondary,
                   ),
                   _StatCard(
                     label: 'Total Duration',
-                    value: formatDuration(totalDurationSecs),
+                    value: Formatters.formatDuration(Duration(seconds: totalDurationSecs)),
                     icon: Icons.timer_outlined,
                     color: AppColors.accent,
                   ),
                   _StatCard(
                     label: 'Avg Duration',
-                    value: formatDuration(avgDurationSecs),
-                    icon: Icons.avg_pace_rounded,
+                    value: Formatters.formatDuration(Duration(seconds: avgDurationSecs)),
+                    icon: Icons.av_timer_rounded,
                     color: AppColors.back,
                   ),
                 ],
@@ -193,7 +193,6 @@ class _OverviewTabState extends ConsumerState<_OverviewTab> {
             ],
           );
         },
-      ),
     );
   }
 }
@@ -237,7 +236,7 @@ class _VolumeLineChart extends StatelessWidget {
               showTitles: true,
               reservedSize: 48,
               getTitlesWidget: (value, meta) => Text(
-                formatVolume(value),
+                Formatters.formatVolume(value),
                 style: AppTextStyles.labelSmall.copyWith(
                   color: AppColors.textTertiaryDark,
                   fontSize: 10,
@@ -561,7 +560,6 @@ class _RecordsTabState extends ConsumerState<_RecordsTab> {
               },
             ),
           ),
-        ),
       ],
     );
   }
@@ -636,7 +634,7 @@ class _RecordCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  '${record.weight.toStringAsFixed(1)} kg × ${record.reps} reps',
+                  '${record.weight?.toStringAsFixed(1) ?? '0'} kg × ${record.reps} reps',
                   style: AppTextStyles.bodySmall.copyWith(
                     color: AppColors.textSecondaryDark,
                   ),

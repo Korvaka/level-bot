@@ -44,7 +44,7 @@ class _ProgramDetailContent extends ConsumerWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          _buildSliverAppBar(context, isOwner),
+          _buildSliverAppBar(context, ref, isOwner),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(20),
@@ -67,7 +67,7 @@ class _ProgramDetailContent extends ConsumerWidget {
     );
   }
 
-  Widget _buildSliverAppBar(BuildContext context, bool isOwner) {
+  Widget _buildSliverAppBar(BuildContext context, WidgetRef ref, bool isOwner) {
     return SliverAppBar(
       expandedHeight: 200,
       pinned: true,

@@ -6,6 +6,7 @@ import 'package:level_bot/core/theme/app_colors.dart';
 import 'package:level_bot/core/utils/formatters.dart';
 import 'package:level_bot/domain/entities/workout_session_entity.dart';
 import 'package:level_bot/domain/entities/workout_set_entity.dart';
+import 'package:level_bot/presentation/providers/auth_provider.dart';
 import 'package:level_bot/presentation/providers/workout_provider.dart';
 import 'package:level_bot/presentation/widgets/workout/rest_timer.dart';
 import 'package:level_bot/presentation/widgets/workout/set_row.dart';
