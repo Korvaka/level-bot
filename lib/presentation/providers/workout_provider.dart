@@ -4,6 +4,7 @@ import 'package:level_bot/data/datasources/remote/workout_remote_datasource.dart
 import 'package:level_bot/data/repositories/workout_repository_impl.dart';
 import 'package:level_bot/domain/entities/personal_record_entity.dart';
 import 'package:level_bot/domain/entities/workout_session_entity.dart';
+import 'package:level_bot/domain/entities/workout_set_entity.dart';
 import 'package:level_bot/domain/repositories/workout_repository.dart';
 import 'package:level_bot/presentation/providers/auth_provider.dart';
 import 'package:uuid/uuid.dart';
