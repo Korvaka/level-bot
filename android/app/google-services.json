@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "191983645033",
+    "project_id": "bulkrep-6d946",
+    "storage_bucket": "bulkrep-6d946.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191983645033:android:a2d3c6bd3207e18e034df8",
+        "android_client_info": {
+          "package_name": "com.levelbot.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAznT3wkJ5238dAC5KjA7qmcBlrFYfrJjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

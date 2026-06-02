@@ -43,10 +43,10 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Firebase
-google-services.json
-GoogleService-Info.plist
-firebase_options.dart
+# Firebase (uncomment to ignore sensitive keys in production)
+# google-services.json
+# GoogleService-Info.plist
+# firebase_options.dart
 
 # Sensitive
 .env
