@@ -50,9 +50,13 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
             if (workoutState.isRestTimerRunning)
               RestTimer(
                 seconds: workoutState.restTimerSeconds,
+                totalSeconds: workoutState.totalRestSeconds,
                 onSkip: () => ref
                     .read(activeWorkoutProvider.notifier)
                     .stopRestTimer(),
+                onAddTime: () => ref
+                    .read(activeWorkoutProvider.notifier)
+                    .addRestTime(),
               ),
             Expanded(
               child: workoutState.session?.exercises.isEmpty == true

@@ -67,6 +67,11 @@ class _ExerciseLibraryScreenState
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.push('/exercises/create'),
+        tooltip: 'Create exercise',
+        child: const Icon(Icons.add_rounded),
+      ),
       body: Column(
         children: [
           _FilterBar(

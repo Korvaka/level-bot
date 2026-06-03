@@ -55,36 +55,44 @@ class ActiveWorkoutState {
     this.isActive = false,
     this.elapsedSeconds = 0,
     this.restTimerSeconds = 0,
+    this.totalRestSeconds = 0,
     this.isRestTimerRunning = false,
     this.isLoading = false,
     this.error,
+    this.xpEarned = 0,
   });
 
   final WorkoutSessionEntity? session;
   final bool isActive;
   final int elapsedSeconds;
   final int restTimerSeconds;
+  final int totalRestSeconds;
   final bool isRestTimerRunning;
   final bool isLoading;
   final String? error;
+  final int xpEarned;
 
   ActiveWorkoutState copyWith({
     WorkoutSessionEntity? session,
     bool? isActive,
     int? elapsedSeconds,
     int? restTimerSeconds,
+    int? totalRestSeconds,
     bool? isRestTimerRunning,
     bool? isLoading,
     String? error,
+    int? xpEarned,
   }) {
     return ActiveWorkoutState(
       session: session ?? this.session,
       isActive: isActive ?? this.isActive,
       elapsedSeconds: elapsedSeconds ?? this.elapsedSeconds,
       restTimerSeconds: restTimerSeconds ?? this.restTimerSeconds,
+      totalRestSeconds: totalRestSeconds ?? this.totalRestSeconds,
       isRestTimerRunning: isRestTimerRunning ?? this.isRestTimerRunning,
       isLoading: isLoading ?? this.isLoading,
       error: error,
+      xpEarned: xpEarned ?? this.xpEarned,
     );
   }
 }
@@ -130,6 +138,7 @@ class ActiveWorkoutNotifier extends StateNotifier<ActiveWorkoutState> {
     _restTimer?.cancel();
     state = state.copyWith(
       restTimerSeconds: seconds,
+      totalRestSeconds: seconds,
       isRestTimerRunning: true,
     );
     _restTimer = Timer.periodic(const Duration(seconds: 1), (_) {
@@ -140,6 +149,14 @@ class ActiveWorkoutNotifier extends StateNotifier<ActiveWorkoutState> {
         state = state.copyWith(restTimerSeconds: state.restTimerSeconds - 1);
       }
     });
+  }
+
+  void addRestTime() {
+    if (!state.isRestTimerRunning) return;
+    state = state.copyWith(
+      restTimerSeconds: state.restTimerSeconds + 30,
+      totalRestSeconds: state.totalRestSeconds + 30,
+    );
   }
 
   void stopRestTimer() {

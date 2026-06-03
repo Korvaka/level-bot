@@ -5,14 +5,17 @@ import 'package:go_router/go_router.dart';
 import 'package:level_bot/presentation/screens/auth/forgot_password_screen.dart';
 import 'package:level_bot/presentation/screens/auth/login_screen.dart';
 import 'package:level_bot/presentation/screens/auth/register_screen.dart';
+import 'package:level_bot/presentation/screens/exercises/create_exercise_screen.dart';
 import 'package:level_bot/presentation/screens/exercises/exercise_detail_screen.dart';
 import 'package:level_bot/presentation/screens/exercises/exercise_library_screen.dart';
 import 'package:level_bot/presentation/screens/feed/feed_screen.dart';
 import 'package:level_bot/presentation/screens/feed/post_detail_screen.dart';
 import 'package:level_bot/presentation/screens/home/home_screen.dart';
+import 'package:level_bot/presentation/screens/profile/achievements_screen.dart';
 import 'package:level_bot/presentation/screens/profile/edit_profile_screen.dart';
 import 'package:level_bot/presentation/screens/profile/profile_screen.dart';
 import 'package:level_bot/presentation/screens/programs/create_program_screen.dart';
+import 'package:level_bot/presentation/screens/settings/settings_screen.dart';
 import 'package:level_bot/presentation/screens/programs/program_detail_screen.dart';
 import 'package:level_bot/presentation/screens/programs/programs_screen.dart';
 import 'package:level_bot/presentation/screens/progress/progress_screen.dart';
@@ -117,6 +120,11 @@ GoRouter appRouter(AppRouterRef ref) {
             builder: (context, state) => const ExerciseLibraryScreen(),
             routes: [
               GoRoute(
+                path: 'create',
+                name: 'create-exercise',
+                builder: (context, state) => const CreateExerciseScreen(),
+              ),
+              GoRoute(
                 path: ':exerciseId',
                 name: 'exercise-detail',
                 builder: (context, state) => ExerciseDetailScreen(
@@ -139,6 +147,16 @@ GoRouter appRouter(AppRouterRef ref) {
                 path: 'edit',
                 name: 'edit-profile',
                 builder: (context, state) => const EditProfileScreen(),
+              ),
+              GoRoute(
+                path: 'settings',
+                name: 'settings',
+                builder: (context, state) => const SettingsScreen(),
+              ),
+              GoRoute(
+                path: 'achievements',
+                name: 'achievements',
+                builder: (context, state) => const AchievementsScreen(),
               ),
               GoRoute(
                 path: ':userId',
@@ -174,6 +192,7 @@ class AppRoutes {
   static const String progress = '/progress';
   static const String profile = '/profile';
   static const String editProfile = '/profile/edit';
+  static const String settings = '/profile/settings';
 }
 
 class GoRouterRefreshStream extends ChangeNotifier {

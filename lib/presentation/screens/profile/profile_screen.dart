@@ -768,10 +768,22 @@ class _SettingsSheet extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.notifications_outlined),
-              title: const Text('Notifications'),
+              leading: const Icon(Icons.settings_outlined),
+              title: const Text('Settings'),
               trailing: const Icon(Icons.chevron_right_rounded),
-              onTap: () => Navigator.pop(context),
+              onTap: () {
+                Navigator.pop(context);
+                context.push(AppRoutes.settings);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.emoji_events_outlined),
+              title: const Text('Achievements'),
+              trailing: const Icon(Icons.chevron_right_rounded),
+              onTap: () {
+                Navigator.pop(context);
+                context.push('/profile/achievements');
+              },
             ),
             const Divider(),
             ListTile(

@@ -67,6 +67,11 @@ class UserEntity extends Equatable {
     this.programsCount = 0,
     this.totalWorkoutMinutes = 0,
     this.favoriteExerciseIds = const [],
+    this.xp = 0,
+    this.currentStreak = 0,
+    this.longestStreak = 0,
+    this.achievements = const [],
+    this.preferredLocale = 'en',
   });
 
   final String id;
@@ -89,6 +94,11 @@ class UserEntity extends Equatable {
   final int programsCount;
   final int totalWorkoutMinutes;
   final List<String> favoriteExerciseIds;
+  final int xp;
+  final int currentStreak;
+  final int longestStreak;
+  final List<String> achievements;
+  final String preferredLocale;
 
   @override
   List<Object?> get props => [
@@ -112,6 +122,11 @@ class UserEntity extends Equatable {
         programsCount,
         totalWorkoutMinutes,
         favoriteExerciseIds,
+        xp,
+        currentStreak,
+        longestStreak,
+        achievements,
+        preferredLocale,
       ];
 
   UserEntity copyWith({
@@ -135,6 +150,11 @@ class UserEntity extends Equatable {
     int? programsCount,
     int? totalWorkoutMinutes,
     List<String>? favoriteExerciseIds,
+    int? xp,
+    int? currentStreak,
+    int? longestStreak,
+    List<String>? achievements,
+    String? preferredLocale,
   }) {
     return UserEntity(
       id: id ?? this.id,
@@ -157,6 +177,11 @@ class UserEntity extends Equatable {
       programsCount: programsCount ?? this.programsCount,
       totalWorkoutMinutes: totalWorkoutMinutes ?? this.totalWorkoutMinutes,
       favoriteExerciseIds: favoriteExerciseIds ?? this.favoriteExerciseIds,
+      xp: xp ?? this.xp,
+      currentStreak: currentStreak ?? this.currentStreak,
+      longestStreak: longestStreak ?? this.longestStreak,
+      achievements: achievements ?? this.achievements,
+      preferredLocale: preferredLocale ?? this.preferredLocale,
     );
   }
 }

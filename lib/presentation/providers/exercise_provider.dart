@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:level_bot/core/errors/failures.dart';
 import 'package:level_bot/data/datasources/remote/exercise_remote_datasource.dart';
 import 'package:level_bot/data/repositories/exercise_repository_impl.dart';
 import 'package:level_bot/domain/entities/exercise_entity.dart';
@@ -93,3 +94,33 @@ final exerciseByIdProvider =
     (exercise) => exercise,
   );
 });
+
+// Notifier for actions (create, delete custom exercises)
+final exerciseNotifierProvider =
+    StateNotifierProvider<ExerciseNotifier, AsyncValue<void>>(
+  (ref) => ExerciseNotifier(ref.read(exerciseRepositoryProvider), ref),
+);
+
+class ExerciseNotifier extends StateNotifier<AsyncValue<void>> {
+  ExerciseNotifier(this._repository, this._ref)
+      : super(const AsyncValue.data(null));
+
+  final ExerciseRepository _repository;
+  final Ref _ref;
+
+  Future<String?> createCustomExercise(ExerciseEntity exercise) async {
+    state = const AsyncValue.loading();
+    final result = await _repository.createCustomExercise(exercise);
+    return result.fold(
+      (failure) {
+        state = const AsyncValue.data(null);
+        return failure.message;
+      },
+      (_) {
+        state = const AsyncValue.data(null);
+        _ref.invalidate(allExercisesProvider);
+        return null;
+      },
+    );
+  }
+}
