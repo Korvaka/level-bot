@@ -944,7 +944,7 @@ class _SmartProgramBuilderScreenState
                 child: OutlinedButton(
                   onPressed: _back,
                   style: OutlinedButton.styleFrom(
-                    minimumSize: const Size.zero,
+                    minimumSize: Size.zero,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
                   child: const Text('Regenerate'),
@@ -971,7 +971,7 @@ class _SmartProgramBuilderScreenState
                   icon: const Icon(Icons.save_rounded, size: 18),
                   label: const Text('Save to Programs'),
                   style: FilledButton.styleFrom(
-                    minimumSize: const Size.zero,
+                    minimumSize: Size.zero,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
                 ),
@@ -1093,7 +1093,7 @@ class _BottomNav extends StatelessWidget {
             child: FilledButton(
               onPressed: canProceed ? onNext : null,
               style: FilledButton.styleFrom(
-                minimumSize: const Size.zero,
+                minimumSize: Size.zero,
                 padding: const EdgeInsets.symmetric(vertical: 14),
               ),
               child: Text(step == 3 ? 'Generate Program' : 'Next'),
