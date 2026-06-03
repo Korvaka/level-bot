@@ -56,6 +56,9 @@ dependencies:
   json_annotation: ^4.8.1
   crypto: ^3.0.3
 
+  # Media
+  video_player: ^2.8.3
+
   # Functional
   fpdart: ^1.1.0
 

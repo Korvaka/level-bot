@@ -58,6 +58,12 @@ class VitaLevelApp extends ConsumerWidget {
       supportedLocales: const [
         Locale('en'),
         Locale('fr'),
+        Locale('es'),
+        Locale('pt'),
+        Locale('de'),
+        Locale('it'),
+        Locale('nl'),
+        Locale('pl'),
       ],
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,

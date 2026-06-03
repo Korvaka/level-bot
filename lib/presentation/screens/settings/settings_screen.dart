@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
 import 'package:level_bot/core/theme/app_colors.dart';
+import 'package:level_bot/presentation/providers/audio_provider.dart';
 import 'package:level_bot/presentation/providers/locale_provider.dart';
 import 'package:level_bot/presentation/providers/theme_provider.dart';
 
@@ -13,6 +14,7 @@ class SettingsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(localeProvider);
     final themeMode = ref.watch(themeModeProvider);
+    final audioSettings = ref.watch(audioSettingsProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -25,35 +27,18 @@ class SettingsScreen extends ConsumerWidget {
       body: ListView(
         children: [
           _SectionHeader(title: 'Preferences'),
-          // Language
           ListTile(
-            leading: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.15),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Icon(Icons.language_rounded,
-                  color: AppColors.primary, size: 20),
+            leading: _IconBox(
+              color: AppColors.primary,
+              icon: Icons.language_rounded,
             ),
             title: const Text('Language'),
-            subtitle: Text(locale.languageCode == 'fr' ? 'Français' : 'English'),
+            subtitle: Text(_languageLabel(locale.languageCode)),
             trailing: const Icon(Icons.chevron_right_rounded),
             onTap: () => _showLanguagePicker(context, ref, locale.languageCode),
           ),
-          // Dark Mode
           ListTile(
-            leading: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: Colors.indigo.withOpacity(0.15),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Icon(Icons.dark_mode_rounded,
-                  color: Colors.indigo, size: 20),
-            ),
+            leading: _IconBox(color: Colors.indigo, icon: Icons.dark_mode_rounded),
             title: const Text('Dark Mode'),
             trailing: Switch(
               value: themeMode == ThemeMode.dark,
@@ -63,18 +48,42 @@ class SettingsScreen extends ConsumerWidget {
             ),
           ),
           const Divider(height: 1),
+          _SectionHeader(title: 'Audio'),
+          ListTile(
+            leading: _IconBox(color: Colors.orange, icon: Icons.volume_up_rounded),
+            title: const Text('Sound Effects'),
+            subtitle: Text(audioSettings.enabled ? 'Enabled' : 'Disabled'),
+            trailing: Switch(
+              value: audioSettings.enabled,
+              onChanged: (v) =>
+                  ref.read(audioSettingsProvider.notifier).setEnabled(v),
+            ),
+          ),
+          if (audioSettings.enabled)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(72, 0, 24, 8),
+              child: Row(
+                children: [
+                  const Icon(Icons.volume_mute_rounded,
+                      size: 18, color: Colors.grey),
+                  Expanded(
+                    child: Slider(
+                      value: audioSettings.volume,
+                      onChanged: (v) => ref
+                          .read(audioSettingsProvider.notifier)
+                          .setVolume(v),
+                      activeColor: AppColors.primary,
+                    ),
+                  ),
+                  const Icon(Icons.volume_up_rounded,
+                      size: 18, color: Colors.grey),
+                ],
+              ),
+            ),
+          const Divider(height: 1),
           _SectionHeader(title: 'About'),
           ListTile(
-            leading: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: Colors.teal.withOpacity(0.15),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Icon(Icons.info_outline_rounded,
-                  color: Colors.teal, size: 20),
-            ),
+            leading: _IconBox(color: Colors.teal, icon: Icons.info_outline_rounded),
             title: const Text('Version'),
             subtitle: const Text('1.0.0'),
           ),
@@ -83,45 +92,80 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
+  String _languageLabel(String code) {
+    switch (code) {
+      case 'fr': return 'Français';
+      case 'es': return 'Español';
+      case 'pt': return 'Português';
+      case 'de': return 'Deutsch';
+      case 'it': return 'Italiano';
+      case 'nl': return 'Nederlands';
+      case 'pl': return 'Polski';
+      default: return 'English';
+    }
+  }
+
   void _showLanguagePicker(
       BuildContext context, WidgetRef ref, String current) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (ctx) {
-        return Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Select Language',
+        return DraggableScrollableSheet(
+          initialChildSize: 0.6,
+          minChildSize: 0.4,
+          maxChildSize: 0.85,
+          expand: false,
+          builder: (_, controller) => Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 40,
+                    height: 4,
+                    margin: const EdgeInsets.only(bottom: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                Text(
+                  'Select Language',
                   style: ctx.textTheme.titleMedium
-                      ?.copyWith(fontWeight: FontWeight.w700)),
-              const SizedBox(height: 16),
-              _LanguageTile(
-                flag: '🇬🇧',
-                label: 'English',
-                isSelected: current == 'en',
-                onTap: () {
-                  ref.read(localeProvider.notifier).setLocale('en');
-                  Navigator.pop(ctx);
-                },
-              ),
-              const SizedBox(height: 8),
-              _LanguageTile(
-                flag: '🇫🇷',
-                label: 'Français',
-                isSelected: current == 'fr',
-                onTap: () {
-                  ref.read(localeProvider.notifier).setLocale('fr');
-                  Navigator.pop(ctx);
-                },
-              ),
-              const SizedBox(height: 24),
-            ],
+                      ?.copyWith(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 16),
+                Expanded(
+                  child: ListView(
+                    controller: controller,
+                    children: [
+                      _LanguageTile(flag: '🇬🇧', label: 'English', code: 'en', current: current, ref: ref, ctx: ctx),
+                      const SizedBox(height: 8),
+                      _LanguageTile(flag: '🇫🇷', label: 'Français', code: 'fr', current: current, ref: ref, ctx: ctx),
+                      const SizedBox(height: 8),
+                      _LanguageTile(flag: '🇪🇸', label: 'Español', code: 'es', current: current, ref: ref, ctx: ctx),
+                      const SizedBox(height: 8),
+                      _LanguageTile(flag: '🇵🇹', label: 'Português', code: 'pt', current: current, ref: ref, ctx: ctx),
+                      const SizedBox(height: 8),
+                      _LanguageTile(flag: '🇩🇪', label: 'Deutsch', code: 'de', current: current, ref: ref, ctx: ctx),
+                      const SizedBox(height: 8),
+                      _LanguageTile(flag: '🇮🇹', label: 'Italiano', code: 'it', current: current, ref: ref, ctx: ctx),
+                      const SizedBox(height: 8),
+                      _LanguageTile(flag: '🇳🇱', label: 'Nederlands', code: 'nl', current: current, ref: ref, ctx: ctx),
+                      const SizedBox(height: 8),
+                      _LanguageTile(flag: '🇵🇱', label: 'Polski', code: 'pl', current: current, ref: ref, ctx: ctx),
+                      const SizedBox(height: 24),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -149,23 +193,50 @@ class _SectionHeader extends StatelessWidget {
   }
 }
 
+class _IconBox extends StatelessWidget {
+  const _IconBox({required this.color, required this.icon});
+  final Color color;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Icon(icon, color: color, size: 20),
+    );
+  }
+}
+
 class _LanguageTile extends StatelessWidget {
   const _LanguageTile({
     required this.flag,
     required this.label,
-    required this.isSelected,
-    required this.onTap,
+    required this.code,
+    required this.current,
+    required this.ref,
+    required this.ctx,
   });
 
   final String flag;
   final String label;
-  final bool isSelected;
-  final VoidCallback onTap;
+  final String code;
+  final String current;
+  final WidgetRef ref;
+  final BuildContext ctx;
 
   @override
   Widget build(BuildContext context) {
+    final isSelected = current == code;
     return InkWell(
-      onTap: onTap,
+      onTap: () {
+        ref.read(localeProvider.notifier).setLocale(code);
+        Navigator.pop(ctx);
+      },
       borderRadius: BorderRadius.circular(12),
       child: Container(
         padding: const EdgeInsets.all(16),
@@ -175,9 +246,7 @@ class _LanguageTile extends StatelessWidget {
               : context.colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected
-                ? AppColors.primary
-                : Colors.transparent,
+            color: isSelected ? AppColors.primary : Colors.transparent,
             width: 2,
           ),
         ),

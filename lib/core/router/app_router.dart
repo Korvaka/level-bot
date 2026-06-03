@@ -8,6 +8,7 @@ import 'package:level_bot/presentation/screens/auth/register_screen.dart';
 import 'package:level_bot/presentation/screens/exercises/create_exercise_screen.dart';
 import 'package:level_bot/presentation/screens/exercises/exercise_detail_screen.dart';
 import 'package:level_bot/presentation/screens/exercises/exercise_library_screen.dart';
+import 'package:level_bot/presentation/screens/exercises/muscle_atlas_screen.dart';
 import 'package:level_bot/presentation/screens/feed/feed_screen.dart';
 import 'package:level_bot/presentation/screens/feed/post_detail_screen.dart';
 import 'package:level_bot/presentation/screens/home/home_screen.dart';
@@ -15,6 +16,7 @@ import 'package:level_bot/presentation/screens/profile/achievements_screen.dart'
 import 'package:level_bot/presentation/screens/profile/edit_profile_screen.dart';
 import 'package:level_bot/presentation/screens/profile/profile_screen.dart';
 import 'package:level_bot/presentation/screens/programs/create_program_screen.dart';
+import 'package:level_bot/presentation/screens/programs/smart_program_builder_screen.dart';
 import 'package:level_bot/presentation/screens/settings/settings_screen.dart';
 import 'package:level_bot/presentation/screens/programs/program_detail_screen.dart';
 import 'package:level_bot/presentation/screens/programs/programs_screen.dart';
@@ -94,6 +96,11 @@ GoRouter appRouter(AppRouterRef ref) {
                 builder: (context, state) => const CreateProgramScreen(),
               ),
               GoRoute(
+                path: 'smart-builder',
+                name: 'smart-program-builder',
+                builder: (context, state) => const SmartProgramBuilderScreen(),
+              ),
+              GoRoute(
                 path: ':programId',
                 name: 'program-detail',
                 builder: (context, state) => ProgramDetailScreen(
@@ -123,6 +130,11 @@ GoRouter appRouter(AppRouterRef ref) {
                 path: 'create',
                 name: 'create-exercise',
                 builder: (context, state) => const CreateExerciseScreen(),
+              ),
+              GoRoute(
+                path: 'atlas',
+                name: 'muscle-atlas',
+                builder: (context, state) => const MuscleAtlasScreen(),
               ),
               GoRoute(
                 path: ':exerciseId',
@@ -193,6 +205,8 @@ class AppRoutes {
   static const String profile = '/profile';
   static const String editProfile = '/profile/edit';
   static const String settings = '/profile/settings';
+  static const String muscleAtlas = '/exercises/atlas';
+  static const String smartProgramBuilder = '/programs/smart-builder';
 }
 
 class GoRouterRefreshStream extends ChangeNotifier {

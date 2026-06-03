@@ -67,10 +67,24 @@ class _ExerciseLibraryScreenState
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => context.push('/exercises/create'),
-        tooltip: 'Create exercise',
-        child: const Icon(Icons.add_rounded),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton.small(
+            heroTag: 'atlas-fab',
+            onPressed: () => context.push('/exercises/atlas'),
+            tooltip: 'Muscle Atlas',
+            backgroundColor: AppColors.secondary,
+            child: const Icon(Icons.accessibility_new_rounded, color: Colors.white),
+          ),
+          const SizedBox(height: 10),
+          FloatingActionButton(
+            heroTag: 'create-fab',
+            onPressed: () => context.push('/exercises/create'),
+            tooltip: 'Create exercise',
+            child: const Icon(Icons.add_rounded),
+          ),
+        ],
       ),
       body: Column(
         children: [
