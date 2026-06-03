@@ -22,6 +22,7 @@ import 'package:level_bot/presentation/screens/programs/program_detail_screen.da
 import 'package:level_bot/presentation/screens/programs/programs_screen.dart';
 import 'package:level_bot/presentation/screens/progress/progress_screen.dart';
 import 'package:level_bot/presentation/screens/splash/splash_screen.dart';
+import 'package:level_bot/presentation/screens/admin/admin_zone_editor_screen.dart';
 import 'package:level_bot/presentation/screens/workout/active_workout_screen.dart';
 import 'package:level_bot/presentation/screens/workout/workout_history_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
