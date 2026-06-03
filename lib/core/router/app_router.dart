@@ -123,6 +123,11 @@ GoRouter appRouter(AppRouterRef ref) {
             ],
           ),
           GoRoute(
+            path: '/admin/zones',
+            name: 'admin-zone-editor',
+            builder: (context, state) => const AdminZoneEditorScreen(),
+          ),
+          GoRoute(
             path: AppRoutes.exercises,
             name: 'exercises',
             builder: (context, state) => const ExerciseLibraryScreen(),
@@ -208,6 +213,7 @@ class AppRoutes {
   static const String settings = '/profile/settings';
   static const String muscleAtlas = '/exercises/atlas';
   static const String smartProgramBuilder = '/programs/smart-builder';
+  static const String adminZoneEditor = '/admin/zones';
 }
 
 class GoRouterRefreshStream extends ChangeNotifier {
