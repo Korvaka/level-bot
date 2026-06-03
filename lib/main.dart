@@ -33,13 +33,13 @@ void main() async {
 
   runApp(
     const ProviderScope(
-      child: LevelBotApp(),
+      child: VitaLevelApp(),
     ),
   );
 }
 
-class LevelBotApp extends ConsumerWidget {
-  const LevelBotApp({super.key});
+class VitaLevelApp extends ConsumerWidget {
+  const VitaLevelApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -48,7 +48,7 @@ class LevelBotApp extends ConsumerWidget {
     final locale = ref.watch(localeProvider);
 
     return MaterialApp.router(
-      title: 'LevelBot',
+      title: 'VitaLevel',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,

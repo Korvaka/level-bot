@@ -1,7 +1,7 @@
 class AppConstants {
   AppConstants._();
 
-  static const String appName = 'LevelBot';
+  static const String appName = 'VitaLevel';
   static const String appVersion = '1.0.0';
 
   // Firestore Collections
