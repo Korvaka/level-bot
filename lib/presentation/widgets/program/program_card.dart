@@ -158,7 +158,7 @@ class ProgramCard extends StatelessWidget {
                     children: [
                       _InfoChip(
                         icon: Icons.calendar_today_outlined,
-                        label: '${program.daysPerWeek}×/${l10n.workout}',
+                        label: '${program.daysPerWeek}×/wk',
                       ),
                       const SizedBox(width: 8),
                       _InfoChip(
