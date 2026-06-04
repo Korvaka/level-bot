@@ -261,5 +261,11 @@
   "quickActions": "Szybkie akcje",
   "thisWeek": "W tym tygodniu",
   "community": "Społeczność",
-  "smartBuilderSubtitle": "Spersonalizowane programy oparte na AI"
+  "smartBuilderSubtitle": "Spersonalizowane programy oparte na AI",
+  "powerliftingGoal": "Trójbój siłowy",
+  "weightLossGoal": "Utrata wagi",
+  "athleticGoal": "Atletyczny",
+  "generalGoal": "Ogólny",
+  "expertLevel": "Ekspert",
+  "workoutSummary": "Podsumowanie treningu"
 }

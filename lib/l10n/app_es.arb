@@ -258,5 +258,11 @@
   "quickActions": "Acciones rápidas",
   "thisWeek": "Esta semana",
   "community": "Comunidad",
-  "smartBuilderSubtitle": "Programas personalizados con IA"
+  "smartBuilderSubtitle": "Programas personalizados con IA",
+  "powerliftingGoal": "Powerlifting",
+  "weightLossGoal": "Pérdida de peso",
+  "athleticGoal": "Atlético",
+  "generalGoal": "General",
+  "expertLevel": "Experto",
+  "workoutSummary": "Resumen de entrenamiento"
 }

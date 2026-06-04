@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -144,7 +145,7 @@ class _WorkoutSummaryCard extends StatelessWidget {
               ),
               const SizedBox(width: 6),
               Text(
-                'Workout Summary',
+                AppLocalizations.of(context)!.workoutSummary,
                 style: context.textTheme.labelMedium?.copyWith(
                   color: AppColors.primary,
                   fontWeight: FontWeight.w600,
@@ -162,7 +163,7 @@ class _WorkoutSummaryCard extends StatelessWidget {
               const SizedBox(width: 8),
               _StatChip(
                 icon: Icons.layers_outlined,
-                label: '${summary.totalSets} sets',
+                label: '${summary.totalSets} ${AppLocalizations.of(context)!.sets}',
               ),
               const SizedBox(width: 8),
               _StatChip(

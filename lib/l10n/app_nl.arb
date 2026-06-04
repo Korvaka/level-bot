@@ -258,5 +258,11 @@
   "quickActions": "Snelle acties",
   "thisWeek": "Deze week",
   "community": "Community",
-  "smartBuilderSubtitle": "AI-gestuurde gepersonaliseerde programma's"
+  "smartBuilderSubtitle": "AI-gestuurde gepersonaliseerde programma's",
+  "powerliftingGoal": "Powerlifting",
+  "weightLossGoal": "Gewichtsverlies",
+  "athleticGoal": "Atletisch",
+  "generalGoal": "Algemeen",
+  "expertLevel": "Expert",
+  "workoutSummary": "Trainingsoverzicht"
 }

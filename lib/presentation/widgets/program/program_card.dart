@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
 import 'package:level_bot/core/theme/app_colors.dart';
 import 'package:level_bot/domain/entities/exercise_entity.dart';
@@ -35,35 +36,53 @@ class ProgramCard extends StatelessWidget {
     }
   }
 
-  String _goalLabel() {
+  String _goalLabel(AppLocalizations l10n) {
     switch (program.goal) {
-      case ProgramGoal.strength: return 'Strength';
-      case ProgramGoal.hypertrophy: return 'Hypertrophy';
-      case ProgramGoal.endurance: return 'Endurance';
-      case ProgramGoal.powerlifting: return 'Powerlifting';
-      case ProgramGoal.weightLoss: return 'Weight Loss';
-      case ProgramGoal.athletic: return 'Athletic';
-      case ProgramGoal.general: return 'General';
+      case ProgramGoal.strength:
+        return l10n.strengthGoal;
+      case ProgramGoal.hypertrophy:
+        return l10n.hypertrophyGoal;
+      case ProgramGoal.endurance:
+        return l10n.enduranceGoal;
+      case ProgramGoal.powerlifting:
+        return l10n.powerliftingGoal;
+      case ProgramGoal.weightLoss:
+        return l10n.weightLossGoal;
+      case ProgramGoal.athletic:
+        return l10n.athleticGoal;
+      case ProgramGoal.general:
+        return l10n.generalGoal;
     }
   }
 
-  String _difficultyLabel() {
+  String _difficultyLabel(AppLocalizations l10n) {
     switch (program.difficulty) {
-      case DifficultyLevel.beginner: return 'Beginner';
-      case DifficultyLevel.intermediate: return 'Intermediate';
-      case DifficultyLevel.advanced: return 'Advanced';
-      case DifficultyLevel.expert: return 'Expert';
+      case DifficultyLevel.beginner:
+        return l10n.beginnerLevel;
+      case DifficultyLevel.intermediate:
+        return l10n.intermediateLevel;
+      case DifficultyLevel.advanced:
+        return l10n.advancedLevel;
+      case DifficultyLevel.expert:
+        return l10n.expertLevel;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final muscleColor = _goalColor();
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: context.colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: muscleColor.withOpacity(0.15),
+            width: 1,
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,12 +92,13 @@ class ProgramCard extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    _goalColor().withOpacity(0.3),
-                    _goalColor().withOpacity(0.1),
+                    muscleColor.withOpacity(0.25),
+                    muscleColor.withOpacity(0.08),
                   ],
                 ),
                 borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(16)),
+                  top: Radius.circular(16),
+                ),
               ),
               padding: const EdgeInsets.all(16),
               child: Row(
@@ -92,21 +112,21 @@ class ProgramCard extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
-                            color: _goalColor().withOpacity(0.2),
+                            color: muscleColor.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
-                            _goalLabel(),
+                            _goalLabel(l10n),
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
-                              color: _goalColor(),
+                              color: muscleColor,
                             ),
                           ),
                         ),
                         const Spacer(),
                         Text(
-                          _difficultyLabel(),
+                          _difficultyLabel(l10n),
                           style: context.textTheme.bodySmall?.copyWith(
                             color: context.colorScheme.onSurfaceVariant,
                           ),
@@ -117,7 +137,7 @@ class ProgramCard extends StatelessWidget {
                   Icon(
                     Icons.fitness_center_rounded,
                     size: 40,
-                    color: _goalColor().withOpacity(0.4),
+                    color: muscleColor.withOpacity(0.35),
                   ),
                 ],
               ),
@@ -133,17 +153,17 @@ class ProgramCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 6),
                   Row(
                     children: [
                       _InfoChip(
                         icon: Icons.calendar_today_outlined,
-                        label: '${program.daysPerWeek}x/week',
+                        label: '${program.daysPerWeek}×/${l10n.workout}',
                       ),
                       const SizedBox(width: 8),
                       _InfoChip(
                         icon: Icons.view_list_rounded,
-                        label: '${program.days.length} days',
+                        label: '${program.days.length} ${l10n.days}',
                       ),
                       if (program.isPublic) ...[
                         const Spacer(),
@@ -194,11 +214,7 @@ class _InfoChip extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          icon,
-          size: 12,
-          color: context.colorScheme.onSurfaceVariant,
-        ),
+        Icon(icon, size: 12, color: context.colorScheme.onSurfaceVariant),
         const SizedBox(width: 3),
         Text(
           label,

@@ -261,5 +261,11 @@
   "quickActions": "Schnellaktionen",
   "thisWeek": "Diese Woche",
   "community": "Community",
-  "smartBuilderSubtitle": "KI-gestützte personalisierte Programme"
+  "smartBuilderSubtitle": "KI-gestützte personalisierte Programme",
+  "powerliftingGoal": "Powerlifting",
+  "weightLossGoal": "Gewichtsverlust",
+  "athleticGoal": "Athletisch",
+  "generalGoal": "Allgemein",
+  "expertLevel": "Experte",
+  "workoutSummary": "Trainingsübersicht"
 }
