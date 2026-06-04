@@ -251,5 +251,12 @@
   "yesterday": "Yesterday",
   "passwordPlaceholder": "••••••••",
   "smartProgramBuilder": "Smart Program Builder",
-  "programName": "Program Name"
+  "programName": "Program Name",
+  "goodMorning": "Good morning",
+  "goodAfternoon": "Good afternoon",
+  "goodEvening": "Good evening",
+  "quickActions": "Quick Actions",
+  "thisWeek": "This Week",
+  "community": "Community",
+  "smartBuilderSubtitle": "AI-powered personalized programs"
 }

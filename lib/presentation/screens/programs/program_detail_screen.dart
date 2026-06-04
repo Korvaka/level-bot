@@ -69,7 +69,6 @@ class _ProgramDetailContent extends ConsumerWidget {
   }
 
   Widget _buildSliverAppBar(BuildContext context, WidgetRef ref, bool isOwner) {
-    final l10n = AppLocalizations.of(context)!;
     return SliverAppBar(
       expandedHeight: 200,
       pinned: true,

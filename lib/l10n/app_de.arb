@@ -251,5 +251,15 @@
   "searchExercisesHint": "Übungen suchen...",
   "noProgramsYet": "Noch keine Programme",
   "today": "Heute",
-  "yesterday": "Gestern"
+  "yesterday": "Gestern",
+  "passwordPlaceholder": "••••••••",
+  "smartProgramBuilder": "Intelligenter Programm-Generator",
+  "programName": "Programmname",
+  "goodMorning": "Guten Morgen",
+  "goodAfternoon": "Guten Nachmittag",
+  "goodEvening": "Guten Abend",
+  "quickActions": "Schnellaktionen",
+  "thisWeek": "Diese Woche",
+  "community": "Community",
+  "smartBuilderSubtitle": "KI-gestützte personalisierte Programme"
 }

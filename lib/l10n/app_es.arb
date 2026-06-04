@@ -250,6 +250,13 @@
   "today": "Hoy",
   "yesterday": "Ayer",
   "passwordPlaceholder": "••••••••",
-  "smartProgramBuilder": "Smart Program Builder",
-  "programName": "Program Name"
+  "smartProgramBuilder": "Constructor de programas inteligente",
+  "programName": "Nombre del programa",
+  "goodMorning": "Buenos días",
+  "goodAfternoon": "Buenas tardes",
+  "goodEvening": "Buenas noches",
+  "quickActions": "Acciones rápidas",
+  "thisWeek": "Esta semana",
+  "community": "Comunidad",
+  "smartBuilderSubtitle": "Programas personalizados con IA"
 }

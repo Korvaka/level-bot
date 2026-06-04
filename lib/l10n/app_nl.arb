@@ -248,5 +248,15 @@
   "searchExercisesHint": "Oefeningen zoeken...",
   "noProgramsYet": "Nog geen programma's",
   "today": "Vandaag",
-  "yesterday": "Gisteren"
+  "yesterday": "Gisteren",
+  "passwordPlaceholder": "••••••••",
+  "smartProgramBuilder": "Slimme programma-generator",
+  "programName": "Programmanaam",
+  "goodMorning": "Goedemorgen",
+  "goodAfternoon": "Goedemiddag",
+  "goodEvening": "Goedenavond",
+  "quickActions": "Snelle acties",
+  "thisWeek": "Deze week",
+  "community": "Community",
+  "smartBuilderSubtitle": "AI-gestuurde gepersonaliseerde programma's"
 }

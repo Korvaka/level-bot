@@ -248,5 +248,15 @@
   "searchExercisesHint": "Rechercher des exercices...",
   "noProgramsYet": "Aucun programme",
   "today": "Aujourd'hui",
-  "yesterday": "Hier"
+  "yesterday": "Hier",
+  "passwordPlaceholder": "••••••••",
+  "smartProgramBuilder": "Générateur de programmes intelligent",
+  "programName": "Nom du programme",
+  "goodMorning": "Bonjour",
+  "goodAfternoon": "Bon après-midi",
+  "goodEvening": "Bonsoir",
+  "quickActions": "Actions rapides",
+  "thisWeek": "Cette semaine",
+  "community": "Communauté",
+  "smartBuilderSubtitle": "Programmes personnalisés par IA"
 }
