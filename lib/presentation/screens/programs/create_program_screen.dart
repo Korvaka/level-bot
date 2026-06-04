@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -61,7 +62,7 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
     final currentUser = ref.read(currentUserProvider);
     if (currentUser == null) return;
     if (_nameController.text.trim().isEmpty) {
-      context.showErrorSnackBar('Program name is required');
+      context.showErrorSnackBar(AppLocalizations.of(context)!.programNameRequired);
       return;
     }
 
@@ -93,16 +94,17 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
     if (error != null) {
       context.showErrorSnackBar(error);
     } else {
-      context.showSnackBar('Program created successfully!');
+      context.showSnackBar(AppLocalizations.of(context)!.programCreatedSuccess);
       context.pop();
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create Program'),
+        title: Text(l10n.programs),
         leading: IconButton(
           icon: const Icon(Icons.close_rounded),
           onPressed: () => context.pop(),
@@ -125,6 +127,7 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
           }
         },
         controlsBuilder: (context, details) {
+          final l10n = AppLocalizations.of(context)!;
           return Padding(
             padding: const EdgeInsets.only(top: 16),
             child: Row(
@@ -139,7 +142,7 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: AppButton(
-                    label: _currentStep == 0 ? 'Cancel' : 'Back',
+                    label: _currentStep == 0 ? l10n.cancel : 'Back',
                     onPressed: details.onStepCancel ?? () {},
                     variant: AppButtonVariant.outlined,
                   ),
@@ -167,19 +170,20 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
   }
 
   Widget _buildStep1() {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppTextField(
           controller: _nameController,
-          label: 'Program Name',
+          label: l10n.programName,
           hint: 'e.g. Push Pull Legs',
           prefixIcon: Icons.view_list_rounded,
         ),
         const SizedBox(height: 16),
         AppTextField(
           controller: _descriptionController,
-          label: 'Description (optional)',
+          label: l10n.description,
           hint: 'Describe your program...',
           maxLines: 3,
         ),

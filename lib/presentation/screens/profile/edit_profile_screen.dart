@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
@@ -89,21 +90,20 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
 
   Future<bool> _onWillPop() async {
     if (!_hasUnsavedChanges) return true;
+    final l10n = AppLocalizations.of(context)!;
     final result = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Discard Changes?'),
-        content: const Text(
-          'You have unsaved changes. Are you sure you want to leave?',
-        ),
+        title: Text(l10n.discardChanges),
+        content: Text(l10n.discardChangesConfirm),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Stay'),
+            child: Text(l10n.stay),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Discard'),
+            child: Text(l10n.discard),
           ),
         ],
       ),
@@ -151,12 +151,12 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
               ),
               ListTile(
                 leading: const Icon(Icons.camera_alt_outlined),
-                title: const Text('Take Photo'),
+                title: Text(AppLocalizations.of(context)!.takePhoto),
                 onTap: () => _pickPhoto(ImageSource.camera),
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library_outlined),
-                title: const Text('Choose from Library'),
+                title: Text(AppLocalizations.of(context)!.chooseFromLibrary),
                 onTap: () => _pickPhoto(ImageSource.gallery),
               ),
               if (_selectedPhoto != null ||
@@ -230,6 +230,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return PopScope(
       canPop: !_hasUnsavedChanges,
       onPopInvokedWithResult: (didPop, _) async {
@@ -264,7 +265,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                     const SizedBox(height: 12),
                     AppTextField(
                       controller: _displayNameController,
-                      label: 'Display Name',
+                      label: l10n.displayName,
                       prefixIcon: Icons.person_outline_rounded,
                       validator: Validators.validateDisplayName,
                       textCapitalization: TextCapitalization.words,
@@ -272,7 +273,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                     const SizedBox(height: 14),
                     AppTextField(
                       controller: _usernameController,
-                      label: 'Username',
+                      label: l10n.username,
                       prefixIcon: Icons.alternate_email_rounded,
                       validator: Validators.validateUsername,
                       inputFormatters: [
@@ -284,7 +285,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                     const SizedBox(height: 14),
                     AppTextField(
                       controller: _bioController,
-                      label: 'Bio',
+                      label: l10n.bioLabel,
                       prefixIcon: Icons.info_outline_rounded,
                       maxLines: 3,
                       maxLength: 150,
@@ -388,7 +389,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                         Expanded(
                           child: AppTextField(
                             controller: _ageController,
-                            label: 'Age',
+                            label: l10n.ageLabel,
                             prefixIcon: Icons.cake_outlined,
                             keyboardType: TextInputType.number,
                             inputFormatters: [
@@ -466,7 +467,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                   ),
                 ),
                 child: AppButton(
-                  label: 'Save Changes',
+                  label: l10n.saveChanges,
                   isLoading: _isSaving,
                   onPressed: _hasUnsavedChanges ? _saveChanges : null,
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -16,6 +17,7 @@ class WorkoutHistoryScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final currentUser = ref.watch(currentUserProvider);
     if (currentUser == null) return const SizedBox.shrink();
 
@@ -23,7 +25,7 @@ class WorkoutHistoryScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Workouts'),
+        title: Text(l10n.workout),
       ),
       body: historyAsync.when(
         loading: () => const AppLoading(),
@@ -49,6 +51,7 @@ class _WorkoutHistoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
@@ -68,14 +71,14 @@ class _WorkoutHistoryCard extends StatelessWidget {
                     Text(
                       session.workoutDayName ??
                           session.name ??
-                          'Workout Session',
+                          l10n.workoutSession,
                       style: context.textTheme.titleSmall,
                     ),
                     const SizedBox(height: 2),
                     Text(
                       session.completedAt != null
                           ? Formatters.formatDate(session.completedAt!)
-                          : 'In progress',
+                          : l10n.inProgress,
                       style: context.textTheme.bodySmall?.copyWith(
                         color: context.colorScheme.onSurfaceVariant,
                       ),
@@ -122,11 +125,11 @@ class _WorkoutHistoryCard extends StatelessWidget {
               ),
               _WorkoutStat(
                 icon: Icons.fitness_center_rounded,
-                label: '${session.totalExercises} exercises',
+                label: '${session.totalExercises} ${l10n.exercises}',
               ),
               _WorkoutStat(
                 icon: Icons.layers_outlined,
-                label: '${session.totalSets} sets',
+                label: '${session.totalSets} ${l10n.sets}',
               ),
               _WorkoutStat(
                 icon: Icons.monitor_weight_outlined,

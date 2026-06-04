@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -35,9 +36,10 @@ class _ProgramsScreenState extends ConsumerState<ProgramsScreen>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Programs'),
+        title: Text(l10n.programs),
         actions: [
           IconButton(
             icon: const Icon(Icons.search_rounded),
@@ -58,9 +60,9 @@ class _ProgramsScreenState extends ConsumerState<ProgramsScreen>
         ],
         bottom: TabBar(
           controller: _tabController,
-          tabs: const [
-            Tab(text: 'My Programs'),
-            Tab(text: 'Discover'),
+          tabs: [
+            Tab(text: l10n.myPrograms),
+            Tab(text: l10n.discover),
           ],
         ),
       ),

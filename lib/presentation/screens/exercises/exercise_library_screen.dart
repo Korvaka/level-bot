@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -29,13 +30,14 @@ class _ExerciseLibraryScreenState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final filteredExercises = ref.watch(filteredExercisesProvider);
     final muscleFilter = ref.watch(exerciseFilterMuscleProvider);
     final equipmentFilter = ref.watch(exerciseFilterEquipmentProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Exercise Library'),
+        title: Text(l10n.exerciseLibrary),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(56),
           child: Padding(
@@ -47,7 +49,7 @@ class _ExerciseLibraryScreenState
                   .read(exerciseSearchQueryProvider.notifier)
                   .state = v,
               decoration: InputDecoration(
-                hintText: 'Search exercises...',
+                hintText: l10n.searchExercisesHint,
                 prefixIcon: const Icon(Icons.search_rounded),
                 suffixIcon: _searchController.text.isNotEmpty
                     ? IconButton(
@@ -73,7 +75,7 @@ class _ExerciseLibraryScreenState
           FloatingActionButton.small(
             heroTag: 'atlas-fab',
             onPressed: () => context.push('/exercises/atlas'),
-            tooltip: 'Muscle Atlas',
+            tooltip: l10n.muscleAtlas,
             backgroundColor: AppColors.secondary,
             child: const Icon(Icons.accessibility_new_rounded, color: Colors.white),
           ),
@@ -81,7 +83,7 @@ class _ExerciseLibraryScreenState
           FloatingActionButton(
             heroTag: 'create-fab',
             onPressed: () => context.push('/exercises/create'),
-            tooltip: 'Create exercise',
+            tooltip: l10n.createExercise,
             child: const Icon(Icons.add_rounded),
           ),
         ],
@@ -98,8 +100,8 @@ class _ExerciseLibraryScreenState
               error: (e, _) => AppError(message: e.toString()),
               data: (exercises) {
                 if (exercises.isEmpty) {
-                  return const Center(
-                    child: Text('No exercises found'),
+                  return Center(
+                    child: Text(l10n.noExercisesFound),
                   );
                 }
                 return ListView.builder(
@@ -137,6 +139,7 @@ class _FilterBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     return SizedBox(
       height: 44,
       child: ListView(
@@ -144,7 +147,7 @@ class _FilterBar extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
         children: [
           _FilterChip(
-            label: 'All Muscles',
+            label: l10n.allMuscles,
             isSelected: muscleFilter == null,
             onTap: () => ref
                 .read(exerciseFilterMuscleProvider.notifier)
@@ -153,7 +156,7 @@ class _FilterBar extends ConsumerWidget {
           ...MuscleGroup.values.map((group) => Padding(
                 padding: const EdgeInsets.only(left: 6),
                 child: _FilterChip(
-                  label: _muscleLabel(group),
+                  label: _muscleLabel(l10n, group),
                   isSelected: muscleFilter == group,
                   color: _muscleColor(group),
                   onTap: () => ref
@@ -166,21 +169,21 @@ class _FilterBar extends ConsumerWidget {
     );
   }
 
-  String _muscleLabel(MuscleGroup g) {
+  String _muscleLabel(AppLocalizations l10n, MuscleGroup g) {
     switch (g) {
-      case MuscleGroup.chest: return 'Chest';
-      case MuscleGroup.back: return 'Back';
-      case MuscleGroup.shoulders: return 'Shoulders';
-      case MuscleGroup.biceps: return 'Biceps';
-      case MuscleGroup.triceps: return 'Triceps';
-      case MuscleGroup.forearms: return 'Forearms';
-      case MuscleGroup.abs: return 'Abs';
-      case MuscleGroup.quads: return 'Quads';
-      case MuscleGroup.hamstrings: return 'Hamstrings';
-      case MuscleGroup.glutes: return 'Glutes';
-      case MuscleGroup.calves: return 'Calves';
-      case MuscleGroup.cardio: return 'Cardio';
-      case MuscleGroup.fullBody: return 'Full Body';
+      case MuscleGroup.chest: return l10n.chest;
+      case MuscleGroup.back: return l10n.back;
+      case MuscleGroup.shoulders: return l10n.shoulders;
+      case MuscleGroup.biceps: return l10n.biceps;
+      case MuscleGroup.triceps: return l10n.triceps;
+      case MuscleGroup.forearms: return l10n.forearms;
+      case MuscleGroup.abs: return l10n.abs;
+      case MuscleGroup.quads: return l10n.quads;
+      case MuscleGroup.hamstrings: return l10n.hamstrings;
+      case MuscleGroup.glutes: return l10n.glutes;
+      case MuscleGroup.calves: return l10n.calves;
+      case MuscleGroup.cardio: return l10n.cardio;
+      case MuscleGroup.fullBody: return l10n.fullBody;
     }
   }
 

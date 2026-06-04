@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/router/app_router.dart';
@@ -100,6 +101,7 @@ class _ProfileScaffold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final isFollowingAsync = isOwnProfile
         ? null
         : ref.watch(isFollowingProvider((
@@ -131,7 +133,7 @@ class _ProfileScaffold extends ConsumerWidget {
                     ),
                     IconButton(
                       icon: const Icon(Icons.settings_outlined),
-                      tooltip: 'Settings',
+                      tooltip: l10n.settings,
                       onPressed: () => _showSettingsSheet(context, ref),
                     ),
                   ]
@@ -235,10 +237,10 @@ class _ProfileScaffold extends ConsumerWidget {
             delegate: _SliverTabBarDelegate(
               TabBar(
                 controller: tabController,
-                tabs: const [
-                  Tab(text: 'Posts'),
-                  Tab(text: 'Programs'),
-                  Tab(text: 'Records'),
+                tabs: [
+                  Tab(text: l10n.postsTab),
+                  Tab(text: l10n.programs),
+                  Tab(text: l10n.recordsTab),
                 ],
               ),
             ),
@@ -318,17 +320,16 @@ class _ProfileScaffold extends ConsumerWidget {
   }
 
   void _confirmDeleteAccount(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     showDialog<void>(
       context: context,
       builder: (dialogCtx) => AlertDialog(
-        title: const Text('Delete Account'),
-        content: const Text(
-          'This action is permanent. All your data, workouts, and posts will be deleted. Are you sure?',
-        ),
+        title: Text(l10n.deleteAccount),
+        content: Text(l10n.deleteAccountConfirm),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogCtx),
-            child: const Text('Cancel'),
+            child: Text(l10n.cancel),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -338,7 +339,7 @@ class _ProfileScaffold extends ConsumerWidget {
             },
             style:
                 ElevatedButton.styleFrom(backgroundColor: AppColors.error),
-            child: const Text('Delete'),
+            child: Text(l10n.delete),
           ),
         ],
       ),
@@ -365,6 +366,7 @@ class _ProfileInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
       child: Column(
@@ -374,17 +376,17 @@ class _ProfileInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _StatItem(
-                label: 'Workouts',
+                label: l10n.workouts,
                 value: user.workoutsCount.toString(),
               ),
               _VerticalDivider(),
               _StatItem(
-                label: 'Followers',
+                label: l10n.followers,
                 value: _formatCount(user.followersCount),
               ),
               _VerticalDivider(),
               _StatItem(
-                label: 'Following',
+                label: l10n.following,
                 value: _formatCount(user.followingCount),
               ),
             ],
@@ -437,7 +439,7 @@ class _ProfileInfo extends StatelessWidget {
                   : isFollowing
                       ? OutlinedButton(
                           onPressed: onFollowToggle,
-                          child: const Text('Following'),
+                          child: Text(l10n.following),
                         )
                       : ElevatedButton(
                           onPressed: onFollowToggle,
@@ -554,6 +556,7 @@ class _PostsTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final postsAsync = ref.watch(userPostsProvider(userId));
 
     return postsAsync.when(
@@ -561,11 +564,11 @@ class _PostsTab extends ConsumerWidget {
       error: (e, _) => Center(child: AppError(message: e.toString())),
       data: (posts) {
         if (posts.isEmpty) {
-          return const Center(
+          return Center(
             child: _EmptyState(
               icon: Icons.photo_library_outlined,
-              title: 'No Posts Yet',
-              subtitle: 'Share your first workout to get started.',
+              title: l10n.noPostsYet,
+              subtitle: l10n.noPostsSubtitle,
             ),
           );
         }
@@ -586,6 +589,7 @@ class _ProgramsTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final programsAsync = ref.watch(userProgramsProvider(userId));
 
     return programsAsync.when(
@@ -593,11 +597,11 @@ class _ProgramsTab extends ConsumerWidget {
       error: (e, _) => Center(child: AppError(message: e.toString())),
       data: (programs) {
         if (programs.isEmpty) {
-          return const Center(
+          return Center(
             child: _EmptyState(
               icon: Icons.fitness_center_rounded,
-              title: 'No Programs Yet',
-              subtitle: 'Create a workout program to get started.',
+              title: l10n.noProgramsYet,
+              subtitle: l10n.noProgramsSubtitle,
             ),
           );
         }
@@ -619,6 +623,7 @@ class _RecordsTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final recordsAsync = ref.watch(personalRecordsProvider(userId));
 
     return recordsAsync.when(
@@ -626,11 +631,11 @@ class _RecordsTab extends ConsumerWidget {
       error: (e, _) => Center(child: AppError(message: e.toString())),
       data: (records) {
         if (records.isEmpty) {
-          return const Center(
+          return Center(
             child: _EmptyState(
               icon: Icons.emoji_events_outlined,
-              title: 'No Records Yet',
-              subtitle: 'Complete workouts to start setting personal records.',
+              title: l10n.noRecordsYet,
+              subtitle: l10n.noRecordsSubtitle,
             ),
           );
         }
@@ -680,7 +685,7 @@ class _RecordTile extends StatelessWidget {
           ),
         ),
         trailing: Text(
-          _formatDate(record.achievedAt),
+          _formatDate(record.achievedAt, context),
           style: AppTextStyles.labelSmall.copyWith(
             color: AppColors.textTertiaryDark,
           ),
@@ -689,10 +694,11 @@ class _RecordTile extends StatelessWidget {
     );
   }
 
-  String _formatDate(DateTime date) {
+  String _formatDate(DateTime date, BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final diff = DateTime.now().difference(date).inDays;
-    if (diff == 0) return 'Today';
-    if (diff == 1) return 'Yesterday';
+    if (diff == 0) return l10n.today;
+    if (diff == 1) return l10n.yesterday;
     if (diff < 30) return '${diff}d ago';
     return '${date.month}/${date.day}/${date.year}';
   }
@@ -744,6 +750,7 @@ class _SettingsSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8),
@@ -769,7 +776,7 @@ class _SettingsSheet extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.settings_outlined),
-              title: const Text('Settings'),
+              title: Text(l10n.settings),
               trailing: const Icon(Icons.chevron_right_rounded),
               onTap: () {
                 Navigator.pop(context);
@@ -778,7 +785,7 @@ class _SettingsSheet extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.emoji_events_outlined),
-              title: const Text('Achievements'),
+              title: Text(l10n.achievements),
               trailing: const Icon(Icons.chevron_right_rounded),
               onTap: () {
                 Navigator.pop(context);
@@ -788,7 +795,7 @@ class _SettingsSheet extends StatelessWidget {
             const Divider(),
             ListTile(
               leading: const Icon(Icons.logout_rounded),
-              title: const Text('Sign Out'),
+              title: Text(l10n.signOut),
               onTap: onSignOut,
             ),
             ListTile(
@@ -797,7 +804,7 @@ class _SettingsSheet extends StatelessWidget {
                 color: AppColors.error,
               ),
               title: Text(
-                'Delete Account',
+                l10n.deleteAccount,
                 style: TextStyle(color: AppColors.error),
               ),
               onTap: onDeleteAccount,

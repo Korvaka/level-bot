@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:level_bot/core/theme/app_colors.dart';
 import 'package:level_bot/core/theme/app_text_styles.dart';
@@ -36,16 +37,17 @@ class _ProgressScreenState extends ConsumerState<ProgressScreen>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Progress'),
+        title: Text(l10n.progress),
         centerTitle: false,
         bottom: TabBar(
           controller: _tabController,
-          tabs: const [
-            Tab(text: 'Overview'),
-            Tab(text: 'Records'),
-            Tab(text: 'Body'),
+          tabs: [
+            Tab(text: l10n.overviewTab),
+            Tab(text: l10n.recordsTab),
+            Tab(text: l10n.bodyTab),
           ],
         ),
       ),
@@ -75,6 +77,7 @@ class _OverviewTabState extends ConsumerState<_OverviewTab> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final userId = ref.watch(currentUserProvider)?.id ?? '';
     final historyAsync = ref.watch(workoutHistoryProvider(userId));
 
@@ -125,25 +128,25 @@ class _OverviewTabState extends ConsumerState<_OverviewTab> {
                 childAspectRatio: 1.6,
                 children: [
                   _StatCard(
-                    label: 'Workouts',
+                    label: l10n.workouts,
                     value: totalWorkouts.toString(),
                     icon: Icons.fitness_center_rounded,
                     color: AppColors.primary,
                   ),
                   _StatCard(
-                    label: 'Total Volume',
+                    label: l10n.totalVolume,
                     value: Formatters.formatVolume(totalVolume),
                     icon: Icons.bar_chart_rounded,
                     color: AppColors.secondary,
                   ),
                   _StatCard(
-                    label: 'Total Duration',
+                    label: l10n.totalDurationLabel,
                     value: Formatters.formatDuration(Duration(seconds: totalDurationSecs)),
                     icon: Icons.timer_outlined,
                     color: AppColors.accent,
                   ),
                   _StatCard(
-                    label: 'Avg Duration',
+                    label: l10n.avgDurationLabel,
                     value: Formatters.formatDuration(Duration(seconds: avgDurationSecs)),
                     icon: Icons.av_timer_rounded,
                     color: AppColors.back,
@@ -478,6 +481,7 @@ class _RecordsTabState extends ConsumerState<_RecordsTab> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final userId = ref.watch(currentUserProvider)?.id ?? '';
     final recordsAsync = ref.watch(personalRecordsProvider(userId));
 
@@ -488,7 +492,7 @@ class _RecordsTabState extends ConsumerState<_RecordsTab> {
           child: TextField(
             controller: _searchController,
             decoration: InputDecoration(
-              hintText: 'Search exercises...',
+              hintText: l10n.searchExercisesHint,
               prefixIcon: const Icon(Icons.search_rounded),
               suffixIcon: _query.isNotEmpty
                   ? IconButton(

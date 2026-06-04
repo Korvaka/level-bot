@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -25,12 +26,13 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final workoutState = ref.watch(activeWorkoutProvider);
 
     if (!workoutState.isActive) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Start Workout'),
+          title: Text(l10n.startWorkout),
           leading: IconButton(
             icon: const Icon(Icons.close_rounded),
             onPressed: () => context.pop(),
@@ -107,6 +109,7 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
   }
 
   Widget _buildBottomBar(BuildContext context, ActiveWorkoutState state) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
       decoration: BoxDecoration(
@@ -122,7 +125,7 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
           OutlinedButton.icon(
             onPressed: () => _showAddExercise(context),
             icon: const Icon(Icons.add_rounded),
-            label: const Text('Add Exercise'),
+            label: Text(l10n.addExercise),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -142,9 +145,9 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
                         color: Colors.white,
                       ),
                     )
-                  : const Text(
-                      'Finish Workout',
-                      style: TextStyle(color: Colors.white),
+                  : Text(
+                      l10n.finishWorkout,
+                      style: const TextStyle(color: Colors.white),
                     ),
             ),
           ),
@@ -154,33 +157,34 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
   }
 
   Future<void> _finishWorkout(BuildContext context) async {
+    final l10n = AppLocalizations.of(context)!;
     final error =
         await ref.read(activeWorkoutProvider.notifier).completeWorkout();
     if (!context.mounted) return;
     if (error != null) {
       context.showErrorSnackBar(error);
     } else {
-      context.showSnackBar('Workout completed! 💪');
+      context.showSnackBar(l10n.workoutCompleted);
       context.pop();
     }
   }
 
   Future<void> _confirmCancel(BuildContext context) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirm = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Cancel Workout?'),
-        content: const Text(
-            'Your workout progress will be lost. Are you sure?'),
+        title: Text(l10n.cancelWorkout),
+        content: Text(l10n.cancelWorkoutConfirm),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Continue Workout'),
+            child: Text(l10n.continueWorkout),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Cancel Workout',
-                style: TextStyle(color: Colors.red)),
+            child: Text(l10n.cancelWorkout,
+                style: const TextStyle(color: Colors.red)),
           ),
         ],
       ),
@@ -460,7 +464,7 @@ class _EmptyWorkout extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: onAddExercise,
             icon: const Icon(Icons.add_rounded),
-            label: const Text('Add Exercise'),
+            label: Text(AppLocalizations.of(context)!.addExercise),
           ),
         ],
       ),

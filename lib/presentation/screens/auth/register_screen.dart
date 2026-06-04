@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -38,7 +39,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   Future<void> _register() async {
     if (!_formKey.currentState!.validate()) return;
     if (!_acceptTerms) {
-      context.showErrorSnackBar('Please accept the terms and conditions');
+      context.showErrorSnackBar(AppLocalizations.of(context)!.acceptTermsError);
       return;
     }
 
@@ -64,6 +65,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -85,7 +87,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
               _buildTermsCheckbox(),
               const SizedBox(height: 24),
               AppButton(
-                label: 'Create Account',
+                label: l10n.createAccount,
                 onPressed: _register,
                 isLoading: _isLoading,
                 isFullWidth: true,
@@ -101,18 +103,19 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   }
 
   Widget _buildHeader() {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Create account',
+          l10n.createAccount,
           style: context.textTheme.displaySmall?.copyWith(
             fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 8),
         Text(
-          'Join thousands of athletes worldwide',
+          l10n.joinThousands,
           style: context.textTheme.bodyLarge?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),
@@ -122,13 +125,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   }
 
   Widget _buildForm() {
+    final l10n = AppLocalizations.of(context)!;
     return Form(
       key: _formKey,
       child: Column(
         children: [
           AppTextField(
             controller: _displayNameController,
-            label: 'Full Name',
+            label: l10n.fullName,
             hint: 'John Doe',
             prefixIcon: Icons.person_outline_rounded,
             validator: Validators.validateDisplayName,
@@ -137,7 +141,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           const SizedBox(height: 16),
           AppTextField(
             controller: _usernameController,
-            label: 'Username',
+            label: l10n.username,
             hint: '@johndoe',
             prefixIcon: Icons.alternate_email_rounded,
             validator: Validators.validateUsername,
@@ -146,8 +150,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           const SizedBox(height: 16),
           AppTextField(
             controller: _emailController,
-            label: 'Email',
-            hint: 'you@example.com',
+            label: l10n.emailLabel,
+            hint: l10n.emailPlaceholder,
             keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email_outlined,
             validator: Validators.validateEmail,
@@ -156,8 +160,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           const SizedBox(height: 16),
           AppTextField(
             controller: _passwordController,
-            label: 'Password',
-            hint: '••••••••',
+            label: l10n.passwordLabel,
+            hint: l10n.passwordPlaceholder,
             obscureText: _obscurePassword,
             prefixIcon: Icons.lock_outline_rounded,
             suffixIcon: _obscurePassword
@@ -174,6 +178,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   }
 
   Widget _buildTermsCheckbox() {
+    final l10n = AppLocalizations.of(context)!;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -192,19 +197,19 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         Expanded(
           child: Text.rich(
             TextSpan(
-              text: 'I agree to the ',
+              text: l10n.iAgreeToThe,
               style: context.textTheme.bodySmall,
               children: [
                 TextSpan(
-                  text: 'Terms of Service',
+                  text: l10n.termsOfService,
                   style: TextStyle(
                     color: context.colorScheme.primary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const TextSpan(text: ' and '),
+                TextSpan(text: l10n.andConnector),
                 TextSpan(
-                  text: 'Privacy Policy',
+                  text: l10n.privacyPolicy,
                   style: TextStyle(
                     color: context.colorScheme.primary,
                     fontWeight: FontWeight.w600,
@@ -219,11 +224,12 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   }
 
   Widget _buildLoginLink() {
+    final l10n = AppLocalizations.of(context)!;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Already have an account? ',
+          l10n.alreadyHaveAccount,
           style: context.textTheme.bodyMedium?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),
@@ -231,7 +237,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         GestureDetector(
           onTap: () => context.pop(),
           child: Text(
-            'Sign in',
+            l10n.signIn,
             style: context.textTheme.bodyMedium?.copyWith(
               color: context.colorScheme.primary,
               fontWeight: FontWeight.w600,

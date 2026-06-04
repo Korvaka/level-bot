@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -79,6 +80,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -105,6 +107,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Widget _buildHeader() {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -123,14 +126,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         ),
         const SizedBox(height: 24),
         Text(
-          'Welcome back',
+          l10n.welcomeBack,
           style: context.textTheme.displaySmall?.copyWith(
             fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 8),
         Text(
-          'Sign in to continue your fitness journey',
+          l10n.signInSubtitle,
           style: context.textTheme.bodyLarge?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),
@@ -140,14 +143,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Widget _buildForm() {
+    final l10n = AppLocalizations.of(context)!;
     return Form(
       key: _formKey,
       child: Column(
         children: [
           AppTextField(
             controller: _emailController,
-            label: 'Email',
-            hint: 'you@example.com',
+            label: l10n.emailLabel,
+            hint: l10n.emailPlaceholder,
             keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email_outlined,
             validator: Validators.validateEmail,
@@ -156,8 +160,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           const SizedBox(height: 16),
           AppTextField(
             controller: _passwordController,
-            label: 'Password',
-            hint: '••••••••',
+            label: l10n.passwordLabel,
+            hint: l10n.passwordPlaceholder,
             obscureText: _obscurePassword,
             prefixIcon: Icons.lock_outline_rounded,
             suffixIcon: _obscurePassword
@@ -165,7 +169,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 : Icons.visibility_off_outlined,
             onSuffixTap: () =>
                 setState(() => _obscurePassword = !_obscurePassword),
-            validator: (v) => v == null || v.isEmpty ? 'Password is required' : null,
+            validator: (v) => v == null || v.isEmpty ? l10n.passwordRequired : null,
             textInputAction: TextInputAction.done,
             onFieldSubmitted: (_) => _signInWithEmail(),
           ),
@@ -174,12 +178,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () => context.push(AppRoutes.forgotPassword),
-              child: const Text('Forgot password?'),
+              child: Text(l10n.forgotPasswordQuestion),
             ),
           ),
           const SizedBox(height: 8),
           AppButton(
-            label: 'Sign In',
+            label: l10n.signIn,
             onPressed: _signInWithEmail,
             isLoading: _isLoading,
             isFullWidth: true,
@@ -190,13 +194,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Widget _buildSocialDivider() {
+    final l10n = AppLocalizations.of(context)!;
     return Row(
       children: [
         const Expanded(child: Divider()),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            'or continue with',
+            l10n.orContinueWith,
             style: context.textTheme.bodySmall?.copyWith(
               color: context.colorScheme.onSurfaceVariant,
             ),
@@ -230,11 +235,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Widget _buildSignUpLink() {
+    final l10n = AppLocalizations.of(context)!;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Don't have an account? ",
+          l10n.dontHaveAccount,
           style: context.textTheme.bodyMedium?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),
@@ -242,7 +248,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         GestureDetector(
           onTap: () => context.push(AppRoutes.register),
           child: Text(
-            'Sign up',
+            l10n.signUp,
             style: context.textTheme.bodyMedium?.copyWith(
               color: context.colorScheme.primary,
               fontWeight: FontWeight.w600,

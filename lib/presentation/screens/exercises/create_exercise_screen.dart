@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -45,9 +46,10 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create Exercise'),
+        title: Text(l10n.createExercise),
         leading: IconButton(
           icon: const Icon(Icons.close_rounded),
           onPressed: () => context.pop(),
@@ -61,7 +63,7 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
                     height: 18,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Text('Save'),
+                : Text(l10n.save),
           ),
         ],
       ),
@@ -70,12 +72,12 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-            _SectionHeader(title: 'Basic Info'),
+            _SectionHeader(title: l10n.basicInfo),
             const SizedBox(height: 12),
             AppTextField(
               controller: _nameController,
-              label: 'Exercise Name *',
-              hint: 'e.g. Barbell Bench Press',
+              label: l10n.exerciseNameLabel,
+              hint: l10n.exerciseNameHint,
               textCapitalization: TextCapitalization.words,
               validator: (v) =>
                   v == null || v.trim().isEmpty ? 'Name is required' : null,
@@ -83,13 +85,13 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
             const SizedBox(height: 12),
             AppTextField(
               controller: _descriptionController,
-              label: 'Description',
-              hint: 'Brief description of the exercise',
+              label: l10n.description,
+              hint: l10n.descriptionHint,
               maxLines: 3,
               minLines: 2,
             ),
             const SizedBox(height: 24),
-            _SectionHeader(title: 'Primary Muscle'),
+            _SectionHeader(title: l10n.primaryMuscle),
             const SizedBox(height: 12),
             _MuscleSelector(
               selected: {_primaryMuscle},
@@ -98,7 +100,7 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
                   setState(() => _primaryMuscle = groups.first),
             ),
             const SizedBox(height: 24),
-            _SectionHeader(title: 'Secondary Muscles'),
+            _SectionHeader(title: l10n.secondaryMuscles),
             const SizedBox(height: 12),
             _MuscleSelector(
               selected: _secondaryMuscles,
@@ -111,7 +113,7 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
                   }),
             ),
             const SizedBox(height: 24),
-            _SectionHeader(title: 'Equipment'),
+            _SectionHeader(title: l10n.equipment),
             const SizedBox(height: 12),
             _EquipmentSelector(
               selected: _equipment,
@@ -124,7 +126,7 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _SectionHeader(title: 'Category'),
+                      _SectionHeader(title: l10n.category),
                       const SizedBox(height: 12),
                       _CategorySelector(
                         selected: _category,
@@ -138,7 +140,7 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _SectionHeader(title: 'Difficulty'),
+                      _SectionHeader(title: l10n.difficulty),
                       const SizedBox(height: 12),
                       _DifficultySelector(
                         selected: _difficulty,
@@ -152,7 +154,7 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
             const SizedBox(height: 24),
             Row(
               children: [
-                _SectionHeader(title: 'Instructions'),
+                _SectionHeader(title: l10n.instructions),
                 const Spacer(),
                 TextButton.icon(
                   onPressed: _addInstruction,
@@ -261,7 +263,7 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
     if (error != null) {
       context.showErrorSnackBar(error);
     } else {
-      context.showSnackBar('Exercise created!');
+      context.showSnackBar(AppLocalizations.of(context)!.exerciseCreatedSuccess);
       context.pop();
     }
   }
@@ -298,6 +300,7 @@ class _MuscleSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Wrap(
       spacing: 6,
       runSpacing: 6,
@@ -335,7 +338,7 @@ class _MuscleSelector extends StatelessWidget {
               ),
             ),
             child: Text(
-              _muscleLabel(m),
+              _muscleLabel(l10n, m),
               style: TextStyle(
                 fontSize: 12,
                 fontWeight:
@@ -351,21 +354,21 @@ class _MuscleSelector extends StatelessWidget {
     );
   }
 
-  String _muscleLabel(MuscleGroup m) {
+  String _muscleLabel(AppLocalizations l10n, MuscleGroup m) {
     switch (m) {
-      case MuscleGroup.chest: return 'Chest';
-      case MuscleGroup.back: return 'Back';
-      case MuscleGroup.shoulders: return 'Shoulders';
-      case MuscleGroup.biceps: return 'Biceps';
-      case MuscleGroup.triceps: return 'Triceps';
-      case MuscleGroup.forearms: return 'Forearms';
-      case MuscleGroup.abs: return 'Abs';
-      case MuscleGroup.quads: return 'Quads';
-      case MuscleGroup.hamstrings: return 'Hamstrings';
-      case MuscleGroup.glutes: return 'Glutes';
-      case MuscleGroup.calves: return 'Calves';
-      case MuscleGroup.cardio: return 'Cardio';
-      case MuscleGroup.fullBody: return 'Full Body';
+      case MuscleGroup.chest: return l10n.chest;
+      case MuscleGroup.back: return l10n.back;
+      case MuscleGroup.shoulders: return l10n.shoulders;
+      case MuscleGroup.biceps: return l10n.biceps;
+      case MuscleGroup.triceps: return l10n.triceps;
+      case MuscleGroup.forearms: return l10n.forearms;
+      case MuscleGroup.abs: return l10n.abs;
+      case MuscleGroup.quads: return l10n.quads;
+      case MuscleGroup.hamstrings: return l10n.hamstrings;
+      case MuscleGroup.glutes: return l10n.glutes;
+      case MuscleGroup.calves: return l10n.calves;
+      case MuscleGroup.cardio: return l10n.cardio;
+      case MuscleGroup.fullBody: return l10n.fullBody;
     }
   }
 

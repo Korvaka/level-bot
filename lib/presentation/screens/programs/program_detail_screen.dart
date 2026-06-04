@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -68,6 +69,7 @@ class _ProgramDetailContent extends ConsumerWidget {
   }
 
   Widget _buildSliverAppBar(BuildContext context, WidgetRef ref, bool isOwner) {
+    final l10n = AppLocalizations.of(context)!;
     return SliverAppBar(
       expandedHeight: 200,
       pinned: true,
@@ -83,33 +85,35 @@ class _ProgramDetailContent extends ConsumerWidget {
           ),
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert_rounded),
-            itemBuilder: (context) => [
-              const PopupMenuItem(
-                value: 'duplicate',
-                child: ListTile(
-                  leading: Icon(Icons.copy_outlined),
-                  title: Text('Duplicate'),
-                  contentPadding: EdgeInsets.zero,
+            itemBuilder: (context) {
+              final l10n = AppLocalizations.of(context)!;
+              return [
+                PopupMenuItem(
+                  value: 'duplicate',
+                  child: ListTile(
+                    leading: const Icon(Icons.copy_outlined),
+                    title: Text(l10n.edit),
+                    contentPadding: EdgeInsets.zero,
+                  ),
                 ),
-              ),
-              const PopupMenuItem(
-                value: 'archive',
-                child: ListTile(
-                  leading: Icon(Icons.archive_outlined),
-                  title: Text('Archive'),
-                  contentPadding: EdgeInsets.zero,
+                const PopupMenuItem(
+                  value: 'archive',
+                  child: ListTile(
+                    leading: Icon(Icons.archive_outlined),
+                    title: Text('Archive'),
+                    contentPadding: EdgeInsets.zero,
+                  ),
                 ),
-              ),
-              const PopupMenuItem(
-                value: 'delete',
-                child: ListTile(
-                  leading: Icon(Icons.delete_outline, color: Colors.red),
-                  title:
-                      Text('Delete', style: TextStyle(color: Colors.red)),
-                  contentPadding: EdgeInsets.zero,
+                PopupMenuItem(
+                  value: 'delete',
+                  child: ListTile(
+                    leading: const Icon(Icons.delete_outline, color: Colors.red),
+                    title: Text(l10n.delete, style: const TextStyle(color: Colors.red)),
+                    contentPadding: EdgeInsets.zero,
+                  ),
                 ),
-              ),
-            ],
+              ];
+            },
             onSelected: (value) async {
               switch (value) {
                 case 'duplicate':
@@ -152,22 +156,23 @@ class _ProgramDetailContent extends ConsumerWidget {
   }
 
   Widget _buildStats(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Row(
       children: [
         _StatCard(
-          label: 'Days',
+          label: l10n.daysLabel,
           value: '${program.daysPerWeek}x/week',
           icon: Icons.calendar_today_outlined,
         ),
         const SizedBox(width: 12),
         _StatCard(
-          label: 'Duration',
+          label: l10n.durationLabel,
           value: _formatDuration(program.duration),
           icon: Icons.schedule_outlined,
         ),
         const SizedBox(width: 12),
         _StatCard(
-          label: 'Level',
+          label: l10n.levelLabel,
           value: _formatDifficulty(program.difficulty),
           icon: Icons.bar_chart_rounded,
         ),
@@ -179,10 +184,11 @@ class _ProgramDetailContent extends ConsumerWidget {
     if (program.description == null || program.description!.isEmpty) {
       return const SizedBox.shrink();
     }
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('About', style: context.textTheme.titleMedium),
+        Text(l10n.aboutLabel, style: context.textTheme.titleMedium),
         const SizedBox(height: 8),
         Text(
           program.description!,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -47,13 +48,14 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           onPressed: () => context.pop(),
         ),
-        title: const Text('Reset Password'),
+        title: Text(l10n.resetPasswordTitle),
       ),
       body: SafeArea(
         child: Padding(
@@ -65,19 +67,20 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
   }
 
   Widget _buildForm() {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 32),
         Text(
-          'Forgot your password?',
+          l10n.forgotPasswordTitle,
           style: context.textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 12),
         Text(
-          "Enter your email address and we'll send you a link to reset your password.",
+          l10n.forgotPasswordSubtitle,
           style: context.textTheme.bodyLarge?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),
@@ -87,8 +90,8 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
           key: _formKey,
           child: AppTextField(
             controller: _emailController,
-            label: 'Email',
-            hint: 'you@example.com',
+            label: l10n.emailLabel,
+            hint: l10n.emailPlaceholder,
             keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email_outlined,
             validator: Validators.validateEmail,
@@ -98,7 +101,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
         ),
         const SizedBox(height: 24),
         AppButton(
-          label: 'Send Reset Link',
+          label: l10n.sendResetLink,
           onPressed: _resetPassword,
           isLoading: _isLoading,
           isFullWidth: true,
@@ -108,6 +111,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
   }
 
   Widget _buildSuccessState() {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -126,14 +130,14 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
         ),
         const SizedBox(height: 24),
         Text(
-          'Check your email',
+          l10n.checkYourEmail,
           style: context.textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 12),
         Text(
-          'We sent a password reset link to\n${_emailController.text}',
+          l10n.resetLinkSent(_emailController.text),
           textAlign: TextAlign.center,
           style: context.textTheme.bodyLarge?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
@@ -141,7 +145,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
         ),
         const SizedBox(height: 32),
         AppButton(
-          label: 'Back to Sign In',
+          label: l10n.backToSignIn,
           onPressed: () => context.pop(),
           isFullWidth: true,
           variant: AppButtonVariant.outlined,

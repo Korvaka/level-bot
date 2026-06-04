@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -12,13 +13,14 @@ class SettingsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final locale = ref.watch(localeProvider);
     final themeMode = ref.watch(themeModeProvider);
     final audioSettings = ref.watch(audioSettingsProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(l10n.settings),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           onPressed: () => context.pop(),
@@ -26,20 +28,20 @@ class SettingsScreen extends ConsumerWidget {
       ),
       body: ListView(
         children: [
-          _SectionHeader(title: 'Preferences'),
+          _SectionHeader(title: l10n.preferencesSection),
           ListTile(
             leading: _IconBox(
               color: AppColors.primary,
               icon: Icons.language_rounded,
             ),
-            title: const Text('Language'),
+            title: Text(l10n.language),
             subtitle: Text(_languageLabel(locale.languageCode)),
             trailing: const Icon(Icons.chevron_right_rounded),
             onTap: () => _showLanguagePicker(context, ref, locale.languageCode),
           ),
           ListTile(
             leading: _IconBox(color: Colors.indigo, icon: Icons.dark_mode_rounded),
-            title: const Text('Dark Mode'),
+            title: Text(l10n.darkMode),
             trailing: Switch(
               value: themeMode == ThemeMode.dark,
               onChanged: (v) => ref
@@ -48,11 +50,11 @@ class SettingsScreen extends ConsumerWidget {
             ),
           ),
           const Divider(height: 1),
-          _SectionHeader(title: 'Audio'),
+          _SectionHeader(title: l10n.audioSettings),
           ListTile(
             leading: _IconBox(color: Colors.orange, icon: Icons.volume_up_rounded),
-            title: const Text('Sound Effects'),
-            subtitle: Text(audioSettings.enabled ? 'Enabled' : 'Disabled'),
+            title: Text(l10n.soundEffects),
+            subtitle: Text(audioSettings.enabled ? l10n.soundEnabled : 'Disabled'),
             trailing: Switch(
               value: audioSettings.enabled,
               onChanged: (v) =>
@@ -81,10 +83,10 @@ class SettingsScreen extends ConsumerWidget {
               ),
             ),
           const Divider(height: 1),
-          _SectionHeader(title: 'About'),
+          _SectionHeader(title: l10n.aboutSection),
           ListTile(
             leading: _IconBox(color: Colors.teal, icon: Icons.info_outline_rounded),
-            title: const Text('Version'),
+            title: Text(l10n.versionLabel),
             subtitle: const Text('1.0.0'),
           ),
         ],
@@ -136,7 +138,7 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                 ),
                 Text(
-                  'Select Language',
+                  AppLocalizations.of(context)!.selectLanguage,
                   style: ctx.textTheme.titleMedium
                       ?.copyWith(fontWeight: FontWeight.w700),
                 ),
@@ -145,21 +147,21 @@ class SettingsScreen extends ConsumerWidget {
                   child: ListView(
                     controller: controller,
                     children: [
-                      _LanguageTile(flag: '🇬🇧', label: 'English', code: 'en', current: current, ref: ref, ctx: ctx),
+                      _LanguageTile(flag: '🇬🇧', label: AppLocalizations.of(context)!.english, code: 'en', current: current, ref: ref, ctx: ctx),
                       const SizedBox(height: 8),
-                      _LanguageTile(flag: '🇫🇷', label: 'Français', code: 'fr', current: current, ref: ref, ctx: ctx),
+                      _LanguageTile(flag: '🇫🇷', label: AppLocalizations.of(context)!.french, code: 'fr', current: current, ref: ref, ctx: ctx),
                       const SizedBox(height: 8),
-                      _LanguageTile(flag: '🇪🇸', label: 'Español', code: 'es', current: current, ref: ref, ctx: ctx),
+                      _LanguageTile(flag: '🇪🇸', label: AppLocalizations.of(context)!.spanish, code: 'es', current: current, ref: ref, ctx: ctx),
                       const SizedBox(height: 8),
-                      _LanguageTile(flag: '🇵🇹', label: 'Português', code: 'pt', current: current, ref: ref, ctx: ctx),
+                      _LanguageTile(flag: '🇵🇹', label: AppLocalizations.of(context)!.portuguese, code: 'pt', current: current, ref: ref, ctx: ctx),
                       const SizedBox(height: 8),
-                      _LanguageTile(flag: '🇩🇪', label: 'Deutsch', code: 'de', current: current, ref: ref, ctx: ctx),
+                      _LanguageTile(flag: '🇩🇪', label: AppLocalizations.of(context)!.german, code: 'de', current: current, ref: ref, ctx: ctx),
                       const SizedBox(height: 8),
-                      _LanguageTile(flag: '🇮🇹', label: 'Italiano', code: 'it', current: current, ref: ref, ctx: ctx),
+                      _LanguageTile(flag: '🇮🇹', label: AppLocalizations.of(context)!.italian, code: 'it', current: current, ref: ref, ctx: ctx),
                       const SizedBox(height: 8),
-                      _LanguageTile(flag: '🇳🇱', label: 'Nederlands', code: 'nl', current: current, ref: ref, ctx: ctx),
+                      _LanguageTile(flag: '🇳🇱', label: AppLocalizations.of(context)!.dutch, code: 'nl', current: current, ref: ref, ctx: ctx),
                       const SizedBox(height: 8),
-                      _LanguageTile(flag: '🇵🇱', label: 'Polski', code: 'pl', current: current, ref: ref, ctx: ctx),
+                      _LanguageTile(flag: '🇵🇱', label: AppLocalizations.of(context)!.polish, code: 'pl', current: current, ref: ref, ctx: ctx),
                       const SizedBox(height: 24),
                     ],
                   ),

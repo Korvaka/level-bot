@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:level_bot/core/theme/app_colors.dart';
 import 'package:level_bot/domain/entities/exercise_entity.dart';
@@ -44,15 +45,15 @@ class _AdminZoneEditorScreenState
   }
 
   Future<void> _saveZone() async {
+    final l10n = AppLocalizations.of(context)!;
     if (_currentPolygon.length < 3) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text('Need at least 3 points to define a zone')));
+        SnackBar(content: Text(l10n.minPointsError)));
       return;
     }
     if (_displayName.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter a zone name')));
+        SnackBar(content: Text(l10n.enterZoneNameError)));
       return;
     }
 
@@ -79,7 +80,7 @@ class _AdminZoneEditorScreenState
       });
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Zone saved successfully!')));
+          SnackBar(content: Text(l10n.zoneSavedSuccess)));
       }
     } catch (e) {
       if (mounted) {
@@ -92,19 +93,20 @@ class _AdminZoneEditorScreenState
   }
 
   Future<void> _deleteZone(String zoneId) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Delete Zone'),
-        content: const Text('Are you sure you want to delete this zone?'),
+        title: Text(l10n.deleteZoneTitle),
+        content: Text(l10n.deleteZoneConfirm),
         actions: [
           TextButton(
               onPressed: () => Navigator.pop(ctx, false),
-              child: const Text('Cancel')),
+              child: Text(l10n.cancel)),
           TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: const Text('Delete',
-                  style: TextStyle(color: Colors.red))),
+              child: Text(l10n.delete,
+                  style: const TextStyle(color: Colors.red))),
         ],
       ),
     );
@@ -147,18 +149,19 @@ class _AdminZoneEditorScreenState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final zonesAsync = ref.watch(muscleZonesProvider);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Zone Editor'),
+        title: Text(l10n.adminZoneEditorTitle),
         actions: [
           if (_currentPolygon.isNotEmpty)
             IconButton(
               icon: const Icon(Icons.undo_rounded),
               onPressed: _undoLastPoint,
-              tooltip: 'Undo last point',
+              tooltip: l10n.undoLastPoint,
             ),
         ],
       ),
@@ -172,9 +175,9 @@ class _AdminZoneEditorScreenState
               children: [
                 Expanded(
                   child: SegmentedButton<String>(
-                    segments: const [
-                      ButtonSegment(value: 'front', label: Text('Front')),
-                      ButtonSegment(value: 'back', label: Text('Back')),
+                    segments: [
+                      ButtonSegment(value: 'front', label: Text(l10n.frontLabel)),
+                      ButtonSegment(value: 'back', label: Text(l10n.backLabel)),
                     ],
                     selected: {_view},
                     onSelectionChanged: (s) => setState(() {
@@ -193,11 +196,11 @@ class _AdminZoneEditorScreenState
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: DropdownButtonFormField<MuscleGroup>(
               value: _selectedMuscle,
-              decoration: const InputDecoration(
-                labelText: 'Muscle Group',
+              decoration: InputDecoration(
+                labelText: l10n.muscleGroupLabel,
                 isDense: true,
                 contentPadding:
-                    EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               ),
               items: MuscleGroup.values
                   .where((m) =>

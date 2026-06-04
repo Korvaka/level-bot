@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/router/app_router.dart';
@@ -32,6 +33,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildBottomNav() {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
@@ -50,13 +52,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             children: [
               _NavItem(
                 icon: Icons.home_rounded,
-                label: 'Feed',
+                label: l10n.feed,
                 isSelected: _selectedIndex == 0,
                 onTap: () => _onNavTap(0),
               ),
               _NavItem(
                 icon: Icons.view_list_rounded,
-                label: 'Programs',
+                label: l10n.programs,
                 isSelected: _selectedIndex == 1,
                 onTap: () => _onNavTap(1),
               ),
@@ -65,13 +67,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ),
               _NavItem(
                 icon: Icons.library_books_rounded,
-                label: 'Exercises',
+                label: l10n.exercises,
                 isSelected: _selectedIndex == 3,
                 onTap: () => _onNavTap(3),
               ),
               _NavItem(
                 icon: Icons.person_rounded,
-                label: 'Profile',
+                label: l10n.profile,
                 isSelected: _selectedIndex == 4,
                 onTap: () => _onNavTap(4),
               ),

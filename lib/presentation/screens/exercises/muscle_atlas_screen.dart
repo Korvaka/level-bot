@@ -8,10 +8,6 @@ import 'package:level_bot/domain/entities/muscle_zone_entity.dart';
 import 'package:level_bot/presentation/providers/exercise_provider.dart';
 import 'package:level_bot/presentation/providers/muscle_zone_provider.dart';
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
 bool _pointInPolygon(Offset point, List<Offset> polygon, Size canvasSize) {
   final px = point.dx / canvasSize.width;
   final py = point.dy / canvasSize.height;
@@ -31,169 +27,134 @@ bool _pointInPolygon(Offset point, List<Offset> polygon, Size canvasSize) {
 
 Color _zoneColor(MuscleGroup m) {
   switch (m) {
-    case MuscleGroup.chest:
-      return AppColors.chest;
-    case MuscleGroup.back:
-      return AppColors.back;
-    case MuscleGroup.shoulders:
-      return AppColors.shoulders;
-    case MuscleGroup.biceps:
-      return AppColors.biceps;
-    case MuscleGroup.triceps:
-      return AppColors.triceps;
-    case MuscleGroup.forearms:
-      return AppColors.forearms;
-    case MuscleGroup.abs:
-      return AppColors.abs;
-    case MuscleGroup.quads:
-      return AppColors.quads;
-    case MuscleGroup.hamstrings:
-      return AppColors.hamstrings;
-    case MuscleGroup.glutes:
-      return AppColors.glutes;
-    case MuscleGroup.calves:
-      return AppColors.calves;
-    case MuscleGroup.cardio:
-      return AppColors.cardio;
-    case MuscleGroup.fullBody:
-      return AppColors.primary;
+    case MuscleGroup.chest:      return AppColors.chest;
+    case MuscleGroup.back:       return AppColors.back;
+    case MuscleGroup.shoulders:  return AppColors.shoulders;
+    case MuscleGroup.biceps:     return AppColors.biceps;
+    case MuscleGroup.triceps:    return AppColors.triceps;
+    case MuscleGroup.forearms:   return AppColors.forearms;
+    case MuscleGroup.abs:        return AppColors.abs;
+    case MuscleGroup.quads:      return AppColors.quads;
+    case MuscleGroup.hamstrings: return AppColors.hamstrings;
+    case MuscleGroup.glutes:     return AppColors.glutes;
+    case MuscleGroup.calves:     return AppColors.calves;
+    case MuscleGroup.cardio:     return AppColors.cardio;
+    case MuscleGroup.fullBody:   return AppColors.primary;
   }
 }
 
 String _muscleName(MuscleGroup m) {
   switch (m) {
-    case MuscleGroup.chest:
-      return 'Chest';
-    case MuscleGroup.back:
-      return 'Back';
-    case MuscleGroup.shoulders:
-      return 'Shoulders';
-    case MuscleGroup.biceps:
-      return 'Biceps';
-    case MuscleGroup.triceps:
-      return 'Triceps';
-    case MuscleGroup.forearms:
-      return 'Forearms';
-    case MuscleGroup.abs:
-      return 'Abs';
-    case MuscleGroup.quads:
-      return 'Quads';
-    case MuscleGroup.hamstrings:
-      return 'Hamstrings';
-    case MuscleGroup.glutes:
-      return 'Glutes';
-    case MuscleGroup.calves:
-      return 'Calves';
-    case MuscleGroup.cardio:
-      return 'Cardio';
-    case MuscleGroup.fullBody:
-      return 'Full Body';
+    case MuscleGroup.chest:      return 'Chest';
+    case MuscleGroup.back:       return 'Back';
+    case MuscleGroup.shoulders:  return 'Shoulders';
+    case MuscleGroup.biceps:     return 'Biceps';
+    case MuscleGroup.triceps:    return 'Triceps';
+    case MuscleGroup.forearms:   return 'Forearms';
+    case MuscleGroup.abs:        return 'Abs';
+    case MuscleGroup.quads:      return 'Quads';
+    case MuscleGroup.hamstrings: return 'Hamstrings';
+    case MuscleGroup.glutes:     return 'Glutes';
+    case MuscleGroup.calves:     return 'Calves';
+    case MuscleGroup.cardio:     return 'Cardio';
+    case MuscleGroup.fullBody:   return 'Full Body';
   }
 }
-
-// ---------------------------------------------------------------------------
-// Silhouette painter
-// ---------------------------------------------------------------------------
 
 class _BodyPainter extends CustomPainter {
   _BodyPainter({
     required this.zones,
     required this.selectedIds,
     required this.isDark,
+    required this.glowIntensity,
   });
 
   final List<MuscleZoneEntity> zones;
   final Set<String> selectedIds;
   final bool isDark;
+  final double glowIntensity;
 
-  // Build a Path from normalized polygon coords scaled to canvas size
-  Path _buildPath(List<Offset> polygon, Size size) {
+  Path _buildZonePath(List<Offset> polygon, Size size) {
     if (polygon.isEmpty) return Path();
-    final path = Path();
-    path.moveTo(polygon[0].dx * size.width, polygon[0].dy * size.height);
+    final path = Path()
+      ..moveTo(polygon[0].dx * size.width, polygon[0].dy * size.height);
     for (int i = 1; i < polygon.length; i++) {
       path.lineTo(polygon[i].dx * size.width, polygon[i].dy * size.height);
     }
     return path..close();
   }
 
-  // Build smooth human body silhouette using Bezier curves
-  // Canvas coordinate space: 200 x 440
   Path _buildSilhouette(Size s) {
     final sx = s.width / 200;
     final sy = s.height / 440;
     double x(double v) => v * sx;
     double y(double v) => v * sy;
-
     final path = Path();
 
     // Head
     path.addOval(Rect.fromCenter(
-      center: Offset(x(100), y(30)),
-      width: x(46),
-      height: y(46),
+      center: Offset(x(100), y(29)),
+      width: x(44),
+      height: y(48),
     ));
 
     // Neck
-    path.addRRect(RRect.fromRectAndRadius(
-      Rect.fromLTWH(x(89), y(52), x(22), y(24)),
-      Radius.circular(x(5)),
-    ));
-
-    // Left arm
     {
-      final arm = Path();
-      arm.moveTo(x(26), y(82));
-      arm.cubicTo(x(18), y(88), x(14), y(100), x(18), y(116));
-      arm.cubicTo(x(20), y(160), x(22), y(208), x(26), y(244));
-      arm.cubicTo(x(26), y(252), x(34), y(258), x(44), y(256));
-      arm.cubicTo(x(48), y(220), x(50), y(172), x(50), y(130));
-      arm.cubicTo(x(46), y(100), x(40), y(86), x(26), y(82));
-      arm.close();
-      path.addPath(arm, Offset.zero);
+      final n = Path();
+      n.moveTo(x(90), y(53));
+      n.cubicTo(x(88), y(62), x(84), y(70), x(82), y(78));
+      n.lineTo(x(118), y(78));
+      n.cubicTo(x(116), y(70), x(112), y(62), x(110), y(53));
+      n.close();
+      path.addPath(n, Offset.zero);
+    }
+
+    // Left arm (tapered athletic shape)
+    {
+      final a = Path();
+      a.moveTo(x(30), y(80));
+      a.cubicTo(x(20), y(90), x(14), y(106), x(16), y(124));
+      a.cubicTo(x(18), y(168), x(20), y(215), x(24), y(248));
+      a.cubicTo(x(24), y(256), x(30), y(262), x(43), y(260));
+      a.cubicTo(x(47), y(222), x(48), y(173), x(48), y(136));
+      a.cubicTo(x(44), y(104), x(40), y(90), x(30), y(80));
+      a.close();
+      path.addPath(a, Offset.zero);
     }
 
     // Right arm (mirror)
     {
-      final arm = Path();
-      arm.moveTo(x(174), y(82));
-      arm.cubicTo(x(182), y(88), x(186), y(100), x(182), y(116));
-      arm.cubicTo(x(180), y(160), x(178), y(208), x(174), y(244));
-      arm.cubicTo(x(174), y(252), x(166), y(258), x(156), y(256));
-      arm.cubicTo(x(152), y(220), x(150), y(172), x(150), y(130));
-      arm.cubicTo(x(154), y(100), x(160), y(86), x(174), y(82));
-      arm.close();
-      path.addPath(arm, Offset.zero);
+      final a = Path();
+      a.moveTo(x(170), y(80));
+      a.cubicTo(x(180), y(90), x(186), y(106), x(184), y(124));
+      a.cubicTo(x(182), y(168), x(180), y(215), x(176), y(248));
+      a.cubicTo(x(176), y(256), x(170), y(262), x(157), y(260));
+      a.cubicTo(x(153), y(222), x(152), y(173), x(152), y(136));
+      a.cubicTo(x(156), y(104), x(160), y(90), x(170), y(80));
+      a.close();
+      path.addPath(a, Offset.zero);
     }
 
-    // Torso body
+    // Torso + legs (V-taper: broad shoulders, narrow waist, hip flare, legs)
     {
-      final torso = Path();
-      torso.moveTo(x(50), y(78));
-      // Left side of torso: shoulder -> waist -> hip
-      torso.cubicTo(x(44), y(100), x(42), y(155), x(44), y(200));
-      torso.cubicTo(x(44), y(228), x(46), y(244), x(50), y(252));
-      // Left leg
-      torso.cubicTo(x(50), y(262), x(54), y(268), x(60), y(270));
-      torso.cubicTo(x(58), y(340), x(56), y(398), x(60), y(438));
-      torso.lineTo(x(88), y(440));
-      torso.cubicTo(x(88), y(394), x(88), y(336), x(90), y(276));
-      // Crotch
-      torso.cubicTo(x(94), y(268), x(106), y(268), x(110), y(276));
-      // Right inner leg
-      torso.cubicTo(x(112), y(336), x(112), y(394), x(112), y(440));
-      torso.lineTo(x(140), y(438));
-      // Right outer leg up
-      torso.cubicTo(x(144), y(398), x(142), y(340), x(140), y(270));
-      // Right groin
-      torso.cubicTo(x(146), y(268), x(150), y(262), x(150), y(252));
-      // Right torso side up
-      torso.cubicTo(x(154), y(244), x(156), y(228), x(156), y(200));
-      torso.cubicTo(x(158), y(155), x(156), y(100), x(150), y(78));
-      // Shoulder top
-      torso.lineTo(x(50), y(78));
-      torso.close();
-      path.addPath(torso, Offset.zero);
+      final b = Path();
+      b.moveTo(x(48), y(76));
+      b.cubicTo(x(42), y(108), x(40), y(162), x(42), y(208));
+      b.cubicTo(x(42), y(234), x(44), y(248), x(48), y(258));
+      b.cubicTo(x(48), y(270), x(53), y(278), x(62), y(280));
+      b.cubicTo(x(60), y(348), x(58), y(404), x(62), y(436));
+      b.lineTo(x(90), y(440));
+      b.cubicTo(x(90), y(402), x(90), y(344), x(92), y(284));
+      b.cubicTo(x(95), y(274), x(105), y(274), x(108), y(284));
+      b.cubicTo(x(110), y(344), x(110), y(402), x(110), y(440));
+      b.lineTo(x(138), y(436));
+      b.cubicTo(x(142), y(404), x(140), y(348), x(138), y(280));
+      b.cubicTo(x(147), y(278), x(152), y(270), x(152), y(258));
+      b.cubicTo(x(156), y(248), x(158), y(234), x(158), y(208));
+      b.cubicTo(x(160), y(162), x(158), y(108), x(152), y(76));
+      b.lineTo(x(48), y(76));
+      b.close();
+      path.addPath(b, Offset.zero);
     }
 
     return path;
@@ -202,81 +163,67 @@ class _BodyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final silhouette = _buildSilhouette(size);
-    final skinColor =
-        isDark ? const Color(0xFF2A2A32) : const Color(0xFFE8E0D8);
-    final outlineColor =
-        isDark ? const Color(0xFF484854) : const Color(0xFFC0B8B0);
+    final skinBase = isDark ? const Color(0xFF252530) : const Color(0xFFE4DDD5);
+    final outline = isDark ? const Color(0xFF40404E) : const Color(0xFFB8B0A8);
 
-    // 1. Silhouette fill
-    canvas.drawPath(
-      silhouette,
-      Paint()
-        ..color = skinColor
-        ..style = PaintingStyle.fill,
-    );
+    canvas.drawPath(silhouette, Paint()
+      ..color = skinBase
+      ..style = PaintingStyle.fill);
 
-    // 2. Muscle zones
     for (final zone in zones) {
       final isSelected = selectedIds.contains(zone.id);
       final color = _zoneColor(zone.muscleGroup);
-      final path = _buildPath(zone.polygon, size);
+      final path = _buildZonePath(zone.polygon, size);
+      final bounds = path.getBounds();
 
       if (isSelected) {
-        canvas.drawPath(
-            path,
-            Paint()
-              ..color = color.withOpacity(0.3)
-              ..style = PaintingStyle.fill
-              ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 6));
-        canvas.drawPath(
-            path,
-            Paint()
-              ..color = color.withOpacity(0.88)
-              ..style = PaintingStyle.fill);
-        canvas.drawPath(
-            path,
-            Paint()
-              ..color = color
-              ..style = PaintingStyle.stroke
-              ..strokeWidth = 1.5);
+        canvas.drawPath(path, Paint()
+          ..color = color.withOpacity(0.22 + glowIntensity * 0.18)
+          ..style = PaintingStyle.fill
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 8 + glowIntensity * 4));
+        canvas.drawPath(path, Paint()
+          ..shader = RadialGradient(
+            center: Alignment.center,
+            radius: 0.85,
+            colors: [Colors.white.withOpacity(0.25), color],
+          ).createShader(bounds)
+          ..style = PaintingStyle.fill);
+        canvas.drawPath(path, Paint()
+          ..color = color.withOpacity(0.85 + glowIntensity * 0.15)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.6
+          ..strokeJoin = StrokeJoin.round);
       } else {
-        canvas.drawPath(
-            path,
-            Paint()
-              ..color = isDark
-                  ? const Color(0xFF3C3C48)
-                  : const Color(0xFFD0C8C0)
-              ..style = PaintingStyle.fill);
-        canvas.drawPath(
-            path,
-            Paint()
-              ..color = isDark
-                  ? const Color(0xFF545460)
-                  : const Color(0xFFB8B0A8)
-              ..style = PaintingStyle.stroke
-              ..strokeWidth = 0.8);
+        canvas.drawPath(path, Paint()
+          ..shader = RadialGradient(
+            center: Alignment.center,
+            radius: 0.7,
+            colors: isDark
+                ? [const Color(0xFF484858), const Color(0xFF2C2C3A)]
+                : [const Color(0xFFD5CCC5), const Color(0xFFBEB6AE)],
+          ).createShader(bounds)
+          ..style = PaintingStyle.fill);
+        canvas.drawPath(path, Paint()
+          ..color = isDark ? const Color(0xFF565668) : const Color(0xFFAEA6A0)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 0.6
+          ..strokeJoin = StrokeJoin.round);
       }
     }
 
-    // 3. Silhouette outline on top
-    canvas.drawPath(
-        silhouette,
-        Paint()
-          ..color = outlineColor
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 1.2);
+    canvas.drawPath(silhouette, Paint()
+      ..color = outline
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 0.9);
   }
 
   @override
   bool shouldRepaint(_BodyPainter old) =>
       old.selectedIds != selectedIds ||
       old.isDark != isDark ||
-      old.zones != zones;
+      old.zones != zones ||
+      old.glowIntensity != glowIntensity;
 }
-
-// ---------------------------------------------------------------------------
-// Screen
-// ---------------------------------------------------------------------------
 
 class MuscleAtlasScreen extends ConsumerStatefulWidget {
   const MuscleAtlasScreen({super.key});
@@ -285,16 +232,35 @@ class MuscleAtlasScreen extends ConsumerStatefulWidget {
   ConsumerState<MuscleAtlasScreen> createState() => _MuscleAtlasScreenState();
 }
 
-class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen> {
-  String _view = 'front';
+class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
+    with TickerProviderStateMixin {
   final Set<String> _selectedZoneIds = {};
-  Size? _canvasSize;
+  Size? _frontSize;
+  Size? _backSize;
 
-  void _onTap(TapDownDetails details, List<MuscleZoneEntity> zones) {
-    if (_canvasSize == null) return;
-    final pos = details.localPosition;
+  late final AnimationController _glowCtrl;
+  late final Animation<double> _glowAnim;
+
+  @override
+  void initState() {
+    super.initState();
+    _glowCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1400),
+    )..repeat(reverse: true);
+    _glowAnim = CurvedAnimation(parent: _glowCtrl, curve: Curves.easeInOut);
+  }
+
+  @override
+  void dispose() {
+    _glowCtrl.dispose();
+    super.dispose();
+  }
+
+  void _onTap(TapDownDetails details, List<MuscleZoneEntity> zones, Size? sz) {
+    if (sz == null) return;
     for (final zone in zones.reversed) {
-      if (_pointInPolygon(pos, zone.polygon, _canvasSize!)) {
+      if (_pointInPolygon(details.localPosition, zone.polygon, sz)) {
         HapticFeedback.lightImpact();
         setState(() {
           if (_selectedZoneIds.contains(zone.id)) {
@@ -313,10 +279,17 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen> {
     final zonesAsync = ref.watch(muscleZonesProvider);
     final exercisesAsync = ref.watch(allExercisesProvider);
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final cs = Theme.of(context).colorScheme;
+    final tt = Theme.of(context).textTheme;
+    final bgColor = isDark ? const Color(0xFF0E0E12) : const Color(0xFFF5F2EF);
 
     return Scaffold(
+      backgroundColor: bgColor,
       appBar: AppBar(
-        title: const Text('Muscle Atlas'),
+        backgroundColor: bgColor,
+        elevation: 0,
+        title: Text('Muscle Atlas',
+            style: tt.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
         actions: [
           if (_selectedZoneIds.isNotEmpty)
             TextButton.icon(
@@ -333,8 +306,8 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen> {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (allZones) {
-          final viewZones =
-              allZones.where((z) => z.view == _view).toList();
+          final frontZones = allZones.where((z) => z.view == 'front').toList();
+          final backZones = allZones.where((z) => z.view == 'back').toList();
           final selectedZones =
               allZones.where((z) => _selectedZoneIds.contains(z.id)).toList();
           final selectedMuscles =
@@ -342,102 +315,230 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen> {
 
           return Column(
             children: [
-              // View toggle
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                child: _ViewToggle(
-                  current: _view,
-                  onChanged: (v) => setState(() => _view = v),
+                padding: const EdgeInsets.fromLTRB(16, 2, 16, 6),
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 200),
+                  child: _selectedZoneIds.isEmpty
+                      ? Text(
+                          'Tap a muscle group to explore exercises',
+                          key: const ValueKey('empty'),
+                          style: tt.bodySmall?.copyWith(
+                              color: cs.onSurfaceVariant),
+                        )
+                      : Text(
+                          '${_selectedZoneIds.length} muscle group${_selectedZoneIds.length == 1 ? '' : 's'} selected',
+                          key: const ValueKey('selected'),
+                          style: tt.bodySmall?.copyWith(
+                            color: AppColors.primary,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                 ),
               ),
 
-              // Body diagram
+              // Dual body view
               Expanded(
                 flex: 5,
-                child: Center(
-                  child: AspectRatio(
-                    aspectRatio: 200 / 440,
-                    child: LayoutBuilder(builder: (context, constraints) {
-                      final size =
-                          Size(constraints.maxWidth, constraints.maxHeight);
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        if (_canvasSize != size) {
-                          setState(() => _canvasSize = size);
-                        }
-                      });
-                      return GestureDetector(
-                        onTapDown: (d) => _onTap(d, viewZones),
-                        child: CustomPaint(
-                          size: size,
-                          painter: _BodyPainter(
-                            zones: viewZones,
-                            selectedIds: _selectedZoneIds,
-                            isDark: isDark,
+                child: AnimatedBuilder(
+                  animation: _glowAnim,
+                  builder: (context, _) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        // FRONT
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text('FRONT',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 1.2,
+                                    color: cs.onSurfaceVariant.withOpacity(0.6),
+                                  )),
+                              const SizedBox(height: 4),
+                              Expanded(
+                                child: Center(
+                                  child: AspectRatio(
+                                    aspectRatio: 200 / 440,
+                                    child: LayoutBuilder(builder: (ctx, c) {
+                                      final sz =
+                                          Size(c.maxWidth, c.maxHeight);
+                                      WidgetsBinding.instance
+                                          .addPostFrameCallback((_) {
+                                        if (_frontSize != sz && mounted) {
+                                          setState(() => _frontSize = sz);
+                                        }
+                                      });
+                                      return GestureDetector(
+                                        onTapDown: (d) =>
+                                            _onTap(d, frontZones, _frontSize),
+                                        child: CustomPaint(
+                                          size: sz,
+                                          painter: _BodyPainter(
+                                            zones: frontZones,
+                                            selectedIds: _selectedZoneIds,
+                                            isDark: isDark,
+                                            glowIntensity: _glowAnim.value,
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      );
-                    }),
+
+                        // Center divider / badge
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              if (_selectedZoneIds.isNotEmpty)
+                                Container(
+                                  width: 22,
+                                  height: 22,
+                                  decoration: const BoxDecoration(
+                                    color: AppColors.primary,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      '${_selectedZoneIds.length}',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              else
+                                Container(
+                                  width: 1,
+                                  height: 100,
+                                  color: isDark
+                                      ? const Color(0xFF303040)
+                                      : const Color(0xFFD0C8C0),
+                                ),
+                            ],
+                          ),
+                        ),
+
+                        // BACK
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text('BACK',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 1.2,
+                                    color: cs.onSurfaceVariant.withOpacity(0.6),
+                                  )),
+                              const SizedBox(height: 4),
+                              Expanded(
+                                child: Center(
+                                  child: AspectRatio(
+                                    aspectRatio: 200 / 440,
+                                    child: LayoutBuilder(builder: (ctx, c) {
+                                      final sz =
+                                          Size(c.maxWidth, c.maxHeight);
+                                      WidgetsBinding.instance
+                                          .addPostFrameCallback((_) {
+                                        if (_backSize != sz && mounted) {
+                                          setState(() => _backSize = sz);
+                                        }
+                                      });
+                                      return GestureDetector(
+                                        onTapDown: (d) =>
+                                            _onTap(d, backZones, _backSize),
+                                        child: CustomPaint(
+                                          size: sz,
+                                          painter: _BodyPainter(
+                                            zones: backZones,
+                                            selectedIds: _selectedZoneIds,
+                                            isDark: isDark,
+                                            glowIntensity: _glowAnim.value,
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
 
               // Selected chips
-              if (_selectedZoneIds.isNotEmpty)
-                SizedBox(
-                  height: 48,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 6),
-                    children: selectedZones.map((zone) {
-                      final color = _zoneColor(zone.muscleGroup);
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 8),
-                        child: InputChip(
-                          label: Text(
-                            zone.displayName,
-                            style: TextStyle(
-                              color: color,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          onDeleted: () {
-                            HapticFeedback.lightImpact();
-                            setState(
-                                () => _selectedZoneIds.remove(zone.id));
-                          },
-                          deleteIconColor: color,
-                          backgroundColor: color.withOpacity(0.12),
-                          side: BorderSide(color: color.withOpacity(0.4)),
-                          visualDensity: VisualDensity.compact,
+              AnimatedSize(
+                duration: const Duration(milliseconds: 250),
+                curve: Curves.easeOutCubic,
+                child: _selectedZoneIds.isEmpty
+                    ? const SizedBox.shrink()
+                    : SizedBox(
+                        height: 48,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 6),
+                          children: selectedZones.map((zone) {
+                            final color = _zoneColor(zone.muscleGroup);
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: InputChip(
+                                label: Text(zone.displayName,
+                                    style: TextStyle(
+                                        color: color,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600)),
+                                onDeleted: () {
+                                  HapticFeedback.lightImpact();
+                                  setState(
+                                      () => _selectedZoneIds.remove(zone.id));
+                                },
+                                deleteIconColor: color,
+                                backgroundColor: color.withOpacity(0.12),
+                                side: BorderSide(color: color.withOpacity(0.4)),
+                                visualDensity: VisualDensity.compact,
+                              ),
+                            );
+                          }).toList(),
                         ),
-                      );
-                    }).toList(),
-                  ),
-                ),
+                      ),
+              ),
 
-              const Divider(height: 1),
+              Divider(
+                height: 1,
+                color: isDark
+                    ? const Color(0xFF28283A)
+                    : const Color(0xFFE0D8D0),
+              ),
 
               // Exercise list
               exercisesAsync.when(
                 loading: () => const Expanded(
-                  flex: 4,
-                  child: Center(child: CircularProgressIndicator()),
-                ),
-                error: (e, _) => Expanded(
-                  flex: 4,
-                  child: Center(child: Text('Error: $e')),
-                ),
+                    flex: 4, child: Center(child: CircularProgressIndicator())),
+                error: (e, _) =>
+                    Expanded(flex: 4, child: Center(child: Text('Error: $e'))),
                 data: (exercises) {
                   final filtered = selectedMuscles.isEmpty
                       ? exercises
                       : exercises
                           .where((e) =>
                               selectedMuscles.contains(e.primaryMuscle) ||
-                              e.secondaryMuscles
-                                  .any(selectedMuscles.contains))
+                              e.secondaryMuscles.any(selectedMuscles.contains))
                           .toList();
 
                   return Expanded(
@@ -446,28 +547,28 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(16, 10, 16, 4),
+                          padding: const EdgeInsets.fromLTRB(16, 10, 16, 4),
                           child: Row(
                             children: [
                               Expanded(
                                 child: Text(
                                   '${filtered.length} exercise${filtered.length == 1 ? '' : 's'}',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall
-                                      ?.copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSurfaceVariant,
-                                      ),
+                                  style: tt.titleSmall
+                                      ?.copyWith(color: cs.onSurfaceVariant),
                                 ),
                               ),
                               if (selectedMuscles.isNotEmpty)
                                 FilledButton.tonal(
-                                  onPressed: () => context
-                                      .push('/programs/smart-builder'),
-                                  child: const Text('Create Program'),
+                                  onPressed: () =>
+                                      context.push('/programs/smart-builder'),
+                                  style: FilledButton.styleFrom(
+                                    visualDensity: VisualDensity.compact,
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 0),
+                                    minimumSize: const Size(0, 32),
+                                  ),
+                                  child: const Text('Create Program',
+                                      style: TextStyle(fontSize: 12)),
                                 ),
                             ],
                           ),
@@ -478,26 +579,14 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(
-                                        Icons.fitness_center_rounded,
-                                        size: 40,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSurfaceVariant
-                                            .withOpacity(0.4),
-                                      ),
+                                      Icon(Icons.fitness_center_rounded,
+                                          size: 38,
+                                          color: cs.onSurfaceVariant
+                                              .withOpacity(0.35)),
                                       const SizedBox(height: 8),
-                                      Text(
-                                        'No exercises found',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium
-                                            ?.copyWith(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onSurfaceVariant,
-                                            ),
-                                      ),
+                                      Text('No exercises found',
+                                          style: tt.bodyMedium?.copyWith(
+                                              color: cs.onSurfaceVariant)),
                                     ],
                                   ),
                                 )
@@ -505,51 +594,40 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen> {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 12),
                                   itemCount: filtered.length,
-                                  itemBuilder: (context, index) {
-                                    final ex = filtered[index];
-                                    final color =
-                                        _zoneColor(ex.primaryMuscle);
+                                  itemBuilder: (context, i) {
+                                    final ex = filtered[i];
+                                    final color = _zoneColor(ex.primaryMuscle);
                                     return ListTile(
                                       contentPadding:
                                           const EdgeInsets.symmetric(
                                               horizontal: 4, vertical: 2),
                                       leading: Container(
-                                        width: 40,
-                                        height: 40,
+                                        width: 38,
+                                        height: 38,
                                         decoration: BoxDecoration(
-                                          color:
-                                              color.withOpacity(0.15),
+                                          color: color.withOpacity(0.14),
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
                                         child: Icon(
-                                          Icons.fitness_center_rounded,
-                                          color: color,
-                                          size: 20,
-                                        ),
+                                            Icons.fitness_center_rounded,
+                                            color: color,
+                                            size: 18),
                                       ),
-                                      title: Text(
-                                        ex.name,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium
-                                            ?.copyWith(
-                                                fontWeight:
-                                                    FontWeight.w500),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
+                                      title: Text(ex.name,
+                                          style: tt.bodyMedium?.copyWith(
+                                              fontWeight: FontWeight.w500),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis),
                                       subtitle: Text(
-                                        _muscleName(ex.primaryMuscle),
-                                        style: TextStyle(
-                                          color: color,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
+                                          _muscleName(ex.primaryMuscle),
+                                          style: TextStyle(
+                                              color: color,
+                                              fontSize: 11,
+                                              fontWeight: FontWeight.w600)),
                                       trailing: const Icon(
                                           Icons.chevron_right_rounded,
-                                          size: 18),
+                                          size: 16),
                                       onTap: () => context
                                           .push('/exercises/${ex.id}'),
                                     );
@@ -564,89 +642,6 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen> {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-// ---------------------------------------------------------------------------
-// View toggle
-// ---------------------------------------------------------------------------
-
-class _ViewToggle extends StatelessWidget {
-  const _ViewToggle({required this.current, required this.onChanged});
-  final String current;
-  final ValueChanged<String> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _ToggleBtn(
-          label: 'Front',
-          isSelected: current == 'front',
-          isLeft: true,
-          onTap: () => onChanged('front'),
-        ),
-        _ToggleBtn(
-          label: 'Back',
-          isSelected: current == 'back',
-          isLeft: false,
-          onTap: () => onChanged('back'),
-        ),
-      ],
-    );
-  }
-}
-
-class _ToggleBtn extends StatelessWidget {
-  const _ToggleBtn({
-    required this.label,
-    required this.isSelected,
-    required this.isLeft,
-    required this.onTap,
-  });
-  final String label;
-  final bool isSelected;
-  final bool isLeft;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        width: 88,
-        height: 38,
-        decoration: BoxDecoration(
-          color: isSelected ? AppColors.primary : Colors.transparent,
-          borderRadius: BorderRadius.horizontal(
-            left: isLeft ? const Radius.circular(10) : Radius.zero,
-            right: isLeft ? Radius.zero : const Radius.circular(10),
-          ),
-          border: Border.all(
-            color: isSelected
-                ? AppColors.primary
-                : Theme.of(context)
-                    .colorScheme
-                    .outline
-                    .withOpacity(0.4),
-          ),
-        ),
-        child: Center(
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: isSelected
-                  ? Colors.white
-                  : Theme.of(context).colorScheme.onSurface,
-            ),
-          ),
-        ),
       ),
     );
   }
