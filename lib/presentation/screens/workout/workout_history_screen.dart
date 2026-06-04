@@ -186,6 +186,7 @@ class _WorkoutStat extends StatelessWidget {
 class _EmptyWorkoutHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
@@ -198,10 +199,10 @@ class _EmptyWorkoutHistory extends StatelessWidget {
               color: context.colorScheme.onSurfaceVariant,
             ),
             const SizedBox(height: 20),
-            Text('No workouts yet', style: context.textTheme.titleLarge),
+            Text(l10n.noWorkoutsYet, style: context.textTheme.titleLarge),
             const SizedBox(height: 8),
             Text(
-              'Complete your first workout\nto see your history here',
+              l10n.startFirstWorkout,
               textAlign: TextAlign.center,
               style: context.textTheme.bodyMedium?.copyWith(
                 color: context.colorScheme.onSurfaceVariant,

@@ -155,14 +155,14 @@ class _OverviewTabState extends ConsumerState<_OverviewTab> {
               ),
               const SizedBox(height: 24),
               if (sessions.isNotEmpty) ...[
-                Text('Volume Over Time', style: AppTextStyles.titleMedium),
+                Text(l10n.volumeOverTime, style: AppTextStyles.titleMedium),
                 const SizedBox(height: 12),
                 SizedBox(
                   height: 200,
                   child: _VolumeLineChart(sessions: sessions),
                 ),
                 const SizedBox(height: 24),
-                Text('Workouts Per Day of Week', style: AppTextStyles.titleMedium),
+                Text(l10n.workoutsPerDay, style: AppTextStyles.titleMedium),
                 const SizedBox(height: 12),
                 SizedBox(
                   height: 180,
@@ -180,10 +180,10 @@ class _OverviewTabState extends ConsumerState<_OverviewTab> {
                           color: AppColors.textTertiaryDark,
                         ),
                         const SizedBox(height: 16),
-                        Text('No workouts in this period', style: AppTextStyles.titleMedium),
+                        Text(l10n.noWorkoutsInPeriod, style: AppTextStyles.titleMedium),
                         const SizedBox(height: 8),
                         Text(
-                          'Complete workouts to see your progress.',
+                          l10n.completeWorkoutsForStats,
                           style: AppTextStyles.bodyMedium.copyWith(
                             color: AppColors.textSecondaryDark,
                           ),
@@ -532,15 +532,15 @@ class _RecordsTabState extends ConsumerState<_RecordsTab> {
                         const SizedBox(height: 16),
                         Text(
                           _query.isEmpty
-                              ? 'No Records Yet'
-                              : 'No records found',
+                              ? l10n.noRecordsYet
+                              : l10n.noRecordsFound,
                           style: AppTextStyles.titleMedium,
                         ),
                         const SizedBox(height: 8),
                         Text(
                           _query.isEmpty
-                              ? 'Complete workouts to set personal records.'
-                              : 'Try a different search term.',
+                              ? l10n.completeWorkoutsForPRs
+                              : l10n.tryDifferentSearch,
                           style: AppTextStyles.bodyMedium.copyWith(
                             color: AppColors.textSecondaryDark,
                           ),
@@ -589,23 +589,24 @@ class _RecordCard extends StatelessWidget {
     }
   }
 
-  String get _prLabel {
+  String _prLabel(AppLocalizations l10n) {
     switch (record.type) {
       case PRType.maxWeight:
-        return 'Max Weight';
+        return l10n.maxWeight;
       case PRType.maxReps:
-        return 'Max Reps';
+        return l10n.maxReps;
       case PRType.maxVolume:
-        return 'Max Volume';
+        return l10n.maxVolume;
       case PRType.maxDuration:
-        return 'Duration';
+        return l10n.durationLabel;
       case PRType.maxDistance:
-        return 'Distance';
+        return l10n.distance;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(14),
@@ -656,13 +657,13 @@ class _RecordCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
-                  _prLabel,
+                  _prLabel(l10n),
                   style: AppTextStyles.labelSmall.copyWith(color: _prColor),
                 ),
               ),
               const SizedBox(height: 4),
               Text(
-                _formatDate(record.achievedAt),
+                _formatDate(l10n, record.achievedAt),
                 style: AppTextStyles.labelSmall.copyWith(
                   color: AppColors.textTertiaryDark,
                 ),
@@ -674,11 +675,11 @@ class _RecordCard extends StatelessWidget {
     );
   }
 
-  String _formatDate(DateTime date) {
+  String _formatDate(AppLocalizations l10n, DateTime date) {
     final now = DateTime.now();
     final diff = now.difference(date).inDays;
-    if (diff == 0) return 'Today';
-    if (diff == 1) return 'Yesterday';
+    if (diff == 0) return l10n.today;
+    if (diff == 1) return l10n.yesterday;
     if (diff < 30) return '${diff}d ago';
     return '${date.month}/${date.day}/${date.year}';
   }
@@ -727,6 +728,7 @@ class _BodyTabState extends ConsumerState<_BodyTab> {
     _bodyFatController.clear();
     _waistController.clear();
     _selectedDate = DateTime.now();
+    final l10n = AppLocalizations.of(context)!;
 
     showModalBottomSheet<void>(
       context: context,
@@ -757,7 +759,7 @@ class _BodyTabState extends ConsumerState<_BodyTab> {
                 ),
               ),
               const SizedBox(height: 16),
-              Text('Log Body Stats', style: AppTextStyles.titleLarge),
+              Text(l10n.logBodyStats, style: AppTextStyles.titleLarge),
               const SizedBox(height: 16),
               TextButton.icon(
                 icon: const Icon(Icons.calendar_today_outlined),
@@ -779,27 +781,27 @@ class _BodyTabState extends ConsumerState<_BodyTab> {
               const SizedBox(height: 12),
               TextField(
                 controller: _weightController,
-                decoration: const InputDecoration(
-                  labelText: 'Weight (kg) *',
-                  prefixIcon: Icon(Icons.monitor_weight_outlined),
+                decoration: InputDecoration(
+                  labelText: l10n.weightKgRequired,
+                  prefixIcon: const Icon(Icons.monitor_weight_outlined),
                 ),
                 keyboardType: const TextInputType.numberWithOptions(decimal: true),
               ),
               const SizedBox(height: 12),
               TextField(
                 controller: _bodyFatController,
-                decoration: const InputDecoration(
-                  labelText: 'Body Fat % (optional)',
-                  prefixIcon: Icon(Icons.percent_rounded),
+                decoration: InputDecoration(
+                  labelText: l10n.bodyFatOptional,
+                  prefixIcon: const Icon(Icons.percent_rounded),
                 ),
                 keyboardType: const TextInputType.numberWithOptions(decimal: true),
               ),
               const SizedBox(height: 12),
               TextField(
                 controller: _waistController,
-                decoration: const InputDecoration(
-                  labelText: 'Waist (cm, optional)',
-                  prefixIcon: Icon(Icons.straighten_rounded),
+                decoration: InputDecoration(
+                  labelText: l10n.waistCmOptional,
+                  prefixIcon: const Icon(Icons.straighten_rounded),
                 ),
                 keyboardType: const TextInputType.numberWithOptions(decimal: true),
               ),
@@ -821,7 +823,7 @@ class _BodyTabState extends ConsumerState<_BodyTab> {
                       _entries.sort((a, b) => a.date.compareTo(b.date));
                     });
                   },
-                  child: const Text('Save'),
+                  child: Text(l10n.save),
                 ),
               ),
             ],
@@ -833,13 +835,14 @@ class _BodyTabState extends ConsumerState<_BodyTab> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Stack(
       children: [
         ListView(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 80),
           children: [
             if (_entries.isNotEmpty) ...[
-              Text('Weight History', style: AppTextStyles.titleMedium),
+              Text(l10n.weightHistory, style: AppTextStyles.titleMedium),
               const SizedBox(height: 12),
               SizedBox(
                 height: 200,
@@ -848,7 +851,7 @@ class _BodyTabState extends ConsumerState<_BodyTab> {
               const SizedBox(height: 20),
               _BmiCard(entries: _entries),
               const SizedBox(height: 20),
-              Text('History', style: AppTextStyles.titleMedium),
+              Text(l10n.history, style: AppTextStyles.titleMedium),
               const SizedBox(height: 12),
               ...List.generate(
                 _entries.length,
@@ -871,10 +874,10 @@ class _BodyTabState extends ConsumerState<_BodyTab> {
                         color: AppColors.textTertiaryDark,
                       ),
                       const SizedBox(height: 16),
-                      Text('No Body Stats', style: AppTextStyles.titleMedium),
+                      Text(l10n.noBodyStats, style: AppTextStyles.titleMedium),
                       const SizedBox(height: 8),
                       Text(
-                        'Tap + to log your first body stats.',
+                        l10n.tapToLogBodyStats,
                         style: AppTextStyles.bodyMedium.copyWith(
                           color: AppColors.textSecondaryDark,
                         ),
@@ -1026,7 +1029,7 @@ class _BmiCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Current Weight', style: AppTextStyles.bodySmall.copyWith(
+                Text(AppLocalizations.of(context)!.currentWeight, style: AppTextStyles.bodySmall.copyWith(
                   color: AppColors.textSecondaryDark,
                 )),
                 const SizedBox(height: 4),
@@ -1077,7 +1080,7 @@ class _WeightDelta extends StatelessWidget {
           style: AppTextStyles.labelMedium.copyWith(color: color),
         ),
         Text(
-          'total',
+          AppLocalizations.of(context)!.totalLabel,
           style: AppTextStyles.labelSmall.copyWith(
             color: AppColors.textTertiaryDark,
           ),
