@@ -64,34 +64,41 @@ class _SmartProgramBuilderScreenState
   // Label / color helpers
   // ---------------------------------------------------------------------------
 
+  /// Used internally (e.g. for generating day names) – always English.
   String _muscleLabel(MuscleGroup g) {
     switch (g) {
-      case MuscleGroup.chest:
-        return 'Chest';
-      case MuscleGroup.back:
-        return 'Back';
-      case MuscleGroup.shoulders:
-        return 'Shoulders';
-      case MuscleGroup.biceps:
-        return 'Biceps';
-      case MuscleGroup.triceps:
-        return 'Triceps';
-      case MuscleGroup.forearms:
-        return 'Forearms';
-      case MuscleGroup.abs:
-        return 'Abs';
-      case MuscleGroup.quads:
-        return 'Quads';
-      case MuscleGroup.hamstrings:
-        return 'Hamstrings';
-      case MuscleGroup.glutes:
-        return 'Glutes';
-      case MuscleGroup.calves:
-        return 'Calves';
-      case MuscleGroup.cardio:
-        return 'Cardio';
-      case MuscleGroup.fullBody:
-        return 'Full Body';
+      case MuscleGroup.chest: return 'Chest';
+      case MuscleGroup.back: return 'Back';
+      case MuscleGroup.shoulders: return 'Shoulders';
+      case MuscleGroup.biceps: return 'Biceps';
+      case MuscleGroup.triceps: return 'Triceps';
+      case MuscleGroup.forearms: return 'Forearms';
+      case MuscleGroup.abs: return 'Abs';
+      case MuscleGroup.quads: return 'Quads';
+      case MuscleGroup.hamstrings: return 'Hamstrings';
+      case MuscleGroup.glutes: return 'Glutes';
+      case MuscleGroup.calves: return 'Calves';
+      case MuscleGroup.cardio: return 'Cardio';
+      case MuscleGroup.fullBody: return 'Full Body';
+    }
+  }
+
+  /// Localized muscle label for UI display.
+  String _muscleLabelL10n(AppLocalizations l10n, MuscleGroup g) {
+    switch (g) {
+      case MuscleGroup.chest: return l10n.chest;
+      case MuscleGroup.back: return l10n.back;
+      case MuscleGroup.shoulders: return l10n.shoulders;
+      case MuscleGroup.biceps: return l10n.biceps;
+      case MuscleGroup.triceps: return l10n.triceps;
+      case MuscleGroup.forearms: return l10n.forearms;
+      case MuscleGroup.abs: return l10n.abs;
+      case MuscleGroup.quads: return l10n.quads;
+      case MuscleGroup.hamstrings: return l10n.hamstrings;
+      case MuscleGroup.glutes: return l10n.glutes;
+      case MuscleGroup.calves: return l10n.calves;
+      case MuscleGroup.cardio: return l10n.cardio;
+      case MuscleGroup.fullBody: return l10n.fullBody;
     }
   }
 
@@ -395,11 +402,12 @@ class _SmartProgramBuilderScreenState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final exercisesAsync = ref.watch(allExercisesProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Smart Program Builder'),
+        title: Text(l10n.smartProgramBuilder),
         leading: IconButton(
           icon: const Icon(Icons.close_rounded),
           onPressed: () => context.pop(),
@@ -469,6 +477,7 @@ class _SmartProgramBuilderScreenState
   // ---------------------------------------------------------------------------
 
   Widget _buildMuscleStep(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -477,9 +486,8 @@ class _SmartProgramBuilderScreenState
           _StepHeader(
             icon: Icons.accessibility_new_rounded,
             iconColor: AppColors.primary,
-            title: 'Target Muscles',
-            subtitle:
-                'Select which muscles you want to train. Skip to include all.',
+            title: l10n.targetMusclesStep,
+            subtitle: l10n.targetMusclesHint,
           ),
           const SizedBox(height: 20),
           Wrap(
@@ -530,7 +538,7 @@ class _SmartProgramBuilderScreenState
                               size: 14, color: color),
                         ),
                       Text(
-                        _muscleLabel(muscle),
+                        _muscleLabelL10n(l10n, muscle),
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: isSelected
@@ -575,6 +583,7 @@ class _SmartProgramBuilderScreenState
   // ---------------------------------------------------------------------------
 
   Widget _buildGoalStep(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -583,8 +592,8 @@ class _SmartProgramBuilderScreenState
           _StepHeader(
             icon: Icons.track_changes_rounded,
             iconColor: AppColors.accentOrange,
-            title: 'Training Goal',
-            subtitle: 'What do you primarily want to achieve?',
+            title: l10n.trainingGoalStep,
+            subtitle: l10n.trainingGoalHint,
           ),
           const SizedBox(height: 20),
           ..._BuilderGoal.values.map((g) {
@@ -677,6 +686,7 @@ class _SmartProgramBuilderScreenState
   // ---------------------------------------------------------------------------
 
   Widget _buildDifficultyStep(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final levels = DifficultyLevel.values;
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
@@ -686,8 +696,8 @@ class _SmartProgramBuilderScreenState
           _StepHeader(
             icon: Icons.signal_cellular_alt_rounded,
             iconColor: AppColors.secondary,
-            title: 'Experience Level',
-            subtitle: 'Be honest — the right level leads to better results.',
+            title: l10n.experienceLevelStep,
+            subtitle: l10n.experienceLevelHint,
           ),
           const SizedBox(height: 20),
           ...levels.map((d) {
@@ -785,6 +795,7 @@ class _SmartProgramBuilderScreenState
   // ---------------------------------------------------------------------------
 
   Widget _buildEquipmentStep(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -793,7 +804,7 @@ class _SmartProgramBuilderScreenState
           _StepHeader(
             icon: Icons.handyman_rounded,
             iconColor: AppColors.forearms,
-            title: 'Available Equipment',
+            title: l10n.availableEquipmentStep,
             subtitle:
                 'Select everything available to you. At least one required.',
           ),
@@ -956,10 +967,11 @@ class _SmartProgramBuilderScreenState
                 flex: 2,
                 child: FilledButton.icon(
                   onPressed: () {
+                    final l10n = AppLocalizations.of(context)!;
                     HapticFeedback.heavyImpact();
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: const Text('Program saved!'),
+                        content: Text(l10n.programSaved),
                         backgroundColor: AppColors.primary,
                         behavior: SnackBarBehavior.floating,
                         shape: RoundedRectangleBorder(

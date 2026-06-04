@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/router/app_router.dart';
@@ -74,6 +75,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: AppColors.darkBackground,
       body: Center(
@@ -128,8 +130,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
               ),
               const SizedBox(height: 8),
               Text(
-                'Train. Share. Evolve.',
-                style: TextStyle(
+                l10n.tagline,
+                style: const TextStyle(
                   fontFamily: 'Inter',
                   fontSize: 14,
                   color: AppColors.textSecondaryDark,
