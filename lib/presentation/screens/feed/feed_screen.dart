@@ -57,7 +57,7 @@ class _FeedScreenState extends ConsumerState<FeedScreen> {
                 shaderCallback: (bounds) =>
                     AppColors.primaryGradient.createShader(bounds),
                 child: const Text(
-                  'LEVELBOT',
+                  'VITALEVEL',
                   style: TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 20,

@@ -118,7 +118,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                 shaderCallback: (bounds) =>
                     AppColors.primaryGradient.createShader(bounds),
                 child: const Text(
-                  'LEVELBOT',
+                  'VITALEVEL',
                   style: TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 32,
