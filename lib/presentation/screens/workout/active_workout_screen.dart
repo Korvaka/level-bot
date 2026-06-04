@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:level_bot/core/constants/app_constants.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
 import 'package:level_bot/core/theme/app_colors.dart';
 import 'package:level_bot/core/utils/formatters.dart';
+import 'package:level_bot/domain/entities/exercise_entity.dart';
 import 'package:level_bot/domain/entities/workout_session_entity.dart';
 import 'package:level_bot/domain/entities/workout_set_entity.dart';
 import 'package:level_bot/presentation/providers/auth_provider.dart';
+import 'package:level_bot/presentation/providers/exercise_provider.dart';
 import 'package:level_bot/presentation/providers/workout_provider.dart';
+import 'package:level_bot/presentation/widgets/common/app_error.dart';
+import 'package:level_bot/presentation/widgets/common/app_loading.dart';
 import 'package:level_bot/presentation/widgets/workout/rest_timer.dart';
 import 'package:level_bot/presentation/widgets/workout/set_row.dart';
 import 'package:uuid/uuid.dart';
@@ -198,7 +203,35 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
   }
 
   void _showAddExercise(BuildContext context) {
-    // TODO: Show exercise picker bottom sheet
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => _ExercisePickerSheet(
+        onSelected: (exercise) {
+          final currentCount =
+              ref.read(activeWorkoutProvider).session?.exercises.length ?? 0;
+          final sessionExercise = SessionExercise(
+            id: _uuid.v4(),
+            exerciseId: exercise.id,
+            exerciseName: exercise.name,
+            order: currentCount,
+            sets: [
+              WorkoutSetEntity(
+                id: _uuid.v4(),
+                setNumber: 1,
+                restSeconds: AppConstants.defaultRestSeconds,
+              ),
+            ],
+            thumbnailUrl: exercise.thumbnailUrl,
+          );
+          ref.read(activeWorkoutProvider.notifier).addExercise(sessionExercise);
+        },
+      ),
+    );
   }
 }
 
@@ -472,5 +505,170 @@ class _EmptyWorkout extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class _ExercisePickerSheet extends ConsumerStatefulWidget {
+  const _ExercisePickerSheet({required this.onSelected});
+  final void Function(ExerciseEntity) onSelected;
+
+  @override
+  ConsumerState<_ExercisePickerSheet> createState() =>
+      _ExercisePickerSheetState();
+}
+
+class _ExercisePickerSheetState extends ConsumerState<_ExercisePickerSheet> {
+  final _searchController = TextEditingController();
+  String _query = '';
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final exercisesAsync = ref.watch(allExercisesProvider);
+
+    return DraggableScrollableSheet(
+      initialChildSize: 0.85,
+      minChildSize: 0.5,
+      maxChildSize: 0.95,
+      expand: false,
+      builder: (_, scrollController) => Column(
+        children: [
+          Center(
+            child: Container(
+              width: 40,
+              height: 4,
+              margin: const EdgeInsets.symmetric(vertical: 12),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+            child: Text(
+              l10n.addExercise,
+              style: context.textTheme.titleMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+            child: TextField(
+              controller: _searchController,
+              autofocus: true,
+              onChanged: (v) => setState(() => _query = v),
+              decoration: InputDecoration(
+                hintText: l10n.searchExercisesHint,
+                prefixIcon: const Icon(Icons.search_rounded),
+                isDense: true,
+                contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                suffixIcon: _query.isNotEmpty
+                    ? IconButton(
+                        icon: const Icon(Icons.clear_rounded),
+                        onPressed: () {
+                          _searchController.clear();
+                          setState(() => _query = '');
+                        },
+                      )
+                    : null,
+              ),
+            ),
+          ),
+          Expanded(
+            child: exercisesAsync.when(
+              loading: () => const AppLoading(),
+              error: (e, _) => AppError(message: e.toString()),
+              data: (exercises) {
+                final lower = _query.toLowerCase();
+                final filtered = _query.isEmpty
+                    ? exercises
+                    : exercises
+                        .where((e) =>
+                            e.name.toLowerCase().contains(lower) ||
+                            e.aliases
+                                .any((a) => a.toLowerCase().contains(lower)))
+                        .toList();
+
+                if (filtered.isEmpty) {
+                  return Center(child: Text(l10n.noExercisesFound));
+                }
+
+                return ListView.builder(
+                  controller: scrollController,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  itemCount: filtered.length,
+                  itemBuilder: (context, index) {
+                    final exercise = filtered[index];
+                    return ListTile(
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                      title: Text(exercise.name),
+                      subtitle: Text(
+                        _muscleLabel(exercise.primaryMuscle, l10n),
+                        style: TextStyle(
+                          color: _muscleColor(exercise.primaryMuscle),
+                          fontSize: 12,
+                        ),
+                      ),
+                      trailing: const Icon(
+                        Icons.add_circle_outline_rounded,
+                        color: AppColors.primary,
+                      ),
+                      onTap: () {
+                        widget.onSelected(exercise);
+                        Navigator.of(context).pop();
+                      },
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _muscleLabel(MuscleGroup muscle, AppLocalizations l10n) {
+    switch (muscle) {
+      case MuscleGroup.chest: return l10n.chest;
+      case MuscleGroup.back: return l10n.back;
+      case MuscleGroup.shoulders: return l10n.shoulders;
+      case MuscleGroup.biceps: return l10n.biceps;
+      case MuscleGroup.triceps: return l10n.triceps;
+      case MuscleGroup.forearms: return l10n.forearms;
+      case MuscleGroup.abs: return l10n.abs;
+      case MuscleGroup.quads: return l10n.quads;
+      case MuscleGroup.hamstrings: return l10n.hamstrings;
+      case MuscleGroup.glutes: return l10n.glutes;
+      case MuscleGroup.calves: return l10n.calves;
+      case MuscleGroup.cardio: return l10n.cardio;
+      case MuscleGroup.fullBody: return l10n.fullBody;
+    }
+  }
+
+  Color _muscleColor(MuscleGroup muscle) {
+    switch (muscle) {
+      case MuscleGroup.chest: return AppColors.chest;
+      case MuscleGroup.back: return AppColors.back;
+      case MuscleGroup.shoulders: return AppColors.shoulders;
+      case MuscleGroup.biceps: return AppColors.biceps;
+      case MuscleGroup.triceps: return AppColors.triceps;
+      case MuscleGroup.forearms: return AppColors.forearms;
+      case MuscleGroup.abs: return AppColors.abs;
+      case MuscleGroup.quads: return AppColors.quads;
+      case MuscleGroup.hamstrings: return AppColors.hamstrings;
+      case MuscleGroup.glutes: return AppColors.glutes;
+      case MuscleGroup.calves: return AppColors.calves;
+      case MuscleGroup.cardio: return AppColors.cardio;
+      case MuscleGroup.fullBody: return AppColors.primary;
+    }
   }
 }
