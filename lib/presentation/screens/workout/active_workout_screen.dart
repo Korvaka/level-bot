@@ -77,6 +77,7 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
 
   PreferredSizeWidget _buildAppBar(
       BuildContext context, ActiveWorkoutState state) {
+    final l10n = AppLocalizations.of(context)!;
     return AppBar(
       leading: IconButton(
         icon: const Icon(Icons.close_rounded),
@@ -86,7 +87,7 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            state.session?.workoutDayName ?? 'Workout',
+            state.session?.workoutDayName ?? l10n.workout,
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
           ),
           Text(
@@ -263,6 +264,7 @@ class _ExerciseCardState extends ConsumerState<_ExerciseCard> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
@@ -300,7 +302,7 @@ class _ExerciseCardState extends ConsumerState<_ExerciseCard> {
                 Expanded(
                   flex: 3,
                   child: Text(
-                    'WEIGHT',
+                    l10n.weight.toUpperCase(),
                     style: context.textTheme.labelSmall?.copyWith(
                       color: context.colorScheme.onSurfaceVariant,
                     ),
@@ -309,7 +311,7 @@ class _ExerciseCardState extends ConsumerState<_ExerciseCard> {
                 Expanded(
                   flex: 2,
                   child: Text(
-                    'REPS',
+                    l10n.reps.toUpperCase(),
                     style: context.textTheme.labelSmall?.copyWith(
                       color: context.colorScheme.onSurfaceVariant,
                     ),
@@ -318,7 +320,7 @@ class _ExerciseCardState extends ConsumerState<_ExerciseCard> {
                 Expanded(
                   flex: 2,
                   child: Text(
-                    'RPE',
+                    l10n.rpe.toUpperCase(),
                     style: context.textTheme.labelSmall?.copyWith(
                       color: context.colorScheme.onSurfaceVariant,
                     ),
@@ -370,7 +372,7 @@ class _ExerciseCardState extends ConsumerState<_ExerciseCard> {
             child: TextButton.icon(
               onPressed: _addSet,
               icon: const Icon(Icons.add_rounded, size: 18),
-              label: const Text('Add Set'),
+              label: Text(AppLocalizations.of(context)!.addSet),
               style: TextButton.styleFrom(
                 minimumSize: const Size(double.infinity, 40),
               ),
@@ -385,6 +387,7 @@ class _ExerciseCardState extends ConsumerState<_ExerciseCard> {
 class _NoActiveWorkout extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
@@ -402,10 +405,10 @@ class _NoActiveWorkout extends ConsumerWidget {
                   color: Colors.white, size: 40),
             ),
             const SizedBox(height: 24),
-            Text('Ready to train?', style: context.textTheme.headlineSmall),
+            Text(l10n.readyToTrain, style: context.textTheme.headlineSmall),
             const SizedBox(height: 8),
             Text(
-              'Start a new workout or choose a program',
+              l10n.startWorkoutDescription,
               textAlign: TextAlign.center,
               style: context.textTheme.bodyMedium?.copyWith(
                 color: context.colorScheme.onSurfaceVariant,
@@ -421,7 +424,7 @@ class _NoActiveWorkout extends ConsumerWidget {
                     .startWorkout(userId: currentUser.id);
               },
               icon: const Icon(Icons.play_arrow_rounded),
-              label: const Text('Start Empty Workout'),
+              label: Text(l10n.startEmptyWorkout),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 52),
               ),
@@ -450,12 +453,12 @@ class _EmptyWorkout extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            'No exercises added',
+            AppLocalizations.of(context)!.noExercisesAdded,
             style: context.textTheme.titleMedium,
           ),
           const SizedBox(height: 8),
           Text(
-            'Add exercises to start tracking',
+            AppLocalizations.of(context)!.addExercisesToStart,
             style: context.textTheme.bodyMedium?.copyWith(
               color: context.colorScheme.onSurfaceVariant,
             ),

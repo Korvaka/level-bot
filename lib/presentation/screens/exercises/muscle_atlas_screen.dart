@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/theme/app_colors.dart';
@@ -43,21 +44,21 @@ Color _zoneColor(MuscleGroup m) {
   }
 }
 
-String _muscleName(MuscleGroup m) {
+String _muscleName(MuscleGroup m, AppLocalizations l10n) {
   switch (m) {
-    case MuscleGroup.chest:      return 'Chest';
-    case MuscleGroup.back:       return 'Back';
-    case MuscleGroup.shoulders:  return 'Shoulders';
-    case MuscleGroup.biceps:     return 'Biceps';
-    case MuscleGroup.triceps:    return 'Triceps';
-    case MuscleGroup.forearms:   return 'Forearms';
-    case MuscleGroup.abs:        return 'Abs';
-    case MuscleGroup.quads:      return 'Quads';
-    case MuscleGroup.hamstrings: return 'Hamstrings';
-    case MuscleGroup.glutes:     return 'Glutes';
-    case MuscleGroup.calves:     return 'Calves';
-    case MuscleGroup.cardio:     return 'Cardio';
-    case MuscleGroup.fullBody:   return 'Full Body';
+    case MuscleGroup.chest:      return l10n.chest;
+    case MuscleGroup.back:       return l10n.back;
+    case MuscleGroup.shoulders:  return l10n.shoulders;
+    case MuscleGroup.biceps:     return l10n.biceps;
+    case MuscleGroup.triceps:    return l10n.triceps;
+    case MuscleGroup.forearms:   return l10n.forearms;
+    case MuscleGroup.abs:        return l10n.abs;
+    case MuscleGroup.quads:      return l10n.quads;
+    case MuscleGroup.hamstrings: return l10n.hamstrings;
+    case MuscleGroup.glutes:     return l10n.glutes;
+    case MuscleGroup.calves:     return l10n.calves;
+    case MuscleGroup.cardio:     return l10n.cardio;
+    case MuscleGroup.fullBody:   return l10n.fullBody;
   }
 }
 
@@ -276,6 +277,7 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final zonesAsync = ref.watch(muscleZonesProvider);
     final exercisesAsync = ref.watch(allExercisesProvider);
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -288,7 +290,7 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
       appBar: AppBar(
         backgroundColor: bgColor,
         elevation: 0,
-        title: Text('Muscle Atlas',
+        title: Text(l10n.muscleAtlas,
             style: tt.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
         actions: [
           if (_selectedZoneIds.isNotEmpty)
@@ -298,7 +300,7 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
                 setState(() => _selectedZoneIds.clear());
               },
               icon: const Icon(Icons.clear_rounded, size: 16),
-              label: const Text('Clear'),
+              label: Text(l10n.clearSelection),
             ),
         ],
       ),
@@ -321,13 +323,13 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
                   duration: const Duration(milliseconds: 200),
                   child: _selectedZoneIds.isEmpty
                       ? Text(
-                          'Tap a muscle group to explore exercises',
+                          l10n.tapMuscleExplore,
                           key: const ValueKey('empty'),
                           style: tt.bodySmall?.copyWith(
                               color: cs.onSurfaceVariant),
                         )
                       : Text(
-                          '${_selectedZoneIds.length} muscle group${_selectedZoneIds.length == 1 ? '' : 's'} selected',
+                          '${_selectedZoneIds.length} ${l10n.musclesLabel}',
                           key: const ValueKey('selected'),
                           style: tt.bodySmall?.copyWith(
                             color: AppColors.primary,
@@ -351,7 +353,7 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
                         Expanded(
                           child: Column(
                             children: [
-                              Text('FRONT',
+                              Text(l10n.viewFront.toUpperCase(),
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w700,
@@ -434,7 +436,7 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
                         Expanded(
                           child: Column(
                             children: [
-                              Text('BACK',
+                              Text(l10n.viewBack.toUpperCase(),
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w700,
@@ -552,7 +554,7 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
                             children: [
                               Expanded(
                                 child: Text(
-                                  '${filtered.length} exercise${filtered.length == 1 ? '' : 's'}',
+                                  '${filtered.length} ${l10n.exercises}',
                                   style: tt.titleSmall
                                       ?.copyWith(color: cs.onSurfaceVariant),
                                 ),
@@ -567,8 +569,8 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
                                         horizontal: 12, vertical: 0),
                                     minimumSize: const Size(0, 32),
                                   ),
-                                  child: const Text('Create Program',
-                                      style: TextStyle(fontSize: 12)),
+                                  child: Text(l10n.createProgramFromMuscles,
+                                      style: const TextStyle(fontSize: 12)),
                                 ),
                             ],
                           ),
@@ -584,7 +586,7 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
                                           color: cs.onSurfaceVariant
                                               .withOpacity(0.35)),
                                       const SizedBox(height: 8),
-                                      Text('No exercises found',
+                                      Text(l10n.noExercisesFound,
                                           style: tt.bodyMedium?.copyWith(
                                               color: cs.onSurfaceVariant)),
                                     ],
@@ -620,7 +622,7 @@ class _MuscleAtlasScreenState extends ConsumerState<MuscleAtlasScreen>
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis),
                                       subtitle: Text(
-                                          _muscleName(ex.primaryMuscle),
+                                          _muscleName(ex.primaryMuscle, l10n),
                                           style: TextStyle(
                                               color: color,
                                               fontSize: 11,

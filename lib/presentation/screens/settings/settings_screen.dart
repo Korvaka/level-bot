@@ -54,7 +54,7 @@ class SettingsScreen extends ConsumerWidget {
           ListTile(
             leading: _IconBox(color: Colors.orange, icon: Icons.volume_up_rounded),
             title: Text(l10n.soundEffects),
-            subtitle: Text(audioSettings.enabled ? l10n.soundEnabled : 'Disabled'),
+            subtitle: Text(audioSettings.enabled ? l10n.soundEnabled : l10n.soundDisabled),
             trailing: Switch(
               value: audioSettings.enabled,
               onChanged: (v) =>

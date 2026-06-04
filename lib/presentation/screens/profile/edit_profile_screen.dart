@@ -167,7 +167,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                     color: AppColors.error,
                   ),
                   title: Text(
-                    'Remove Photo',
+                    AppLocalizations.of(context)!.removePhoto,
                     style: TextStyle(color: AppColors.error),
                   ),
                   onTap: () {
@@ -213,7 +213,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
         result.fold(
           (failure) => context.showErrorSnackBar(failure.message),
           (_) {
-            context.showSnackBar('Profile updated successfully');
+            context.showSnackBar(l10n.profileUpdatedSuccess);
             setState(() => _hasUnsavedChanges = false);
             context.pop();
           },
@@ -241,7 +241,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Edit Profile'),
+          title: Text(l10n.editProfile),
           centerTitle: true,
           leading: IconButton(
             icon: const Icon(Icons.close_rounded),
@@ -261,7 +261,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                   children: [
                     _buildPhotoSection(),
                     const SizedBox(height: 28),
-                    _sectionLabel('Basic Info'),
+                    _sectionLabel(l10n.basicInfo),
                     const SizedBox(height: 12),
                     AppTextField(
                       controller: _displayNameController,
@@ -291,18 +291,18 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                       maxLength: 150,
                       validator: (value) {
                         if (value != null && value.length > 150) {
-                          return 'Bio must be 150 characters or less';
+                          return l10n.bioMaxLength;
                         }
                         return null;
                       },
                     ),
                     const SizedBox(height: 24),
-                    _sectionLabel('Physical Stats'),
+                    _sectionLabel(l10n.physicalStats),
                     const SizedBox(height: 8),
                     Row(
                       children: [
                         Text(
-                          'Units:',
+                          '${l10n.units}:',
                           style: AppTextStyles.bodyMedium,
                         ),
                         const SizedBox(width: 12),
@@ -331,7 +331,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                         Expanded(
                           child: AppTextField(
                             controller: _heightController,
-                            label: _useMetric ? 'Height (cm)' : 'Height (in)',
+                            label: _useMetric ? l10n.heightCm : l10n.heightIn,
                             prefixIcon: Icons.height_rounded,
                             keyboardType: const TextInputType.numberWithOptions(
                               decimal: true,
@@ -359,9 +359,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                         Expanded(
                           child: AppTextField(
                             controller: _weightController,
-                            label: _useMetric
-                                ? 'Weight (kg)'
-                                : 'Weight (lbs)',
+                            label: _useMetric ? l10n.weightKg : l10n.weightLbs,
                             prefixIcon: Icons.monitor_weight_outlined,
                             keyboardType: const TextInputType.numberWithOptions(
                               decimal: true,
@@ -407,7 +405,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                       ],
                     ),
                     const SizedBox(height: 24),
-                    _sectionLabel('Fitness Level'),
+                    _sectionLabel(l10n.fitnessLevel),
                     const SizedBox(height: 12),
                     Wrap(
                       spacing: 8,
@@ -426,7 +424,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                       }).toList(),
                     ),
                     const SizedBox(height: 24),
-                    _sectionLabel('Fitness Goal'),
+                    _sectionLabel(l10n.fitnessGoal),
                     const SizedBox(height: 12),
                     Wrap(
                       spacing: 8,

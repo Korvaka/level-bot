@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:level_bot/core/theme/app_colors.dart';
 import 'package:level_bot/core/utils/formatters.dart';
 
@@ -55,6 +56,7 @@ class _RestTimerState extends State<RestTimer>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final progress = widget.totalSeconds > 0
         ? widget.seconds / widget.totalSeconds
         : 0.0;
@@ -106,9 +108,9 @@ class _RestTimerState extends State<RestTimer>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Rest Period',
-                  style: TextStyle(
+                Text(
+                  l10n.restPeriodTitle,
+                  style: const TextStyle(
                     color: Colors.white70,
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -116,7 +118,7 @@ class _RestTimerState extends State<RestTimer>
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  isAlmostDone ? 'Almost done!' : 'Recovery in progress...',
+                  isAlmostDone ? l10n.almostDoneRest : l10n.recoveryInProgress,
                   style: TextStyle(
                     color: isAlmostDone ? AppColors.secondary : Colors.white,
                     fontSize: 14,
@@ -137,7 +139,7 @@ class _RestTimerState extends State<RestTimer>
                 fontWeight: FontWeight.w700,
               ),
             ),
-            tooltip: 'Add 30 seconds',
+            tooltip: l10n.add30Seconds,
           ),
           // Skip button
           TextButton(
@@ -150,7 +152,7 @@ class _RestTimerState extends State<RestTimer>
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            child: const Text('Skip', style: TextStyle(fontSize: 13)),
+            child: Text(l10n.skip, style: const TextStyle(fontSize: 13)),
           ),
         ],
       ),

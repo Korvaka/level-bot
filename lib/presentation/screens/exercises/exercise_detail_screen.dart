@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -128,9 +129,9 @@ class _ExerciseDetailContent extends StatelessWidget {
         onPressed: () {},
         backgroundColor: primaryColor,
         icon: const Icon(Icons.add_rounded, color: Colors.white),
-        label: const Text(
-          'Add to Workout',
-          style: TextStyle(color: Colors.white),
+        label: Text(
+          AppLocalizations.of(context)!.addToWorkout,
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );
@@ -170,7 +171,7 @@ class _ExerciseDetailContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Muscles', style: context.textTheme.titleMedium),
+        Text(AppLocalizations.of(context)!.musclesLabel, style: context.textTheme.titleMedium),
         const SizedBox(height: 12),
         Row(
           children: [
@@ -197,7 +198,7 @@ class _ExerciseDetailContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Description', style: context.textTheme.titleMedium),
+        Text(AppLocalizations.of(context)!.description, style: context.textTheme.titleMedium),
         const SizedBox(height: 8),
         Text(
           exercise.description,
@@ -214,7 +215,7 @@ class _ExerciseDetailContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('How to perform', style: context.textTheme.titleMedium),
+        Text(AppLocalizations.of(context)!.howToPerform, style: context.textTheme.titleMedium),
         const SizedBox(height: 12),
         ...exercise.instructions.asMap().entries.map((entry) {
           return Padding(
@@ -259,7 +260,7 @@ class _ExerciseDetailContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Pro Tips', style: context.textTheme.titleMedium),
+        Text(AppLocalizations.of(context)!.proTips, style: context.textTheme.titleMedium),
         const SizedBox(height: 12),
         ...exercise.tips.map((tip) => Padding(
               padding: const EdgeInsets.only(bottom: 10),
