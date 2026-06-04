@@ -240,7 +240,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          l10n.dontHaveAccount,
+          '${l10n.dontHaveAccount} ',
           style: context.textTheme.bodyMedium?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),

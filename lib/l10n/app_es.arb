@@ -15,8 +15,8 @@
   "displayName": "Nombre para mostrar",
   "username": "Nombre de usuario",
   "confirmPassword": "Confirmar contraseña",
-  "alreadyHaveAccount": "¿Ya tienes cuenta? Iniciar sesión",
-  "dontHaveAccount": "¿No tienes cuenta? Regístrate",
+  "alreadyHaveAccount": "¿Ya tienes cuenta?",
+  "dontHaveAccount": "¿No tienes cuenta?",
   "feed": "Inicio",
   "programs": "Programas",
   "exercises": "Ejercicios",
@@ -168,7 +168,9 @@
   "resetLinkSent": "Enviamos un enlace de restablecimiento a\n{email}",
   "@resetLinkSent": {
     "placeholders": {
-      "email": {"type": "String"}
+      "email": {
+        "type": "String"
+      }
     }
   },
   "backToSignIn": "Volver a iniciar sesión",

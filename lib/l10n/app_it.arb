@@ -15,8 +15,8 @@
   "displayName": "Nome visualizzato",
   "username": "Nome utente",
   "confirmPassword": "Conferma password",
-  "alreadyHaveAccount": "Hai già un account? Accedi",
-  "dontHaveAccount": "Non hai un account? Registrati",
+  "alreadyHaveAccount": "Hai già un account?",
+  "dontHaveAccount": "Non hai un account?",
   "feed": "Feed",
   "programs": "Programmi",
   "exercises": "Esercizi",
@@ -171,7 +171,9 @@
   "resetLinkSent": "Abbiamo inviato un link di reimpostazione a\n{email}",
   "@resetLinkSent": {
     "placeholders": {
-      "email": {"type": "String"}
+      "email": {
+        "type": "String"
+      }
     }
   },
   "backToSignIn": "Torna all'accesso",

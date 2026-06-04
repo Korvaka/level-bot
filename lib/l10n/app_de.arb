@@ -15,8 +15,8 @@
   "displayName": "Anzeigename",
   "username": "Benutzername",
   "confirmPassword": "Passwort bestätigen",
-  "alreadyHaveAccount": "Bereits ein Konto? Anmelden",
-  "dontHaveAccount": "Kein Konto? Registrieren",
+  "alreadyHaveAccount": "Bereits ein Konto?",
+  "dontHaveAccount": "Kein Konto?",
   "feed": "Feed",
   "programs": "Programme",
   "exercises": "Übungen",
@@ -171,7 +171,9 @@
   "resetLinkSent": "Wir haben einen Reset-Link gesendet an\n{email}",
   "@resetLinkSent": {
     "placeholders": {
-      "email": {"type": "String"}
+      "email": {
+        "type": "String"
+      }
     }
   },
   "backToSignIn": "Zurück zur Anmeldung",

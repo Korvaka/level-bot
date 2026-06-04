@@ -15,8 +15,8 @@
   "displayName": "Weergavenaam",
   "username": "Gebruikersnaam",
   "confirmPassword": "Wachtwoord bevestigen",
-  "alreadyHaveAccount": "Al een account? Inloggen",
-  "dontHaveAccount": "Geen account? Registreren",
+  "alreadyHaveAccount": "Al een account?",
+  "dontHaveAccount": "Geen account?",
   "feed": "Feed",
   "programs": "Programma's",
   "exercises": "Oefeningen",
@@ -168,7 +168,9 @@
   "resetLinkSent": "We hebben een reset-link gestuurd naar\n{email}",
   "@resetLinkSent": {
     "placeholders": {
-      "email": {"type": "String"}
+      "email": {
+        "type": "String"
+      }
     }
   },
   "backToSignIn": "Terug naar inloggen",

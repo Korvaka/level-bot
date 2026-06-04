@@ -15,8 +15,8 @@
   "displayName": "Display Name",
   "username": "Username",
   "confirmPassword": "Confirm Password",
-  "alreadyHaveAccount": "Already have an account? Sign In",
-  "dontHaveAccount": "Don't have an account? Sign Up",
+  "alreadyHaveAccount": "Already have an account?",
+  "dontHaveAccount": "Don't have an account?",
   "feed": "Feed",
   "programs": "Programs",
   "exercises": "Exercises",
@@ -168,7 +168,9 @@
   "resetLinkSent": "We sent a password reset link to\n{email}",
   "@resetLinkSent": {
     "placeholders": {
-      "email": {"type": "String"}
+      "email": {
+        "type": "String"
+      }
     }
   },
   "backToSignIn": "Back to Sign In",

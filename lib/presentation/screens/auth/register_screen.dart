@@ -229,7 +229,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          l10n.alreadyHaveAccount,
+          '${l10n.alreadyHaveAccount} ',
           style: context.textTheme.bodyMedium?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),
