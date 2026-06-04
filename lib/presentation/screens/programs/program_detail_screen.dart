@@ -270,7 +270,7 @@ class _ProgramDetailContent extends ConsumerWidget {
     if (error != null) {
       context.showErrorSnackBar(error);
     } else {
-      context.showSnackBar('Program duplicated successfully');
+      context.showSnackBar(AppLocalizations.of(context)!.programDuplicatedSuccess);
     }
   }
 
@@ -283,29 +283,33 @@ class _ProgramDetailContent extends ConsumerWidget {
       context.showErrorSnackBar(error);
     } else {
       context.pop();
-      context.showSnackBar('Program archived');
+      context.showSnackBar(AppLocalizations.of(context)!.programArchived);
     }
   }
 
   Future<void> _handleDelete(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirm = await showDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Delete Program'),
-        content: Text(
-            'Are you sure you want to delete "${program.name}"? This cannot be undone.'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Delete',
-                style: TextStyle(color: Colors.red)),
-          ),
-        ],
-      ),
+      builder: (ctx) {
+        final l10n = AppLocalizations.of(ctx)!;
+        return AlertDialog(
+          title: const Text('Delete Program'),
+          content: Text(
+              'Are you sure you want to delete "${program.name}"? This cannot be undone.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: Text(l10n.cancel),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(true),
+              child: Text(l10n.delete,
+                  style: const TextStyle(color: Colors.red)),
+            ),
+          ],
+        );
+      },
     );
 
     if (confirm != true || !context.mounted) return;
@@ -318,7 +322,7 @@ class _ProgramDetailContent extends ConsumerWidget {
       context.showErrorSnackBar(error);
     } else {
       context.pop();
-      context.showSnackBar('Program deleted');
+      context.showSnackBar(l10n.programDeleted);
     }
   }
 

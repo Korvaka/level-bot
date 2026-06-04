@@ -220,11 +220,11 @@ class _AdminZoneEditorScreenState
             padding:
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: TextField(
-              decoration: const InputDecoration(
-                labelText: 'Zone Display Name (e.g. Pectoraux)',
+              decoration: InputDecoration(
+                labelText: l10n.zoneNameHint,
                 isDense: true,
                 contentPadding:
-                    EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               ),
               onChanged: (v) => _displayName = v,
             ),
@@ -281,7 +281,7 @@ class _AdminZoneEditorScreenState
                     onPressed: () =>
                         setState(() => _currentPolygon.clear()),
                     icon: const Icon(Icons.clear_rounded),
-                    label: const Text('Clear'),
+                    label: Text(l10n.clearSelection),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -319,7 +319,7 @@ class _AdminZoneEditorScreenState
                     Padding(
                       padding:
                           const EdgeInsets.fromLTRB(16, 8, 16, 4),
-                      child: Text('Saved Zones',
+                      child: Text(l10n.savedZonesLabel,
                           style:
                               Theme.of(context).textTheme.titleSmall),
                     ),
