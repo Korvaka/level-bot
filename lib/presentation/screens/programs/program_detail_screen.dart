@@ -293,7 +293,7 @@ class _ProgramDetailContent extends ConsumerWidget {
       builder: (ctx) {
         final l10n = AppLocalizations.of(ctx)!;
         return AlertDialog(
-          title: const Text('Delete Program'),
+          title: Text(l10n.deleteProgram),
           content: Text(
               'Are you sure you want to delete "${program.name}"? This cannot be undone.'),
           actions: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
@@ -21,7 +22,7 @@ class PostDetailScreen extends ConsumerWidget {
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           onPressed: () => context.pop(),
         ),
-        title: const Text('Post'),
+        title: Text(AppLocalizations.of(context)!.post),
       ),
       body: FutureBuilder(
         future: feedRepo.getPostById(postId),

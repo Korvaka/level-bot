@@ -159,7 +159,7 @@ class _CreateExerciseScreenState extends ConsumerState<CreateExerciseScreen> {
                 TextButton.icon(
                   onPressed: _addInstruction,
                   icon: const Icon(Icons.add_rounded, size: 16),
-                  label: const Text('Add Step'),
+                  label: Text(l10n.addStep),
                 ),
               ],
             ),
