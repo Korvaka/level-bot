@@ -40,20 +40,22 @@ async function seed() {
     batch.set(docRef, {
       name: exercise.name,
       description: exercise.description || '',
-      // seed JSON uses 'muscleGroup'; Firestore model expects 'primaryMuscle'
-      primaryMuscle: exercise.muscleGroup || exercise.primaryMuscle || 'chest',
+      // seed JSON may use 'muscleGroup'; Firestore model expects 'primaryMuscle'
+      primaryMuscle: exercise.primaryMuscle || exercise.muscleGroup || 'chest',
       secondaryMuscles: exercise.secondaryMuscles || [],
       equipment: exercise.equipment || 'none',
       category: exercise.category || 'compound',
       difficulty: exercise.difficulty || 'intermediate',
       instructions: exercise.instructions || [],
       tips: exercise.tips || [],
+      commonMistakes: exercise.commonMistakes || [],
       gifUrl: exercise.gifUrl || null,
       videoUrl: exercise.videoUrl || null,
       thumbnailUrl: exercise.thumbnailUrl || null,
       isCustom: false,
       createdBy: null,
       aliases: exercise.aliases || [],
+      videos: [],
     });
     count++;
 

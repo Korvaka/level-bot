@@ -306,5 +306,17 @@
   "addToWorkout": "Aan training toevoegen",
   "soundDisabled": "Uitgeschakeld",
   "follow": "Volgen",
-  "unfollow": "Ontvolgen"
+  "unfollow": "Ontvolgen",
+  "archive": "Archiveren",
+  "commonMistakes": "Veelgemaakte fouten",
+  "uploadVideo": "Video uploaden",
+  "adminPanel": "Beheerpaneel",
+  "noVideosAvailable": "Geen video's beschikbaar",
+  "videosLabel": "Video's",
+  "primaryVideo": "Primair",
+  "deleteVideo": "Video verwijderen",
+  "setAsPrimary": "Instellen als primair",
+  "addVideo": "Video toevoegen",
+  "videoAngle": "Camerahoek",
+  "safetyTips": "Veiligheidstips"
 }

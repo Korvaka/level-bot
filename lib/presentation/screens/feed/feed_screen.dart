@@ -207,6 +207,8 @@ class _GreetingSection extends StatelessWidget {
                     style: context.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.w800,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
               ],
             ),

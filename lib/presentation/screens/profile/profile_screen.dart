@@ -211,6 +211,8 @@ class _ProfileScaffold extends ConsumerWidget {
                                 style: AppTextStyles.bodyMedium.copyWith(
                                   color: Colors.white70,
                                 ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ],
                           ),

@@ -108,6 +108,8 @@ class _AchievementTile extends StatelessWidget {
                         ? context.colorScheme.onSurfaceVariant
                         : Colors.grey.shade500,
                   ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),

@@ -8,6 +8,7 @@ import 'package:level_bot/domain/entities/exercise_entity.dart';
 import 'package:level_bot/presentation/providers/exercise_provider.dart';
 import 'package:level_bot/presentation/widgets/common/app_error.dart';
 import 'package:level_bot/presentation/widgets/common/app_loading.dart';
+import 'package:level_bot/presentation/widgets/exercise/video_player_widget.dart';
 
 class ExerciseDetailScreen extends ConsumerWidget {
   const ExerciseDetailScreen({super.key, required this.exerciseId});
@@ -109,11 +110,19 @@ class _ExerciseDetailContent extends StatelessWidget {
                 children: [
                   _buildBadges(context, primaryColor),
                   const SizedBox(height: 24),
+                  if (exercise.videos.isNotEmpty) ...[
+                    _buildVideoPlayer(context),
+                    const SizedBox(height: 24),
+                  ],
                   _buildMuscles(context),
                   const SizedBox(height: 24),
                   _buildDescription(context),
                   const SizedBox(height: 24),
                   _buildInstructions(context),
+                  if (exercise.commonMistakes.isNotEmpty) ...[
+                    const SizedBox(height: 24),
+                    _buildCommonMistakes(context),
+                  ],
                   if (exercise.tips.isNotEmpty) ...[
                     const SizedBox(height: 24),
                     _buildTips(context),
@@ -252,6 +261,94 @@ class _ExerciseDetailContent extends StatelessWidget {
             ),
           );
         }),
+      ],
+    );
+  }
+
+  Widget _buildVideoPlayer(BuildContext context) {
+    final primary = exercise.primaryVideo!;
+    final hasMultiple = exercise.videos.length > 1;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(AppLocalizations.of(context)!.videosLabel,
+            style: context.textTheme.titleMedium),
+        const SizedBox(height: 12),
+        ExerciseVideoPlayer(
+          url: primary.url,
+          thumbnailUrl: primary.thumbnailUrl,
+          showControls: true,
+        ),
+        if (hasMultiple) ...[
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 72,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: exercise.videos.length,
+              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              itemBuilder: (_, i) {
+                final v = exercise.videos[i];
+                return GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: AppColors.darkCard,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: v.isPrimary
+                            ? AppColors.primary
+                            : Colors.transparent,
+                        width: 2,
+                      ),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: v.thumbnailUrl != null
+                          ? Image.network(v.thumbnailUrl!, fit: BoxFit.cover)
+                          : const Icon(Icons.play_circle_outline_rounded,
+                              color: AppColors.primary),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildCommonMistakes(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(AppLocalizations.of(context)!.commonMistakes,
+            style: context.textTheme.titleMedium),
+        const SizedBox(height: 12),
+        ...exercise.commonMistakes.map((mistake) => Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(
+                    Icons.warning_amber_rounded,
+                    size: 18,
+                    color: AppColors.warning,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      mistake,
+                      style: context.textTheme.bodyMedium?.copyWith(
+                        height: 1.5,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )),
       ],
     );
   }

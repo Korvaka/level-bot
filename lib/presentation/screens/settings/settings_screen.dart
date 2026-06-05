@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:level_bot/core/extensions/context_extensions.dart';
+import 'package:level_bot/core/router/app_router.dart';
 import 'package:level_bot/core/theme/app_colors.dart';
 import 'package:level_bot/presentation/providers/audio_provider.dart';
 import 'package:level_bot/presentation/providers/locale_provider.dart';
@@ -82,6 +83,15 @@ class SettingsScreen extends ConsumerWidget {
                 ],
               ),
             ),
+          const Divider(height: 1),
+          _SectionHeader(title: l10n.adminPanel),
+          ListTile(
+            leading: _IconBox(color: Colors.deepPurple, icon: Icons.fitness_center_rounded),
+            title: Text(l10n.videosLabel),
+            subtitle: Text(l10n.uploadVideo),
+            trailing: const Icon(Icons.chevron_right_rounded),
+            onTap: () => context.push(AppRoutes.adminExercises),
+          ),
           const Divider(height: 1),
           _SectionHeader(title: l10n.aboutSection),
           ListTile(

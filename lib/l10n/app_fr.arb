@@ -306,5 +306,17 @@
   "addToWorkout": "Ajouter à l'entraînement",
   "soundDisabled": "Désactivé",
   "follow": "Suivre",
-  "unfollow": "Ne plus suivre"
+  "unfollow": "Ne plus suivre",
+  "archive": "Archiver",
+  "commonMistakes": "Erreurs fréquentes",
+  "uploadVideo": "Uploader une vidéo",
+  "adminPanel": "Panneau admin",
+  "noVideosAvailable": "Aucune vidéo disponible",
+  "videosLabel": "Vidéos",
+  "primaryVideo": "Principal",
+  "deleteVideo": "Supprimer la vidéo",
+  "setAsPrimary": "Définir comme principal",
+  "addVideo": "Ajouter une vidéo",
+  "videoAngle": "Angle de caméra",
+  "safetyTips": "Conseils sécurité"
 }

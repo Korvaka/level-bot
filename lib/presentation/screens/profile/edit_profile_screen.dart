@@ -129,6 +129,8 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
   }
 
   void _showPhotoPickerSheet() {
+    final l10n = AppLocalizations.of(context)!;
+    final hasPhoto = _selectedPhoto != null || (_initialUser?.photoUrl?.isNotEmpty ?? false);
     showModalBottomSheet<void>(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -151,27 +153,23 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
               ),
               ListTile(
                 leading: const Icon(Icons.camera_alt_outlined),
-                title: Text(AppLocalizations.of(context)!.takePhoto),
+                title: Text(l10n.takePhoto),
                 onTap: () => _pickPhoto(ImageSource.camera),
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library_outlined),
-                title: Text(AppLocalizations.of(context)!.chooseFromLibrary),
+                title: Text(l10n.chooseFromLibrary),
                 onTap: () => _pickPhoto(ImageSource.gallery),
               ),
-              if (_selectedPhoto != null ||
-                  (_initialUser?.photoUrl?.isNotEmpty ?? false))
+              if (hasPhoto)
                 ListTile(
-                  leading: Icon(
-                    Icons.delete_outlined,
-                    color: AppColors.error,
-                  ),
+                  leading: const Icon(Icons.delete_outlined, color: AppColors.error),
                   title: Text(
-                    AppLocalizations.of(context)!.removePhoto,
-                    style: TextStyle(color: AppColors.error),
+                    l10n.removePhoto,
+                    style: const TextStyle(color: AppColors.error),
                   ),
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pop(ctx);
                     setState(() {
                       _selectedPhoto = null;
                       _hasUnsavedChanges = true;

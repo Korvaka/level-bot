@@ -16,9 +16,11 @@ class ExerciseModel extends ExerciseEntity {
     super.videoUrl,
     super.thumbnailUrl,
     super.tips,
+    super.commonMistakes,
     super.isCustom,
     super.createdBy,
     super.aliases,
+    super.videos,
   });
 
   factory ExerciseModel.fromFirestore(DocumentSnapshot doc) {
@@ -28,7 +30,9 @@ class ExerciseModel extends ExerciseEntity {
       name: data['name'] as String? ?? '',
       description: data['description'] as String? ?? '',
       primaryMuscle: MuscleGroup.values.firstWhere(
-        (e) => e.name == (data['primaryMuscle'] as String?),
+        (e) =>
+            e.name == (data['primaryMuscle'] as String?) ||
+            e.name == (data['muscleGroup'] as String?),
         orElse: () => MuscleGroup.chest,
       ),
       secondaryMuscles: (data['secondaryMuscles'] as List? ?? [])
@@ -39,7 +43,7 @@ class ExerciseModel extends ExerciseEntity {
           .toList(),
       equipment: Equipment.values.firstWhere(
         (e) => e.name == (data['equipment'] as String?),
-        orElse: () => Equipment.barbell,
+        orElse: () => Equipment.none,
       ),
       category: ExerciseCategory.values.firstWhere(
         (e) => e.name == (data['category'] as String?),
@@ -54,9 +58,13 @@ class ExerciseModel extends ExerciseEntity {
       videoUrl: data['videoUrl'] as String?,
       thumbnailUrl: data['thumbnailUrl'] as String?,
       tips: List<String>.from(data['tips'] as List? ?? []),
+      commonMistakes: List<String>.from(data['commonMistakes'] as List? ?? []),
       isCustom: data['isCustom'] as bool? ?? false,
       createdBy: data['createdBy'] as String?,
       aliases: List<String>.from(data['aliases'] as List? ?? []),
+      videos: (data['videos'] as List? ?? [])
+          .map((v) => ExerciseVideo.fromMap(v as Map<String, dynamic>))
+          .toList(),
     );
   }
 
@@ -66,7 +74,9 @@ class ExerciseModel extends ExerciseEntity {
       name: data['name'] as String? ?? '',
       description: data['description'] as String? ?? '',
       primaryMuscle: MuscleGroup.values.firstWhere(
-        (e) => e.name == (data['primaryMuscle'] as String?),
+        (e) =>
+            e.name == (data['primaryMuscle'] as String?) ||
+            e.name == (data['muscleGroup'] as String?),
         orElse: () => MuscleGroup.chest,
       ),
       secondaryMuscles: (data['secondaryMuscles'] as List? ?? [])
@@ -77,7 +87,7 @@ class ExerciseModel extends ExerciseEntity {
           .toList(),
       equipment: Equipment.values.firstWhere(
         (e) => e.name == (data['equipment'] as String?),
-        orElse: () => Equipment.barbell,
+        orElse: () => Equipment.none,
       ),
       category: ExerciseCategory.values.firstWhere(
         (e) => e.name == (data['category'] as String?),
@@ -92,9 +102,13 @@ class ExerciseModel extends ExerciseEntity {
       videoUrl: data['videoUrl'] as String?,
       thumbnailUrl: data['thumbnailUrl'] as String?,
       tips: List<String>.from(data['tips'] as List? ?? []),
+      commonMistakes: List<String>.from(data['commonMistakes'] as List? ?? []),
       isCustom: data['isCustom'] as bool? ?? false,
       createdBy: data['createdBy'] as String?,
       aliases: List<String>.from(data['aliases'] as List? ?? []),
+      videos: (data['videos'] as List? ?? [])
+          .map((v) => ExerciseVideo.fromMap(v as Map<String, dynamic>))
+          .toList(),
     );
   }
 
@@ -113,9 +127,11 @@ class ExerciseModel extends ExerciseEntity {
       videoUrl: entity.videoUrl,
       thumbnailUrl: entity.thumbnailUrl,
       tips: entity.tips,
+      commonMistakes: entity.commonMistakes,
       isCustom: entity.isCustom,
       createdBy: entity.createdBy,
       aliases: entity.aliases,
+      videos: entity.videos,
     );
   }
 
@@ -133,9 +149,11 @@ class ExerciseModel extends ExerciseEntity {
       'videoUrl': videoUrl,
       'thumbnailUrl': thumbnailUrl,
       'tips': tips,
+      'commonMistakes': commonMistakes,
       'isCustom': isCustom,
       'createdBy': createdBy,
       'aliases': aliases,
+      'videos': videos.map((v) => v.toMap()).toList(),
     };
   }
 }

@@ -95,11 +95,11 @@ class _ProgramDetailContent extends ConsumerWidget {
                     contentPadding: EdgeInsets.zero,
                   ),
                 ),
-                const PopupMenuItem(
+                PopupMenuItem(
                   value: 'archive',
                   child: ListTile(
-                    leading: Icon(Icons.archive_outlined),
-                    title: Text('Archive'),
+                    leading: const Icon(Icons.archive_outlined),
+                    title: Text(l10n.archive),
                     contentPadding: EdgeInsets.zero,
                   ),
                 ),
@@ -233,7 +233,7 @@ class _ProgramDetailContent extends ConsumerWidget {
               child: OutlinedButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.save_outlined),
-                label: const Text('Save'),
+                label: Text(l10n.save, overflow: TextOverflow.ellipsis),
               ),
             ),
             const SizedBox(width: 12),
@@ -243,7 +243,7 @@ class _ProgramDetailContent extends ConsumerWidget {
             child: ElevatedButton.icon(
               onPressed: () => _startWorkout(context, ref),
               icon: const Icon(Icons.play_arrow_rounded),
-              label: const Text('Start Workout'),
+              label: Text(l10n.startWorkout, overflow: TextOverflow.ellipsis),
             ),
           ),
         ],

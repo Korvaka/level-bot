@@ -22,6 +22,7 @@ import 'package:level_bot/presentation/screens/programs/program_detail_screen.da
 import 'package:level_bot/presentation/screens/programs/programs_screen.dart';
 import 'package:level_bot/presentation/screens/progress/progress_screen.dart';
 import 'package:level_bot/presentation/screens/splash/splash_screen.dart';
+import 'package:level_bot/presentation/screens/admin/admin_exercise_screen.dart';
 import 'package:level_bot/presentation/screens/admin/admin_zone_editor_screen.dart';
 import 'package:level_bot/presentation/screens/workout/active_workout_screen.dart';
 import 'package:level_bot/presentation/screens/workout/workout_history_screen.dart';
@@ -128,6 +129,11 @@ GoRouter appRouter(AppRouterRef ref) {
             builder: (context, state) => const AdminZoneEditorScreen(),
           ),
           GoRoute(
+            path: '/admin/exercises',
+            name: 'admin-exercises',
+            builder: (context, state) => const AdminExerciseScreen(),
+          ),
+          GoRoute(
             path: AppRoutes.exercises,
             name: 'exercises',
             builder: (context, state) => const ExerciseLibraryScreen(),
@@ -214,6 +220,7 @@ class AppRoutes {
   static const String muscleAtlas = '/exercises/atlas';
   static const String smartProgramBuilder = '/programs/smart-builder';
   static const String adminZoneEditor = '/admin/zones';
+  static const String adminExercises = '/admin/exercises';
 }
 
 class GoRouterRefreshStream extends ChangeNotifier {
