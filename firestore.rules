@@ -1,0 +1,202 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── Helper functions ──────────────────────────────────────────────────────
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
+    }
+
+    function isValidString(field, maxLen) {
+      return field is string && field.size() > 0 && field.size() <= maxLen;
+    }
+
+    function isValidNumber(field, minVal, maxVal) {
+      return field is number && field >= minVal && field <= maxVal;
+    }
+
+    function incomingData() {
+      return request.resource.data;
+    }
+
+    function existingData() {
+      return resource.data;
+    }
+
+    function affectedKeys() {
+      return incomingData().diff(existingData()).affectedKeys();
+    }
+
+    // ─── Users ─────────────────────────────────────────────────────────────────
+
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isOwner(userId)
+        && isValidString(incomingData().uid, 128)
+        && isValidString(incomingData().email, 320)
+        && isValidString(incomingData().username, 30)
+        && isValidString(incomingData().displayName, 100)
+        && incomingData().createdAt is timestamp;
+      allow update: if isOwner(userId)
+        && !affectedKeys().hasAny(['uid', 'email', 'createdAt']);
+      allow delete: if isOwner(userId) || isAdmin();
+    }
+
+    // ─── Usernames registry ────────────────────────────────────────────────────
+    // Used to enforce username uniqueness across the platform.
+
+    match /usernames/{username} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn()
+        && incomingData().uid == request.auth.uid
+        && isValidString(username, 30);
+      allow delete: if isSignedIn() && existingData().uid == request.auth.uid;
+      allow update: if false; // usernames are immutable — delete and recreate
+    }
+
+    // ─── Exercises ─────────────────────────────────────────────────────────────
+    // Public exercise library: all authenticated users can read.
+    // Only admins can write (exercises are curated by the platform).
+    // Users can add custom exercises under their own namespace.
+
+    match /exercises/{exerciseId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /users/{userId}/exercises/{exerciseId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isOwner(userId);
+    }
+
+    // ─── Favorites ─────────────────────────────────────────────────────────────
+
+    match /users/{userId}/favorites/{exerciseId} {
+      allow read: if isOwner(userId);
+      allow write: if isOwner(userId);
+    }
+
+    // ─── Programs ──────────────────────────────────────────────────────────────
+
+    match /programs/{programId} {
+      allow read: if isSignedIn() && (
+        resource.data.authorId == request.auth.uid ||
+        resource.data.isPublic == true
+      );
+      allow create: if isSignedIn()
+        && incomingData().authorId == request.auth.uid
+        && isValidString(incomingData().name, 100)
+        && incomingData().createdAt is timestamp;
+      allow update: if isSignedIn() && existingData().authorId == request.auth.uid
+        && incomingData().authorId == existingData().authorId;
+      allow delete: if isSignedIn() && existingData().authorId == request.auth.uid;
+    }
+
+    // ─── Workout Sessions ──────────────────────────────────────────────────────
+
+    match /workoutSessions/{sessionId} {
+      allow read, write: if isSignedIn() && (
+        (resource == null && incomingData().userId == request.auth.uid) ||
+        (resource != null && resource.data.userId == request.auth.uid)
+      );
+    }
+
+    // ─── Personal Records ──────────────────────────────────────────────────────
+
+    match /personalRecords/{recordId} {
+      allow read: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        // Allow reading others' PRs for social features
+        get(/databases/$(database)/documents/users/$(resource.data.userId)).data.isPublic == true
+      );
+      allow create: if isSignedIn() && incomingData().userId == request.auth.uid;
+      allow update: if isSignedIn() && existingData().userId == request.auth.uid;
+      allow delete: if isSignedIn() && existingData().userId == request.auth.uid;
+    }
+
+    // ─── Posts ─────────────────────────────────────────────────────────────────
+
+    match /posts/{postId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn()
+        && incomingData().authorId == request.auth.uid
+        && incomingData().createdAt is timestamp;
+      allow update: if isSignedIn() && (
+        // Author can update any field
+        existingData().authorId == request.auth.uid ||
+        // Any user can update only the likesCount and likedBy fields
+        (affectedKeys().hasOnly(['likesCount', 'likedBy']) &&
+         isValidNumber(incomingData().likesCount, 0, 1000000))
+      );
+      allow delete: if isSignedIn() && existingData().authorId == request.auth.uid;
+    }
+
+    // ─── Comments ──────────────────────────────────────────────────────────────
+
+    match /posts/{postId}/comments/{commentId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn()
+        && incomingData().authorId == request.auth.uid
+        && isValidString(incomingData().text, 500)
+        && incomingData().createdAt is timestamp;
+      allow update: if isSignedIn() && existingData().authorId == request.auth.uid
+        && affectedKeys().hasOnly(['text', 'editedAt']);
+      allow delete: if isSignedIn() && (
+        existingData().authorId == request.auth.uid ||
+        // Post author can delete comments on their own posts
+        get(/databases/$(database)/documents/posts/$(postId)).data.authorId == request.auth.uid
+      );
+    }
+
+    // ─── Likes ─────────────────────────────────────────────────────────────────
+    // Like document ID format: "{userId}_{postId}"
+
+    match /likes/{likeId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn()
+        && incomingData().userId == request.auth.uid
+        && incomingData().createdAt is timestamp;
+      allow delete: if isSignedIn() && existingData().userId == request.auth.uid;
+      allow update: if false; // likes are immutable
+    }
+
+    // ─── Follows ───────────────────────────────────────────────────────────────
+    // Follow document ID format: "{followerId}_{followingId}"
+
+    match /follows/{followId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn()
+        && incomingData().followerId == request.auth.uid
+        && incomingData().createdAt is timestamp;
+      allow delete: if isSignedIn() && existingData().followerId == request.auth.uid;
+      allow update: if false; // follows are immutable
+    }
+
+    // ─── Notifications ─────────────────────────────────────────────────────────
+
+    match /notifications/{userId}/items/{notificationId} {
+      allow read: if isOwner(userId);
+      allow create: if isSignedIn(); // system/other users can create notifications
+      allow update: if isOwner(userId)
+        && affectedKeys().hasOnly(['isRead', 'readAt']);
+      allow delete: if isOwner(userId);
+    }
+
+    // ─── FCM Tokens ────────────────────────────────────────────────────────────
+
+    match /fcmTokens/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow write: if isOwner(userId);
+    }
+  }
+}
