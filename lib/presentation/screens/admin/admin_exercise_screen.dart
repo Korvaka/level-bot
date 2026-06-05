@@ -385,21 +385,22 @@ class _VideoManagementPanelState
   }
 
   Future<void> _deleteVideo(BuildContext context, ExerciseVideo video) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirm = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Delete video?'),
-        content: const Text('This action cannot be undone.'),
+        title: Text(l10n.videoDeleteTitle),
+        content: Text(l10n.videoDeleteConfirm),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Cancel'),
+            child: Text(l10n.cancel),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(ctx, true),
             style:
                 ElevatedButton.styleFrom(backgroundColor: AppColors.error),
-            child: const Text('Delete'),
+            child: Text(l10n.delete),
           ),
         ],
       ),

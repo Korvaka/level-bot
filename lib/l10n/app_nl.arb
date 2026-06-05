@@ -318,5 +318,17 @@
   "setAsPrimary": "Instellen als primair",
   "addVideo": "Video toevoegen",
   "videoAngle": "Camerahoek",
-  "safetyTips": "Veiligheidstips"
+  "safetyTips": "Veiligheidstips",
+  "addStep": "Stap toevoegen",
+  "programInfo": "Programma-info",
+  "workoutDays": "Trainingsdagen",
+  "makePublic": "Openbaar maken",
+  "makePublicSubtitle": "Anderen kunnen uw programma vinden en gebruiken",
+  "addWorkoutDay": "Dag toevoegen",
+  "regenerate": "Opnieuw genereren",
+  "saveToPrograms": "Opslaan",
+  "deleteProgram": "Programma verwijderen",
+  "post": "Bericht",
+  "videoDeleteTitle": "Video verwijderen?",
+  "videoDeleteConfirm": "Deze actie kan niet ongedaan worden gemaakt."
 }

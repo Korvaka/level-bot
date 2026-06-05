@@ -424,7 +424,7 @@ class _ProfileInfo extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 44),
               ),
-              child: const Text('Edit Profile'),
+              child: Text(l10n.editProfile),
             )
           else
             SizedBox(
@@ -445,7 +445,7 @@ class _ProfileInfo extends StatelessWidget {
                         )
                       : ElevatedButton(
                           onPressed: onFollowToggle,
-                          child: const Text('Follow'),
+                          child: Text(l10n.follow),
                         ),
             ),
           const SizedBox(height: 8),
@@ -770,7 +770,7 @@ class _SettingsSheet extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.edit_outlined),
-              title: const Text('Edit Profile'),
+              title: Text(l10n.editProfile),
               onTap: () {
                 Navigator.pop(context);
                 context.push(AppRoutes.editProfile);

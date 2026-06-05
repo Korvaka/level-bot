@@ -318,5 +318,17 @@
   "setAsPrimary": "Set as primary",
   "addVideo": "Add video",
   "videoAngle": "Camera angle",
-  "safetyTips": "Safety Tips"
+  "safetyTips": "Safety Tips",
+  "addStep": "Add Step",
+  "programInfo": "Program Info",
+  "workoutDays": "Workout Days",
+  "makePublic": "Make Public",
+  "makePublicSubtitle": "Others can find and use your program",
+  "addWorkoutDay": "Add Workout Day",
+  "regenerate": "Regenerate",
+  "saveToPrograms": "Save to Programs",
+  "deleteProgram": "Delete Program",
+  "post": "Post",
+  "videoDeleteTitle": "Delete video?",
+  "videoDeleteConfirm": "This action cannot be undone."
 }

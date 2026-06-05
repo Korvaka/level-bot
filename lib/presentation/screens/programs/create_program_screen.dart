@@ -153,13 +153,13 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
         },
         steps: [
           Step(
-            title: const Text('Program Info'),
+            title: Text(l10n.programInfo),
             isActive: _currentStep >= 0,
             state: _currentStep > 0 ? StepState.complete : StepState.indexed,
             content: _buildStep1(),
           ),
           Step(
-            title: const Text('Workout Days'),
+            title: Text(l10n.workoutDays),
             isActive: _currentStep >= 1,
             state: _currentStep > 1 ? StepState.complete : StepState.indexed,
             content: _buildStep2(),
@@ -263,8 +263,8 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
         ),
         const SizedBox(height: 8),
         SwitchListTile(
-          title: const Text('Make Public'),
-          subtitle: const Text('Others can find and use your program'),
+          title: Text(l10n.makePublic),
+          subtitle: Text(l10n.makePublicSubtitle),
           value: _isPublic,
           onChanged: (v) => setState(() => _isPublic = v),
           contentPadding: EdgeInsets.zero,
@@ -309,7 +309,7 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
         OutlinedButton.icon(
           onPressed: _addDay,
           icon: const Icon(Icons.add_rounded),
-          label: const Text('Add Workout Day'),
+          label: Text(l10n.addWorkoutDay),
           style: OutlinedButton.styleFrom(
             minimumSize: const Size(double.infinity, 48),
           ),

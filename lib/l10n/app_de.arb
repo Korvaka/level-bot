@@ -318,5 +318,17 @@
   "setAsPrimary": "Als primär festlegen",
   "addVideo": "Video hinzufügen",
   "videoAngle": "Kamerawinkel",
-  "safetyTips": "Sicherheitstipps"
+  "safetyTips": "Sicherheitstipps",
+  "addStep": "Schritt hinzufügen",
+  "programInfo": "Programm-Info",
+  "workoutDays": "Trainingstage",
+  "makePublic": "Öffentlich machen",
+  "makePublicSubtitle": "Andere können Ihr Programm finden und nutzen",
+  "addWorkoutDay": "Trainingstag hinzufügen",
+  "regenerate": "Neu generieren",
+  "saveToPrograms": "Speichern",
+  "deleteProgram": "Programm löschen",
+  "post": "Beitrag",
+  "videoDeleteTitle": "Video löschen?",
+  "videoDeleteConfirm": "Diese Aktion kann nicht rückgängig gemacht werden."
 }
