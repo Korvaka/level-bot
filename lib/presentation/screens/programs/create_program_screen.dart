@@ -274,6 +274,7 @@ class _CreateProgramScreenState extends ConsumerState<CreateProgramScreen> {
   }
 
   Widget _buildStep2() {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
