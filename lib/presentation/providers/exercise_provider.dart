@@ -123,4 +123,45 @@ class ExerciseNotifier extends StateNotifier<AsyncValue<void>> {
       },
     );
   }
+
+  Future<String?> updateExerciseVideos(
+      String exerciseId, List<ExerciseVideo> videos) async {
+    final currentResult =
+        await _repository.getExerciseById(exerciseId);
+    return currentResult.fold(
+      (failure) => failure.message,
+      (exercise) async {
+        // Build updated entity with new videos
+        final updated = ExerciseEntity(
+          id: exercise.id,
+          name: exercise.name,
+          description: exercise.description,
+          primaryMuscle: exercise.primaryMuscle,
+          secondaryMuscles: exercise.secondaryMuscles,
+          equipment: exercise.equipment,
+          category: exercise.category,
+          difficulty: exercise.difficulty,
+          instructions: exercise.instructions,
+          gifUrl: exercise.gifUrl,
+          videoUrl: exercise.videoUrl,
+          thumbnailUrl: exercise.thumbnailUrl,
+          tips: exercise.tips,
+          commonMistakes: exercise.commonMistakes,
+          isCustom: exercise.isCustom,
+          createdBy: exercise.createdBy,
+          aliases: exercise.aliases,
+          videos: videos,
+        );
+        final updateResult = await _repository.updateExercise(updated);
+        return updateResult.fold(
+          (failure) => failure.message,
+          (_) {
+            _ref.invalidate(allExercisesProvider);
+            _ref.invalidate(exerciseByIdProvider(exerciseId));
+            return null;
+          },
+        );
+      },
+    );
+  }
 }

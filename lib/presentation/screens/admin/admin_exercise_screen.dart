@@ -430,16 +430,18 @@ class _VideoManagementPanelState
   }
 
   Future<void> _updateExerciseVideos(List<ExerciseVideo> videos) async {
-    // Update Firestore via exercise notifier
-    // For now update the local state and invalidate provider
-    // In production this would call a proper repository method
-    final notifier = ref.read(exerciseNotifierProvider.notifier);
-    // Build a pseudo-entity with updated videos to trigger a refresh
-    // The actual Firestore update is done via a direct update in the notifier
-    ref.invalidate(allExercisesProvider);
-    ref.invalidate(exerciseByIdProvider(widget.exercise.id));
+    final error = await ref
+        .read(exerciseNotifierProvider.notifier)
+        .updateExerciseVideos(widget.exercise.id, videos);
 
-    // Update local state for immediate UI feedback
+    if (error != null && mounted) {
+      final l10n = AppLocalizations.of(context)!;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(error), backgroundColor: AppColors.error),
+      );
+    }
+
+    // Optimistic local update for immediate feedback
     final updatedExercise = _exerciseWithVideos(widget.exercise, videos);
     widget.onUpdated(updatedExercise);
   }
