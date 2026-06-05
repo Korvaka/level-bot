@@ -2,7 +2,6 @@
   {
     "id": "barbell_bench_press",
     "name": "Barbell Bench Press",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "triceps",
       "shoulders"
@@ -21,14 +20,25 @@
       "Drive your feet into the floor for full-body tension.",
       "The bar path should be slightly diagonal, not straight up and down."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "A fundamental compound pressing movement performed lying on a flat bench. Primarily targets the pectorals with significant tricep and shoulder involvement.",
+    "aliases": [
+      "bench press",
+      "flat bench press",
+      "BB bench press"
+    ],
+    "commonMistakes": [
+      "Flaring the elbows out to 90 degrees, which stresses the shoulder joint.",
+      "Bouncing the bar off the chest instead of controlling the descent.",
+      "Losing leg drive and arch, which destabilizes the entire lift."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "incline_db_press",
     "name": "Incline Dumbbell Press",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "triceps",
       "shoulders"
@@ -37,7 +47,7 @@
     "category": "compound",
     "difficulty": "intermediate",
     "instructions": [
-      "Set a bench to a 30\u201345 degree incline.",
+      "Set a bench to a 30–45 degree incline.",
       "Hold a dumbbell in each hand at chest level, palms facing forward.",
       "Press the dumbbells up and together until arms are fully extended.",
       "Lower them slowly back to the starting position.",
@@ -47,14 +57,24 @@
       "A 30-degree incline focuses more on the upper chest than 45 degrees.",
       "Avoid letting the dumbbells drift too wide at the bottom."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "A compound pressing exercise on an inclined bench using dumbbells. Emphasizes the upper chest (clavicular head) more than flat pressing.",
+    "aliases": [
+      "incline press",
+      "incline dumbbell press"
+    ],
+    "commonMistakes": [
+      "Setting the bench too steep (above 45 degrees) which shifts emphasis to front delts.",
+      "Allowing the dumbbells to drift too wide at the bottom of the movement.",
+      "Losing scapular retraction midway through the set."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "cable_fly",
     "name": "Cable Fly",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "shoulders"
     ],
@@ -66,20 +86,31 @@
       "Stand in the center of the cable machine with a staggered stance.",
       "With a slight bend in the elbows, bring your hands together in front of you.",
       "Slowly open your arms back to the starting position feeling the chest stretch.",
-      "Maintain constant tension \u2014 do not let the weight stack touch."
+      "Maintain constant tension — do not let the weight stack touch."
     ],
     "tips": [
       "Imagine hugging a large tree to get the right movement pattern.",
       "The lower the cable position, the more upper chest activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "An isolation chest exercise using cable pulleys set at shoulder height. Provides constant tension throughout the full arc of motion.",
+    "aliases": [
+      "cable flye",
+      "cable crossover fly",
+      "pec fly"
+    ],
+    "commonMistakes": [
+      "Using too much weight and bending the elbows excessively, turning it into a press.",
+      "Allowing the weight stack to touch between reps, losing tension.",
+      "Not maintaining a slight bend in the elbow throughout."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "chest_dips",
     "name": "Chest Dips",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "triceps",
       "shoulders"
@@ -89,23 +120,33 @@
     "difficulty": "intermediate",
     "instructions": [
       "Grip parallel bars and support your body with arms extended.",
-      "Lean your torso slightly forward (15\u201330 degrees) to target the chest.",
+      "Lean your torso slightly forward (15–30 degrees) to target the chest.",
       "Lower your body by bending your elbows until you feel a chest stretch.",
       "Press back up to the starting position.",
       "Add weight via a dip belt for progressive overload."
     ],
     "tips": [
       "Leaning forward increases chest activation; upright increases tricep focus.",
-      "Do not bounce at the bottom \u2014 control the descent."
+      "Do not bounce at the bottom — control the descent."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "A bodyweight compound movement performed on parallel bars with a forward lean. Effectively targets the lower and outer chest fibers.",
+    "aliases": [
+      "weighted dips",
+      "parallel bar dips"
+    ],
+    "commonMistakes": [
+      "Staying too upright, which shifts focus from chest to triceps.",
+      "Bouncing at the bottom of the rep instead of controlling the stretch.",
+      "Going too deep and straining the shoulder joint."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "push_ups",
     "name": "Push-Ups",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "triceps",
       "shoulders",
@@ -125,14 +166,24 @@
       "For more chest activation, use a wider hand position.",
       "Elevate your feet to increase difficulty and upper chest emphasis."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "A classic bodyweight pressing exercise performed on the floor. Develops the chest, triceps, and shoulders while also engaging the core.",
+    "aliases": [
+      "press-ups",
+      "floor push-ups"
+    ],
+    "commonMistakes": [
+      "Letting the hips sag, turning the movement into a back-bending exercise.",
+      "Placing hands too wide or too narrow for comfort.",
+      "Only performing partial reps without touching the chest to the floor."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "decline_bench_press",
     "name": "Decline Barbell Bench Press",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "triceps"
     ],
@@ -140,7 +191,7 @@
     "category": "compound",
     "difficulty": "intermediate",
     "instructions": [
-      "Set the bench to a 15\u201330 degree decline.",
+      "Set the bench to a 15–30 degree decline.",
       "Secure your feet under the ankle pads.",
       "Grip the barbell at shoulder-width and unrack.",
       "Lower the bar to your lower chest.",
@@ -148,16 +199,26 @@
     ],
     "tips": [
       "The decline press targets the lower pectoral fibers.",
-      "Use a spotter \u2014 getting pinned on a decline bench is dangerous."
+      "Use a spotter — getting pinned on a decline bench is dangerous."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "A barbell press performed on a decline bench to target the lower pectoral fibers. Reduces shoulder strain compared to flat pressing for some lifters.",
+    "aliases": [
+      "decline press",
+      "decline BB press"
+    ],
+    "commonMistakes": [
+      "Not using a spotter when getting pinned is especially dangerous on a decline.",
+      "Gripping too wide and flaring the elbows excessively.",
+      "Rushing through the eccentric phase without control."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "pec_deck",
     "name": "Pec Deck Machine",
-    "muscleGroup": "chest",
     "secondaryMuscles": [],
     "equipment": "machine",
     "category": "isolation",
@@ -173,14 +234,25 @@
       "Adjust the seat so that the pads are at chest level.",
       "Focus on squeezing the chest at the peak contraction."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "A machine isolation exercise that mimics the fly motion with forearm pads. Provides a strong mid-range and peak contraction for the chest.",
+    "aliases": [
+      "pec deck fly",
+      "butterfly machine",
+      "chest fly machine"
+    ],
+    "commonMistakes": [
+      "Positioning the elbows too high, which can cause shoulder impingement.",
+      "Using momentum to swing the pads together.",
+      "Not adjusting the seat height so pads are at chest level."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "db_pullover",
     "name": "Dumbbell Pullover",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "back",
       "triceps"
@@ -197,16 +269,26 @@
     ],
     "tips": [
       "Keep your hips low to maximize the stretch.",
-      "This exercise works both the chest and lats \u2014 adjust focus with torso angle."
+      "This exercise works both the chest and lats — adjust focus with torso angle."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A unique exercise where a dumbbell is lowered behind the head while lying on a bench. Engages both the chest and lats depending on torso angle.",
+    "aliases": [
+      "dumbbell pullover",
+      "straight-arm pullover"
+    ],
+    "commonMistakes": [
+      "Bending the elbows too much, reducing the stretch and making it a tricep exercise.",
+      "Raising the hips during the movement, reducing the stretch.",
+      "Using too much weight before mastering the movement."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "barbell_row",
     "name": "Barbell Row",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps",
       "shoulders",
@@ -223,17 +305,28 @@
       "Lower the bar in a controlled manner back to the starting position."
     ],
     "tips": [
-      "Keep your lower back flat \u2014 do not round under load.",
+      "Keep your lower back flat — do not round under load.",
       "Pull to the lower abdomen for more lat activation; upper abdomen for more upper back."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A heavy compound rowing movement performed in a hinged torso position. One of the best exercises for overall back thickness and lat width.",
+    "aliases": [
+      "bent-over row",
+      "BB row",
+      "bent over barbell row"
+    ],
+    "commonMistakes": [
+      "Rounding the lower back under heavy load.",
+      "Using too much torso swing to lift the bar.",
+      "Pulling the bar to the upper chest instead of the lower abdomen."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "pull_up",
     "name": "Pull-Up",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps",
       "shoulders"
@@ -252,14 +345,25 @@
       "Think of pulling your elbows down to your hips for maximum lat activation.",
       "Add weight via a dip belt or weight vest for progressive overload."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A demanding bodyweight compound pulling movement on a bar. Builds the lats, biceps, and upper back effectively.",
+    "aliases": [
+      "pullup",
+      "overhand pull-up",
+      "dead hang pull-up"
+    ],
+    "commonMistakes": [
+      "Using a kipping motion to complete reps with poor form.",
+      "Not achieving full arm extension at the bottom of each rep.",
+      "Pulling with the biceps rather than initiating with the lats."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "lat_pulldown",
     "name": "Lat Pulldown",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps",
       "shoulders"
@@ -275,20 +379,30 @@
       "Slowly extend your arms to return to the starting position."
     ],
     "tips": [
-      "Avoid pulling the bar behind your neck \u2014 it strains the cervical spine.",
+      "Avoid pulling the bar behind your neck — it strains the cervical spine.",
       "Focus on driving your elbows to your hips, not pulling with your arms."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A cable-machine pulling exercise that mimics the pull-up motion. An excellent alternative for those who cannot yet perform pull-ups.",
+    "aliases": [
+      "pulldown",
+      "lat pull-down"
+    ],
+    "commonMistakes": [
+      "Pulling the bar behind the neck, straining the cervical spine.",
+      "Leaning back excessively and turning it into a row.",
+      "Not fully extending the arms at the top of the movement."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "seated_cable_row",
     "name": "Seated Cable Row",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps",
-      "traps"
+      "back"
     ],
     "equipment": "cable",
     "category": "compound",
@@ -301,20 +415,30 @@
       "Slowly extend your arms while keeping your torso upright."
     ],
     "tips": [
-      "Avoid rounding your lower back \u2014 keep a neutral spine.",
+      "Avoid rounding your lower back — keep a neutral spine.",
       "Do not lean back excessively; use your back muscles, not momentum."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A compound rowing exercise using a cable machine while seated. Targets the mid-back, lats, and biceps with constant tension.",
+    "aliases": [
+      "cable row",
+      "seated row"
+    ],
+    "commonMistakes": [
+      "Rounding the lower back during the row.",
+      "Leaning back excessively to generate momentum.",
+      "Not fully extending the arms between reps."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "tbar_row",
     "name": "T-Bar Row",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps",
-      "traps"
+      "back"
     ],
     "equipment": "barbell",
     "category": "compound",
@@ -330,18 +454,28 @@
       "Use a V-handle attachment to allow full range of motion.",
       "Keep your chest up and back flat to prevent injury."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A compound rowing exercise using one end of a loaded barbell. Allows heavy loading and targets the entire back musculature.",
+    "aliases": [
+      "T-bar row",
+      "landmine row"
+    ],
+    "commonMistakes": [
+      "Rounding the lower back under heavy load.",
+      "Jerking the weight up using momentum.",
+      "Not achieving a full squeeze of the shoulder blades at the top."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "conventional_deadlift",
     "name": "Conventional Deadlift",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "glutes",
       "hamstrings",
-      "traps",
+      "back",
       "abs"
     ],
     "equipment": "barbell",
@@ -358,14 +492,25 @@
       "Think 'push the floor away' rather than 'pull the bar up'.",
       "Keep the bar in contact with your shins and thighs throughout the lift."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "The foundational barbell pulling movement from the floor. Works the entire posterior chain including back, glutes, and hamstrings.",
+    "aliases": [
+      "deadlift",
+      "pull",
+      "dead lift"
+    ],
+    "commonMistakes": [
+      "Rounding the lower back, especially during the initial pull from the floor.",
+      "Letting the bar drift away from the body during the pull.",
+      "Jerking the bar from the floor instead of applying steady pressure."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "face_pull",
     "name": "Face Pull",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "shoulders",
       "biceps"
@@ -382,16 +527,25 @@
     ],
     "tips": [
       "An excellent exercise for rear delt and rotator cuff health.",
-      "High reps (15\u201320) work well for this isolation exercise."
+      "High reps (15–20) work well for this isolation exercise."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A cable exercise pulling a rope to the face with elbows high. Excellent for rear delt and rotator cuff health and development.",
+    "aliases": [
+      "rope face pull"
+    ],
+    "commonMistakes": [
+      "Setting the cable too low so elbows drop below shoulder height.",
+      "Using too much weight and pulling with the biceps instead of rear delts.",
+      "Not separating the rope ends at the peak contraction."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "single_arm_db_row",
     "name": "Single-Arm Dumbbell Row",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps"
     ],
@@ -409,17 +563,27 @@
       "Allow the shoulder blade to protract fully at the bottom for full range of motion.",
       "Keep your hips and shoulders square to the bench."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A unilateral rowing movement performed with one hand and knee supported on a bench. Allows a full range of motion for each side independently.",
+    "aliases": [
+      "one arm dumbbell row",
+      "single arm row"
+    ],
+    "commonMistakes": [
+      "Rotating the hips to use momentum rather than isolating the back.",
+      "Not allowing the shoulder blade to fully protract at the bottom.",
+      "Pulling the dumbbell to the hip by bending the elbow instead of driving it back."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "overhead_press",
     "name": "Barbell Overhead Press",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
       "triceps",
-      "traps"
+      "back"
     ],
     "equipment": "barbell",
     "category": "compound",
@@ -432,17 +596,28 @@
       "Lower the bar back to chin height under control."
     ],
     "tips": [
-      "Keep your core braced and glutes squeezed \u2014 avoid hyperextending the lower back.",
+      "Keep your core braced and glutes squeezed — avoid hyperextending the lower back.",
       "Slightly tilt the bar path back to vertical by moving your head forward."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A standing barbell press overhead that builds shoulder strength and mass. Also engages the triceps and upper traps significantly.",
+    "aliases": [
+      "OHP",
+      "military press",
+      "standing press"
+    ],
+    "commonMistakes": [
+      "Hyperextending the lower back instead of keeping a neutral spine.",
+      "Pressing straight up instead of slightly back behind the head.",
+      "Not locking out the arms fully overhead."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "db_lateral_raise",
     "name": "Dumbbell Lateral Raise",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [],
     "equipment": "dumbbell",
     "category": "isolation",
@@ -458,14 +633,25 @@
       "Avoid using momentum by swinging your torso.",
       "Slightly tilting the dumbbell (pinky higher than thumb) increases lateral head activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "An isolation movement raising dumbbells out to the sides. The primary exercise for developing the medial (lateral) deltoid head.",
+    "aliases": [
+      "lateral raise",
+      "side raise",
+      "DB lateral"
+    ],
+    "commonMistakes": [
+      "Swinging the torso to generate momentum.",
+      "Raising the dumbbells too high above parallel, shifting to traps.",
+      "Bending the elbows too much, reducing lateral delt tension."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "db_front_raise",
     "name": "Dumbbell Front Raise",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
       "chest"
     ],
@@ -480,17 +666,27 @@
       "Can be done alternating or simultaneously."
     ],
     "tips": [
-      "Avoid swinging \u2014 keep movements slow and controlled.",
+      "Avoid swinging — keep movements slow and controlled.",
       "Use lighter weight than lateral raises as the anterior delt is stronger."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "An isolation exercise raising dumbbells forward to shoulder height. Primarily targets the anterior (front) deltoid head.",
+    "aliases": [
+      "front raise",
+      "anterior raise"
+    ],
+    "commonMistakes": [
+      "Swinging the body to create momentum.",
+      "Raising the dumbbells above shoulder height unnecessarily.",
+      "Using too heavy a weight and compromising form."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "reverse_fly",
     "name": "Reverse Dumbbell Fly",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
       "back"
     ],
@@ -508,14 +704,25 @@
       "Keep the movement in the plane of your back, not in front of you.",
       "Can also be done on a rear-delt machine or with cables."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A bent-over isolation exercise raising dumbbells laterally. Effectively targets the posterior deltoids and upper back.",
+    "aliases": [
+      "rear fly",
+      "bent-over reverse fly",
+      "rear delt fly"
+    ],
+    "commonMistakes": [
+      "Rounding the back instead of maintaining a flat torso.",
+      "Swinging the arms rather than using controlled lateral raises.",
+      "Moving arms in front of the torso plane instead of in line with the back."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "arnold_press",
     "name": "Arnold Press",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
       "triceps"
     ],
@@ -531,18 +738,27 @@
     ],
     "tips": [
       "The rotating motion of the Arnold Press hits all three delt heads.",
-      "Do not go too heavy \u2014 control matters more than load here."
+      "Do not go too heavy — control matters more than load here."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A dumbbell shoulder press invented by Arnold Schwarzenegger with a rotating palm motion. Uniquely hits all three deltoid heads through its full range.",
+    "aliases": [
+      "Arnold dumbbell press"
+    ],
+    "commonMistakes": [
+      "Rushing through the rotation and skipping the full range of motion.",
+      "Using too much weight and losing the rotational control.",
+      "Flaring the elbows excessively at the bottom."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "upright_row",
     "name": "Barbell Upright Row",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
-      "traps",
+      "back",
       "biceps"
     ],
     "equipment": "barbell",
@@ -551,7 +767,7 @@
     "instructions": [
       "Stand with a barbell in front of you, overhand grip shoulder-width or closer.",
       "Pull the bar up along your body until it reaches chin level.",
-      "Lead with your elbows \u2014 they should be above your hands at the top.",
+      "Lead with your elbows — they should be above your hands at the top.",
       "Lower the bar with control.",
       "Keep the bar close to your body throughout."
     ],
@@ -559,14 +775,23 @@
       "Use a wider grip to reduce impingement risk.",
       "Do not pull the bar behind the vertical plane of your shoulders."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A compound pulling movement raising a barbell to chin level with elbows high. Works the lateral delts and traps simultaneously.",
+    "aliases": [
+      "upright barbell row"
+    ],
+    "commonMistakes": [
+      "Using a grip too narrow, increasing shoulder impingement risk.",
+      "Raising the elbows above the bar height at the top.",
+      "Using excessive body swing to initiate the pull."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "cable_lateral_raise",
     "name": "Cable Lateral Raise",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [],
     "equipment": "cable",
     "category": "isolation",
@@ -582,16 +807,25 @@
       "Cross your arm slightly in front of your body at the start for a better line of pull.",
       "Keep a slight bend in the elbow throughout."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A lateral raise variation using a low cable pulley for constant tension. Provides resistance throughout the full range unlike dumbbells.",
+    "aliases": [
+      "cable side raise"
+    ],
+    "commonMistakes": [
+      "Leaning too far away from the machine to use heavier weight.",
+      "Bending the elbow too much and turning it into a row.",
+      "Not maintaining consistent tension throughout the set."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "barbell_shrug",
     "name": "Barbell Shrug",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
-      "traps"
+      "back"
     ],
     "equipment": "barbell",
     "category": "isolation",
@@ -601,20 +835,30 @@
       "Shrug your shoulders straight up toward your ears.",
       "Hold for 1 second at the top.",
       "Lower the shoulders with control.",
-      "Avoid rolling the shoulders \u2014 only vertical movement."
+      "Avoid rolling the shoulders — only vertical movement."
     ],
     "tips": [
-      "Heavy weight and moderate reps (8\u201312) build thick traps.",
+      "Heavy weight and moderate reps (8–12) build thick traps.",
       "Use wrist straps if grip becomes the limiting factor."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A simple trap isolation exercise shrugging a barbell upward. The primary movement for building upper trap thickness and size.",
+    "aliases": [
+      "shrug",
+      "BB shrug"
+    ],
+    "commonMistakes": [
+      "Rolling the shoulders forward or backward instead of straight up.",
+      "Using too much weight with partial range of motion.",
+      "Not pausing briefly at the top of the shrug."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "barbell_curl",
     "name": "Barbell Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [
       "forearms"
     ],
@@ -629,17 +873,27 @@
       "Lower with control back to the starting position."
     ],
     "tips": [
-      "Avoid swinging your body \u2014 keep tension on the biceps.",
+      "Avoid swinging your body — keep tension on the biceps.",
       "A straight bar emphasizes the long head; an EZ-bar reduces wrist strain."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "The classic standing curl with a barbell using an underhand grip. A fundamental bicep mass builder allowing heavy loading.",
+    "aliases": [
+      "standing barbell curl",
+      "BB curl"
+    ],
+    "commonMistakes": [
+      "Swinging the body to assist the curl.",
+      "Letting the upper arms drift forward at the top of the movement.",
+      "Using a grip that is too wide, reducing bicep activation."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "db_curl",
     "name": "Dumbbell Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [
       "forearms"
     ],
@@ -657,14 +911,24 @@
       "Supinate (rotate) your wrists as you curl for maximum bicep contraction.",
       "Keep elbows pinned to your sides throughout."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A bilateral or alternating curl using dumbbells with supination. Allows independent arm movement and a stronger peak contraction.",
+    "aliases": [
+      "dumbbell curl",
+      "standing dumbbell curl"
+    ],
+    "commonMistakes": [
+      "Allowing the elbow to drift forward at the top, reducing tension.",
+      "Not supinating the wrist during the curl.",
+      "Swinging both dumbbells simultaneously using body momentum."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "hammer_curl",
     "name": "Hammer Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [
       "forearms"
     ],
@@ -682,14 +946,23 @@
       "Hammer curls build the brachialis which pushes the bicep peak higher.",
       "Cable rope hammer curls provide constant tension throughout."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A curl using a neutral (hammer) grip targeting the brachialis and brachioradialis. Builds arm thickness and the bicep peak.",
+    "aliases": [
+      "neutral grip curl"
+    ],
+    "commonMistakes": [
+      "Rotating the wrists during the curl, defeating the neutral grip purpose.",
+      "Swinging the arms to generate momentum.",
+      "Not fully extending the arms at the bottom between reps."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "preacher_curl",
     "name": "Preacher Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [],
     "equipment": "barbell",
     "category": "isolation",
@@ -699,20 +972,30 @@
       "Grip an EZ-bar at shoulder width with an underhand grip.",
       "Curl the bar upward toward your chin.",
       "Squeeze at the top without losing contact with the pad.",
-      "Lower slowly \u2014 the eccentric is especially effective here."
+      "Lower slowly — the eccentric is especially effective here."
     ],
     "tips": [
       "The preacher bench removes shoulder involvement for strict isolation.",
-      "Do not lock out fully \u2014 keep tension on the bicep at the bottom."
+      "Do not lock out fully — keep tension on the bicep at the bottom."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A strict curl performed with upper arms braced on a preacher bench. Eliminates body swing for maximum bicep isolation.",
+    "aliases": [
+      "preacher bench curl",
+      "Scott curl"
+    ],
+    "commonMistakes": [
+      "Locking out the arms fully, which reduces tension on the bicep.",
+      "Bouncing the weight off the pad at the bottom.",
+      "Gripping too wide or narrow, causing wrist discomfort."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "cable_curl",
     "name": "Cable Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [
       "forearms"
     ],
@@ -730,14 +1013,23 @@
       "Cables keep tension on the muscle throughout the full range of motion.",
       "Face away from the machine for an overhead cable curl variation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A bicep curl using a low cable pulley for constant tension. Particularly effective at the bottom of the range where dumbbells are weakest.",
+    "aliases": [
+      "low cable curl"
+    ],
+    "commonMistakes": [
+      "Letting the elbows drift forward, reducing bicep tension.",
+      "Using too much body swing to assist.",
+      "Not maintaining elbow position throughout the movement."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "concentration_curl",
     "name": "Concentration Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [],
     "equipment": "dumbbell",
     "category": "isolation",
@@ -753,20 +1045,29 @@
       "The concentrated position removes momentum and isolates the bicep.",
       "Supinate your wrist at the top for maximum peak contraction."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A seated curl with the elbow braced against the inner thigh. Maximally isolates the bicep without any shoulder involvement.",
+    "aliases": [
+      "seated concentration curl"
+    ],
+    "commonMistakes": [
+      "Moving the elbow away from the thigh during the curl.",
+      "Using momentum rather than slow controlled reps.",
+      "Stopping short of full contraction at the top."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "incline_db_curl",
     "name": "Incline Dumbbell Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [],
     "equipment": "dumbbell",
     "category": "isolation",
     "difficulty": "intermediate",
     "instructions": [
-      "Set a bench to 45\u201360 degrees and sit back against it.",
+      "Set a bench to 45–60 degrees and sit back against it.",
       "Let your arms hang straight down, holding dumbbells.",
       "Curl the dumbbells up while keeping your upper arms vertical.",
       "The incline position creates a stretch on the long head of the bicep.",
@@ -776,14 +1077,24 @@
       "The pre-stretched position of the long head increases EMG activation.",
       "Use lighter weight than standing curls due to the mechanical disadvantage."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A dumbbell curl performed on an inclined bench with arms hanging. The pre-stretched position of the long head increases activation significantly.",
+    "aliases": [
+      "incline curl",
+      "incline supinating curl"
+    ],
+    "commonMistakes": [
+      "Not allowing arms to hang completely straight at the start.",
+      "Using too heavy a weight and losing the pre-stretch benefit.",
+      "Swinging the upper arms away from vertical during the curl."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "spider_curl",
     "name": "Spider Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [],
     "equipment": "barbell",
     "category": "isolation",
@@ -793,20 +1104,29 @@
       "Let your arms hang straight down and grip an EZ-bar.",
       "Curl the bar up toward your face.",
       "Squeeze the biceps at the top.",
-      "Lower with control \u2014 full range of motion is key."
+      "Lower with control — full range of motion is key."
     ],
     "tips": [
       "Spider curls are particularly effective at creating the bicep peak.",
       "Can also be done with dumbbells for unilateral training."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A curl performed lying chest-down on an angled bench. The position keeps constant tension on the biceps throughout the full range.",
+    "aliases": [
+      "prone incline curl"
+    ],
+    "commonMistakes": [
+      "Not using full range of motion from full extension.",
+      "Using momentum by bouncing the weight at the bottom.",
+      "Allowing the upper arms to drift from vertical during the curl."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "skull_crusher",
     "name": "Skull Crusher",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [],
     "equipment": "barbell",
     "category": "isolation",
@@ -822,14 +1142,25 @@
       "EZ-bar is more comfortable on the wrists than a straight bar.",
       "Slightly bringing the bar behind your head increases long head activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "A lying tricep isolation movement lowering a barbell toward the forehead. Excellent for long head development and overall tricep mass.",
+    "aliases": [
+      "lying tricep extension",
+      "French press",
+      "EZ bar skull crusher"
+    ],
+    "commonMistakes": [
+      "Flaring the elbows outward, reducing tricep isolation.",
+      "Letting the upper arms drift backward during the movement.",
+      "Using too heavy a weight and losing control near the forehead."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "tricep_pushdown",
     "name": "Tricep Pushdown",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [],
     "equipment": "cable",
     "category": "isolation",
@@ -845,14 +1176,24 @@
       "Leaning forward slightly allows better range of motion.",
       "Using a rope and spreading at the bottom increases lateral head activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "A cable isolation exercise pushing down from a high pulley. The most common tricep exercise for cable-based isolation work.",
+    "aliases": [
+      "cable pushdown",
+      "tricep cable pushdown"
+    ],
+    "commonMistakes": [
+      "Moving the upper arms away from the body during the push.",
+      "Not fully extending the arms at the bottom.",
+      "Using too much weight and converting it into a lat pulldown motion."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "close_grip_bench",
     "name": "Close-Grip Bench Press",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [
       "chest",
       "shoulders"
@@ -865,20 +1206,30 @@
       "Unrack the bar and keep your elbows close to your body.",
       "Lower the bar to your lower chest.",
       "Press the bar back up explosively.",
-      "Keep elbows tucked \u2014 not flared \u2014 throughout the movement."
+      "Keep elbows tucked — not flared — throughout the movement."
     ],
     "tips": [
-      "Going too narrow can strain the wrists \u2014 stay shoulder-width.",
+      "Going too narrow can strain the wrists — stay shoulder-width.",
       "This is one of the best compound tricep movements."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "A barbell bench press with a shoulder-width grip emphasizing the triceps. One of the best compound tricep movements available.",
+    "aliases": [
+      "CGBP",
+      "close grip press"
+    ],
+    "commonMistakes": [
+      "Gripping too narrow (inside shoulder width) which strains the wrists.",
+      "Flaring the elbows out rather than keeping them tucked.",
+      "Letting the bar drift too high toward the clavicle."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "overhead_tricep_extension",
     "name": "Overhead Tricep Extension",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [],
     "equipment": "dumbbell",
     "category": "isolation",
@@ -894,14 +1245,24 @@
       "The overhead position stretches the long head more than any other tricep exercise.",
       "Can also be done with a cable, EZ-bar, or kettlebell."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "An overhead extension with a dumbbell held in both hands behind the head. The overhead position provides a superior stretch for the long head.",
+    "aliases": [
+      "French press overhead",
+      "DB overhead extension"
+    ],
+    "commonMistakes": [
+      "Flaring the elbows outward during the movement.",
+      "Not lowering the weight far enough behind the head.",
+      "Arching the lower back excessively when seated."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "tricep_dips",
     "name": "Tricep Dips",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [
       "shoulders",
       "chest"
@@ -920,14 +1281,24 @@
       "Lean upright (not forward) for more tricep isolation.",
       "Add weight with a dip belt for progressive overload."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "A bodyweight tricep movement performed on parallel bars with an upright torso. Allows progressive overload via added weight for serious tricep development.",
+    "aliases": [
+      "parallel bar dips",
+      "bench dips"
+    ],
+    "commonMistakes": [
+      "Leaning too far forward, shifting focus from triceps to chest.",
+      "Not reaching full elbow extension at the top.",
+      "Dipping too low and causing excessive shoulder strain."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "tricep_kickback",
     "name": "Tricep Kickback",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [],
     "equipment": "dumbbell",
     "category": "isolation",
@@ -943,14 +1314,23 @@
       "The kickback only produces peak contraction in the fully extended position.",
       "Use a cable for constant tension throughout the movement."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "A hinge-based isolation exercise extending the forearm backward. Provides peak contraction at full extension but limited overall tension.",
+    "aliases": [
+      "dumbbell kickback"
+    ],
+    "commonMistakes": [
+      "Moving the upper arm during the exercise instead of keeping it parallel to the floor.",
+      "Using too heavy a weight and not achieving full extension.",
+      "Performing the movement too quickly without a squeeze at extension."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "diamond_push_up",
     "name": "Diamond Push-Up",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [
       "chest",
       "shoulders"
@@ -969,14 +1349,24 @@
       "This variation significantly increases tricep activation vs. regular push-ups.",
       "Elevate your feet for more difficulty."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "A push-up variation with hands close together forming a diamond shape. Dramatically increases tricep activation compared to standard push-ups.",
+    "aliases": [
+      "triangle push-up",
+      "close grip push-up"
+    ],
+    "commonMistakes": [
+      "Letting the elbows flare out wide instead of staying close to the body.",
+      "Allowing the hips to sag during the movement.",
+      "Placing hands too close together, straining the wrists."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "jm_press",
     "name": "JM Press",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [
       "shoulders"
     ],
@@ -992,16 +1382,23 @@
     ],
     "tips": [
       "Invented by powerlifter JM Blakley for massive tricep overload.",
-      "Keep the weight moderate \u2014 form is critical due to the unusual bar path."
+      "Keep the weight moderate — form is critical due to the unusual bar path."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "A hybrid movement combining a close-grip bench press and skull crusher. Invented by powerlifter JM Blakley for maximum tricep overload.",
+    "aliases": [],
+    "commonMistakes": [
+      "Using too much weight before learning the unusual bar path.",
+      "Letting the bar drift too far from the throat toward the chest.",
+      "Not maintaining elbow control throughout the arc."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "barbell_squat",
     "name": "Barbell Back Squat",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes",
       "hamstrings",
@@ -1019,16 +1416,28 @@
     ],
     "tips": [
       "Keep your chest up and avoid caving the knees inward.",
-      "Depth depends on your anatomy \u2014 squat as deep as you can with good form."
+      "Depth depends on your anatomy — squat as deep as you can with good form."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "The foundational barbell squat with the bar on the upper or lower back. The king of lower body compound movements for quad and overall leg development.",
+    "aliases": [
+      "back squat",
+      "BB squat",
+      "high bar squat",
+      "low bar squat"
+    ],
+    "commonMistakes": [
+      "Caving the knees inward during the descent or ascent.",
+      "Shifting onto the toes and losing heel contact with the floor.",
+      "Rounding the lower back at the bottom of the squat."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "romanian_deadlift",
     "name": "Romanian Deadlift",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes",
       "back"
@@ -1045,16 +1454,26 @@
     ],
     "tips": [
       "RDL trains the hamstrings through the hip extension function.",
-      "Do not round your lower back \u2014 maintain a neutral spine."
+      "Do not round your lower back — maintain a neutral spine."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "hamstrings",
+    "description": "A hip-hinge movement lowering the bar along the legs while keeping the knees mostly straight. The premier hamstring and glute exercise through hip extension.",
+    "aliases": [
+      "RDL",
+      "stiff-leg deadlift"
+    ],
+    "commonMistakes": [
+      "Rounding the lower back at the bottom of the movement.",
+      "Bending the knees too much, turning it into a conventional deadlift.",
+      "Letting the bar drift away from the legs during the hinge."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "leg_press",
     "name": "Leg Press",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes",
       "hamstrings"
@@ -1073,14 +1492,23 @@
       "Never let your lower back round off the pad at the bottom.",
       "Single-leg leg press is excellent for addressing imbalances."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "A machine-based compound leg press pushing a weighted platform. Allows heavy leg loading without the spinal compression of barbell squats.",
+    "aliases": [
+      "45 degree leg press"
+    ],
+    "commonMistakes": [
+      "Allowing the lower back to round off the pad at full depth.",
+      "Locking out the knees completely at the top.",
+      "Placing feet too low on the platform, increasing knee stress."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "leg_curl",
     "name": "Lying Leg Curl",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "calves"
     ],
@@ -1098,14 +1526,24 @@
       "Pointing your toes slightly inward increases the short head activation.",
       "Dorsiflexing the feet (toes toward shins) increases the stretch."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "hamstrings",
+    "description": "A lying machine exercise curling the heels toward the glutes. The primary isolation exercise for hamstring development.",
+    "aliases": [
+      "lying leg curl",
+      "hamstring curl"
+    ],
+    "commonMistakes": [
+      "Lifting the hips off the pad to assist the curl.",
+      "Not achieving full range of motion from complete extension.",
+      "Letting the weight drop without controlling the eccentric phase."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "bulgarian_split_squat",
     "name": "Bulgarian Split Squat",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes",
       "hamstrings"
@@ -1124,14 +1562,24 @@
       "Foot position forward increases glute activation; foot under hip increases quad focus.",
       "Start without weight to master the balance."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "A single-leg squat with the rear foot elevated on a bench. Highly effective for quad and glute development with a large range of motion.",
+    "aliases": [
+      "BSS",
+      "rear foot elevated split squat"
+    ],
+    "commonMistakes": [
+      "Placing the front foot too close to the bench, causing excessive forward knee travel.",
+      "Allowing the front knee to cave inward during the movement.",
+      "Not keeping the torso upright throughout the exercise."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "hack_squat",
     "name": "Hack Squat",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes"
     ],
@@ -1149,14 +1597,23 @@
       "Hack squats allow a more quad-focused squat with less spinal loading.",
       "A narrow foot position increases quad outer sweep activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "A machine squat with a fixed backpad allowing a quad-focused movement. Reduces spinal loading while maintaining effective quad stimulus.",
+    "aliases": [
+      "hack squat machine"
+    ],
+    "commonMistakes": [
+      "Locking out the knees at the top, removing tension from the quads.",
+      "Allowing the lower back to round off the backpad.",
+      "Using too narrow a foot stance and overloading the knees."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "leg_extension",
     "name": "Leg Extension",
-    "muscleGroup": "legs",
     "secondaryMuscles": [],
     "equipment": "machine",
     "category": "isolation",
@@ -1165,21 +1622,31 @@
       "Sit in the leg extension machine with the pad across your shins.",
       "Extend your legs until they are straight.",
       "Squeeze the quadriceps at the top.",
-      "Lower with control \u2014 do not let the weight drop.",
+      "Lower with control — do not let the weight drop.",
       "Can be done unilaterally to address imbalances."
     ],
     "tips": [
       "Full extension is important to recruit the rectus femoris.",
       "Avoid using excessively heavy weight due to knee joint stress."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "A seated machine exercise extending the legs from a bent to straight position. The primary isolation exercise for the quadriceps.",
+    "aliases": [
+      "quad extension",
+      "knee extension"
+    ],
+    "commonMistakes": [
+      "Using excessively heavy weight that causes pain at the knee joint.",
+      "Not achieving full extension at the top of each rep.",
+      "Letting the weight drop rather than controlling the eccentric."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "good_morning",
     "name": "Good Morning",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "back",
       "glutes"
@@ -1195,17 +1662,26 @@
       "Drive your hips forward to return to standing."
     ],
     "tips": [
-      "Good mornings strengthen the posterior chain \u2014 hamstrings, glutes, and lower back.",
+      "Good mornings strengthen the posterior chain — hamstrings, glutes, and lower back.",
       "Start light to master the hinge pattern before adding weight."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "hamstrings",
+    "description": "A barbell exercise hinging the torso forward with the bar on the back. Effectively trains the hamstrings, glutes, and lower back erectors.",
+    "aliases": [
+      "barbell good morning"
+    ],
+    "commonMistakes": [
+      "Rounding the lower back under load, which is dangerous.",
+      "Bending the knees too much, reducing hamstring involvement.",
+      "Loading too heavy before mastering the hip hinge pattern."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "standing_calf_raise",
     "name": "Standing Calf Raise",
-    "muscleGroup": "calves",
     "secondaryMuscles": [],
     "equipment": "machine",
     "category": "isolation",
@@ -1219,16 +1695,26 @@
     ],
     "tips": [
       "The full range of motion (stretch at bottom, squeeze at top) is crucial.",
-      "Slow eccentrics (3\u20135 seconds down) are very effective for calf growth."
+      "Slow eccentrics (3–5 seconds down) are very effective for calf growth."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "calves",
+    "description": "A machine exercise rising onto the toes from a standing position. The primary calf exercise for gastrocnemius development.",
+    "aliases": [
+      "calf raise",
+      "standing calf"
+    ],
+    "commonMistakes": [
+      "Using partial range of motion without reaching full dorsiflexion stretch.",
+      "Bouncing at the bottom rather than controlling the stretch.",
+      "Rushing through the movement without pausing at the top."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "seated_calf_raise",
     "name": "Seated Calf Raise",
-    "muscleGroup": "calves",
     "secondaryMuscles": [],
     "equipment": "machine",
     "category": "isolation",
@@ -1241,17 +1727,27 @@
       "The seated position isolates the soleus more than the gastrocnemius."
     ],
     "tips": [
-      "The soleus responds particularly well to higher reps (15\u201325).",
+      "The soleus responds particularly well to higher reps (15–25).",
       "A pause at the bottom stretch increases hypertrophy stimulus."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "calves",
+    "description": "A seated machine calf raise targeting the soleus muscle. The seated position bends the knee, emphasizing the soleus over the gastrocnemius.",
+    "aliases": [
+      "seated calf",
+      "soleus raise"
+    ],
+    "commonMistakes": [
+      "Not using the full range of motion from full stretch to full contraction.",
+      "Using too much weight that prevents complete range.",
+      "Moving too quickly through reps without pausing at the stretch."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "donkey_calf_raise",
     "name": "Donkey Calf Raise",
-    "muscleGroup": "calves",
     "secondaryMuscles": [],
     "equipment": "machine",
     "category": "isolation",
@@ -1267,14 +1763,23 @@
       "The donkey calf raise provides a greater gastrocnemius stretch due to the hip angle.",
       "Can be improvised with a partner sitting on your lower back."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "calves",
+    "description": "A calf raise performed bent at the hips to pre-stretch the gastrocnemius. Provides a greater range of motion than standing variations.",
+    "aliases": [
+      "donkey raise"
+    ],
+    "commonMistakes": [
+      "Not lowering the heels enough to get a full stretch.",
+      "Using a hunched torso position that reduces effectiveness.",
+      "Bending the knees too much, reducing gastrocnemius involvement."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "single_leg_calf_raise",
     "name": "Single-Leg Calf Raise",
-    "muscleGroup": "calves",
     "secondaryMuscles": [],
     "equipment": "bodyweight",
     "category": "isolation",
@@ -1290,14 +1795,24 @@
       "Single-leg raises double the load per calf compared to bilateral.",
       "A slow, full-range-of-motion rep is far more effective than a fast, partial one."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "calves",
+    "description": "A unilateral calf raise on the edge of a step. Doubles the load per calf compared to bilateral variations for greater stimulus.",
+    "aliases": [
+      "one leg calf raise",
+      "unilateral calf raise"
+    ],
+    "commonMistakes": [
+      "Using partial range of motion instead of full stretch at the bottom.",
+      "Not holding at the top for a brief pause.",
+      "Moving too quickly and using bounce to complete reps."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "crunch",
     "name": "Crunch",
-    "muscleGroup": "abs",
     "secondaryMuscles": [],
     "equipment": "bodyweight",
     "category": "isolation",
@@ -1307,20 +1822,30 @@
       "Place your hands behind your head or cross them over your chest.",
       "Curl your upper body forward, lifting your shoulder blades off the ground.",
       "Squeeze your abs at the top.",
-      "Lower with control \u2014 do not flop back down."
+      "Lower with control — do not flop back down."
     ],
     "tips": [
-      "Only raise your shoulder blades \u2014 do not sit up fully.",
+      "Only raise your shoulder blades — do not sit up fully.",
       "Exhale as you crunch to get a stronger ab contraction."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A classic abdominal exercise curling the upper torso toward the knees. Targets the rectus abdominis through spinal flexion.",
+    "aliases": [
+      "ab crunch",
+      "abdominal crunch"
+    ],
+    "commonMistakes": [
+      "Pulling on the neck with the hands instead of supporting it lightly.",
+      "Using momentum to swing the upper body up.",
+      "Lifting the lower back off the floor and turning it into a sit-up."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "cable_crunch",
     "name": "Cable Crunch",
-    "muscleGroup": "abs",
     "secondaryMuscles": [],
     "equipment": "cable",
     "category": "isolation",
@@ -1334,16 +1859,26 @@
     ],
     "tips": [
       "Cable crunches allow progressive overload for the abs unlike bodyweight crunches.",
-      "Hold the rope steady at your face \u2014 the movement should come only from your abs."
+      "Hold the rope steady at your face — the movement should come only from your abs."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A kneeling crunch using a cable and rope attachment from above. The only abdominal crunch variant that allows true progressive overload.",
+    "aliases": [
+      "kneeling cable crunch",
+      "rope crunch"
+    ],
+    "commonMistakes": [
+      "Moving the hands away from the face, turning it into a pull-down.",
+      "Rounding the hips rather than curling the torso.",
+      "Using too much weight and losing core control."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "plank",
     "name": "Plank",
-    "muscleGroup": "abs",
     "secondaryMuscles": [
       "shoulders",
       "glutes"
@@ -1359,17 +1894,27 @@
       "Avoid letting your hips sag or rise."
     ],
     "tips": [
-      "Quality beats duration \u2014 a 30-second perfect plank beats 2 minutes with sagging hips.",
+      "Quality beats duration — a 30-second perfect plank beats 2 minutes with sagging hips.",
       "Add weight plates on your back for progressive overload."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A static isometric core exercise maintaining a straight body in a forearm support position. Builds core endurance and anti-extension strength.",
+    "aliases": [
+      "forearm plank",
+      "front plank"
+    ],
+    "commonMistakes": [
+      "Letting the hips sag toward the floor.",
+      "Raising the hips too high into a pike position.",
+      "Holding breath instead of breathing steadily throughout."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "russian_twist",
     "name": "Russian Twist",
-    "muscleGroup": "abs",
     "secondaryMuscles": [],
     "equipment": "bodyweight",
     "category": "isolation",
@@ -1383,18 +1928,27 @@
     ],
     "tips": [
       "The rotation comes from your obliques, not your arms.",
-      "Keep your spine neutral \u2014 avoid excessive rounding."
+      "Keep your spine neutral — avoid excessive rounding."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A seated rotational core exercise twisting the torso side to side. Primarily targets the obliques and transverse abdominis.",
+    "aliases": [
+      "oblique twist"
+    ],
+    "commonMistakes": [
+      "Rounding the spine excessively during the rotation.",
+      "Using the arms to swing the weight rather than rotating from the core.",
+      "Performing the movement too quickly without controlled rotation."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "hanging_leg_raise",
     "name": "Hanging Leg Raise",
-    "muscleGroup": "abs",
     "secondaryMuscles": [
-      "hip flexors"
+      "abs"
     ],
     "equipment": "bodyweight",
     "category": "compound",
@@ -1408,16 +1962,26 @@
     ],
     "tips": [
       "Posterior pelvic tilt at the top ensures greater ab activation.",
-      "Avoid using momentum \u2014 let the abs do the work."
+      "Avoid using momentum — let the abs do the work."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A hanging exercise raising the legs toward horizontal or beyond. Trains the lower abs and hip flexors through hip flexion.",
+    "aliases": [
+      "HLR",
+      "toes to bar"
+    ],
+    "commonMistakes": [
+      "Using momentum and swinging the body to raise the legs.",
+      "Not tilting the pelvis posteriorly at the top for full ab contraction.",
+      "Bending the knees excessively to make the movement easier when advanced."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "ab_rollout",
     "name": "Ab Wheel Rollout",
-    "muscleGroup": "abs",
     "secondaryMuscles": [
       "shoulders",
       "back"
@@ -1436,21 +2000,31 @@
       "Start with partial rollouts if you cannot do a full rollout.",
       "Posterior pelvic tilt (tuck pelvis) prevents lower back injury."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A kneeling exercise rolling an ab wheel forward and back. One of the most challenging and effective anti-extension core exercises.",
+    "aliases": [
+      "ab wheel",
+      "wheel rollout"
+    ],
+    "commonMistakes": [
+      "Hyperextending the lower back at full extension.",
+      "Not bracing the core before rolling out.",
+      "Rolling out further than current strength allows."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "dragon_flag",
     "name": "Dragon Flag",
-    "muscleGroup": "abs",
     "secondaryMuscles": [
       "back",
       "glutes"
     ],
     "equipment": "bodyweight",
     "category": "compound",
-    "difficulty": "elite",
+    "difficulty": "expert",
     "instructions": [
       "Lie on a bench and grip it behind your head.",
       "Lift your entire body up into a vertical position supported only by your shoulders.",
@@ -1460,18 +2034,27 @@
     ],
     "tips": [
       "This exercise popularized by Bruce Lee requires exceptional core strength.",
-      "Use negative-only dragon flags initially \u2014 lower very slowly, then step back up."
+      "Use negative-only dragon flags initially — lower very slowly, then step back up."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A full-body lever exercise raising and lowering the body as a rigid unit from the shoulders. An extremely advanced core strength movement.",
+    "aliases": [
+      "Bruce Lee sit-up"
+    ],
+    "commonMistakes": [
+      "Arching or piking the body instead of remaining rigid.",
+      "Moving too fast through the eccentric phase.",
+      "Attempting this before building sufficient core strength."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "hollow_body_hold",
     "name": "Hollow Body Hold",
-    "muscleGroup": "abs",
     "secondaryMuscles": [
-      "hip flexors"
+      "abs"
     ],
     "equipment": "bodyweight",
     "category": "isolation",
@@ -1487,14 +2070,24 @@
       "The hollow body position is foundational for gymnastics and calisthenics.",
       "If you cannot maintain lower back contact, raise your legs higher."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A gymnastic-based isometric hold maintaining a scooped body position. Foundational for gymnastics and an excellent anti-extension core exercise.",
+    "aliases": [
+      "hollow hold",
+      "hollow rock hold"
+    ],
+    "commonMistakes": [
+      "Allowing the lower back to lift off the floor.",
+      "Holding breath instead of breathing during the hold.",
+      "Lowering the legs too far before the lower back lifts."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "barbell_hip_thrust",
     "name": "Barbell Hip Thrust",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [
       "hamstrings"
     ],
@@ -1512,14 +2105,25 @@
       "Use a barbell pad for comfort under the barbell.",
       "Push through your heels, not your toes, for better glute activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A hip extension exercise with the upper back on a bench and a barbell across the hips. The most effective exercise for glute hypertrophy through hip extension.",
+    "aliases": [
+      "hip thrust",
+      "BB hip thrust",
+      "glute bridge thrust"
+    ],
+    "commonMistakes": [
+      "Not achieving full hip extension at the top of the movement.",
+      "Letting the hips drop too low before driving up again.",
+      "Placing the barbell too high on the hips causing discomfort."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "glute_bridge",
     "name": "Glute Bridge",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [
       "hamstrings"
     ],
@@ -1537,14 +2141,23 @@
       "The glute bridge is the foundation for hip thrust progression.",
       "Keeping feet closer together increases glute max activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A floor-based hip extension exercise driving the hips toward the ceiling. A beginner-friendly progression toward the barbell hip thrust.",
+    "aliases": [
+      "floor bridge"
+    ],
+    "commonMistakes": [
+      "Not squeezing the glutes at the top of the movement.",
+      "Pressing through the toes instead of the heels.",
+      "Allowing the lower back to arch excessively at the top."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "cable_glute_kickback",
     "name": "Cable Glute Kickback",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [],
     "equipment": "cable",
     "category": "isolation",
@@ -1560,14 +2173,23 @@
       "Keep a slight bend in the standing knee.",
       "Lean slightly forward to increase the glute activation range."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A cable-based isolation exercise extending one leg behind the body. Effectively isolates the gluteus maximus through hip extension.",
+    "aliases": [
+      "glute kickback"
+    ],
+    "commonMistakes": [
+      "Kicking too high and hyperextending the lower back.",
+      "Using momentum rather than a controlled hip extension.",
+      "Not maintaining a slight bend in the standing knee."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "hip_abduction_machine",
     "name": "Hip Abduction Machine",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [],
     "equipment": "machine",
     "category": "isolation",
@@ -1581,18 +2203,28 @@
     ],
     "tips": [
       "Lean slightly forward to shift emphasis to the gluteus medius.",
-      "High reps (15\u201325) work well for this muscle group."
+      "High reps (15–25) work well for this muscle group."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A seated machine exercise pushing the legs outward against resistance. Targets the gluteus medius and minimus for hip stability.",
+    "aliases": [
+      "abductor machine",
+      "outer thigh machine"
+    ],
+    "commonMistakes": [
+      "Using excessive momentum to slam the pads apart.",
+      "Not controlling the return phase of the movement.",
+      "Sitting too upright instead of leaning slightly forward."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "step_up",
     "name": "Box Step-Up",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [
-      "legs",
+      "quads",
       "hamstrings"
     ],
     "equipment": "dumbbell",
@@ -1609,14 +2241,24 @@
       "A higher box increases the range of motion and glute activation.",
       "Drive through the heel of the elevated leg, not the toe of the grounded leg."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A unilateral exercise stepping up onto a box or bench. Develops the glutes and quads with a functional single-leg movement pattern.",
+    "aliases": [
+      "box step up",
+      "dumbbell step up"
+    ],
+    "commonMistakes": [
+      "Pushing off the grounded foot instead of driving through the elevated heel.",
+      "Leaning too far forward reducing glute activation.",
+      "Stepping down too quickly without controlling the descent."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "wrist_curl",
     "name": "Barbell Wrist Curl",
-    "muscleGroup": "forearms",
     "secondaryMuscles": [],
     "equipment": "barbell",
     "category": "isolation",
@@ -1629,17 +2271,27 @@
       "Work through a full range of motion."
     ],
     "tips": [
-      "High reps (15\u201325) work well for forearm development.",
+      "High reps (15–25) work well for forearm development.",
       "Also can be done on a preacher bench pad for more stability."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "forearms",
+    "description": "A seated isolation exercise curling the wrists upward with a barbell. Develops the wrist flexor muscles on the inner forearm.",
+    "aliases": [
+      "barbell wrist curl",
+      "forearm curl"
+    ],
+    "commonMistakes": [
+      "Using too heavy a weight that prevents full range of motion.",
+      "Not going through the complete range from full extension to full flexion.",
+      "Moving the forearms off the thighs during the exercise."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "reverse_wrist_curl",
     "name": "Reverse Wrist Curl",
-    "muscleGroup": "forearms",
     "secondaryMuscles": [],
     "equipment": "barbell",
     "category": "isolation",
@@ -1652,22 +2304,31 @@
       "Targets the wrist extensors (back of forearm)."
     ],
     "tips": [
-      "Lighter weights than regular wrist curls \u2014 extensors are weaker than flexors.",
+      "Lighter weights than regular wrist curls — extensors are weaker than flexors.",
       "Balanced training of both sides prevents wrist injury."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "forearms",
+    "description": "A seated isolation exercise extending the wrists upward with a barbell. Develops the wrist extensor muscles on the outer forearm.",
+    "aliases": [
+      "wrist extension"
+    ],
+    "commonMistakes": [
+      "Using the same weight as regular wrist curls when extensors are weaker.",
+      "Not fully extending the wrists at the top of the movement.",
+      "Moving the forearms during the exercise."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "farmers_walk",
     "name": "Farmer's Walk",
-    "muscleGroup": "forearms",
     "secondaryMuscles": [
-      "traps",
+      "back",
       "shoulders",
       "abs",
-      "legs"
+      "quads"
     ],
     "equipment": "dumbbell",
     "category": "compound",
@@ -1683,14 +2344,24 @@
       "One of the best exercises for overall strength and grip.",
       "Single-arm carries (suitcase carry) challenge core stability asymmetrically."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "forearms",
+    "description": "A loaded carry exercise walking with heavy weights at the sides. Builds grip strength, trap endurance, and full-body stability simultaneously.",
+    "aliases": [
+      "farmer carry",
+      "farmer's carry"
+    ],
+    "commonMistakes": [
+      "Leaning to one side when carrying unilateral loads.",
+      "Rounding the shoulders forward instead of retracted.",
+      "Taking overly long strides that cause weight swinging."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "dead_hang",
     "name": "Dead Hang",
-    "muscleGroup": "forearms",
     "secondaryMuscles": [
       "shoulders",
       "back"
@@ -1709,14 +2380,24 @@
       "Dead hangs are excellent for shoulder health and grip endurance.",
       "Progress to one-arm hangs as you become stronger."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "forearms",
+    "description": "A passive hang from a pull-up bar with arms fully extended. Builds grip strength and endurance while decompressing the spine.",
+    "aliases": [
+      "passive hang",
+      "bar hang"
+    ],
+    "commonMistakes": [
+      "Using a grip that is too wide, reducing grip endurance.",
+      "Not fully relaxing the shoulder girdle to get spinal decompression.",
+      "Rushing off the bar without completing the full intended duration."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "reverse_curl",
     "name": "Reverse Curl",
-    "muscleGroup": "forearms",
     "secondaryMuscles": [
       "biceps"
     ],
@@ -1734,14 +2415,23 @@
       "The reverse curl directly targets the brachioradialis, the largest forearm muscle.",
       "Use an EZ-bar to reduce wrist strain with the overhand grip."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "forearms",
+    "description": "A curl using an overhand grip targeting the brachioradialis and wrist extensors. Builds forearm thickness and balanced arm development.",
+    "aliases": [
+      "overhand curl"
+    ],
+    "commonMistakes": [
+      "Letting the elbows drift forward at the top.",
+      "Using too much body swing to assist.",
+      "Not using full range of motion from complete extension."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "barbell_shrug_traps",
     "name": "Barbell Shrug",
-    "muscleGroup": "traps",
     "secondaryMuscles": [
       "shoulders"
     ],
@@ -1753,20 +2443,30 @@
       "Shrug shoulders straight up toward your ears.",
       "Hold at the top for 1 second.",
       "Lower with control.",
-      "Avoid rolling the shoulders \u2014 vertical movement only."
+      "Avoid rolling the shoulders — vertical movement only."
     ],
     "tips": [
       "Heavy weight with moderate reps (8-12) builds thick traps.",
       "Use straps if grip is limiting."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A vertical shrug movement with a barbell to build upper trap thickness. One of the most direct trap exercises available.",
+    "aliases": [
+      "shrug",
+      "trap shrug"
+    ],
+    "commonMistakes": [
+      "Rolling the shoulders in a circular motion instead of straight up.",
+      "Using so much weight that range of motion is compromised.",
+      "Not pausing briefly at the top of each rep."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "db_shrug",
     "name": "Dumbbell Shrug",
-    "muscleGroup": "traps",
     "secondaryMuscles": [
       "shoulders"
     ],
@@ -1784,14 +2484,23 @@
       "Dumbbells allow a slightly greater range of motion than a barbell.",
       "Go heavy and focus on the squeeze at the top."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A dumbbell shrug allowing slightly greater range of motion than barbell. Targets the upper trapezius for thickness and strength.",
+    "aliases": [
+      "dumbbell shrug"
+    ],
+    "commonMistakes": [
+      "Rotating the shoulders forward or backward instead of straight vertical.",
+      "Not pausing at the peak contraction.",
+      "Using momentum from the legs to initiate the shrug."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "cable_shrug",
     "name": "Cable Shrug",
-    "muscleGroup": "traps",
     "secondaryMuscles": [],
     "equipment": "cable",
     "category": "isolation",
@@ -1807,14 +2516,21 @@
       "Cable version offers resistance at every point in the shrug.",
       "Can also be done with a single cable from behind."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A shrug performed with cables providing constant tension throughout. Effective for upper trap isolation with variable resistance.",
+    "aliases": [],
+    "commonMistakes": [
+      "Not maintaining an upright posture during the movement.",
+      "Pulling with the arms instead of pure shoulder elevation.",
+      "Not fully lowering the shoulders between reps."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "rack_pull",
     "name": "Rack Pull",
-    "muscleGroup": "traps",
     "secondaryMuscles": [
       "back",
       "glutes"
@@ -1833,14 +2549,24 @@
       "Rack pulls allow heavier loads than deadlifts due to the shorter range.",
       "Excellent for upper back and trap development."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A partial deadlift starting from knee height allowing heavier loads. Excellent for upper back, trap, and grip development.",
+    "aliases": [
+      "partial deadlift",
+      "pin pull"
+    ],
+    "commonMistakes": [
+      "Rounding the upper back under very heavy loads.",
+      "Setting the pins too high and reducing the training benefit.",
+      "Not locking the hips out fully at the top."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "farmers_carry_traps",
     "name": "Farmer's Carry (Traps Focus)",
-    "muscleGroup": "traps",
     "secondaryMuscles": [
       "forearms",
       "shoulders",
@@ -1860,20 +2586,29 @@
       "Shoulder retraction (not elevation) during the carry targets upper traps.",
       "Use the heaviest weight you can carry with good posture."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A loaded walk with heavy implements carried at the sides with shoulders retracted. Builds trap endurance and overall shoulder stability.",
+    "aliases": [
+      "loaded carry"
+    ],
+    "commonMistakes": [
+      "Allowing the shoulders to roll forward during the walk.",
+      "Taking steps that are too large causing weight to swing.",
+      "Failing to maintain scapular retraction throughout."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "trap_bar_deadlift",
     "name": "Trap Bar Deadlift",
-    "muscleGroup": "traps",
     "secondaryMuscles": [
       "back",
-      "legs",
+      "quads",
       "glutes"
     ],
-    "equipment": "trap_bar",
+    "equipment": "trapBar",
     "category": "compound",
     "difficulty": "intermediate",
     "instructions": [
@@ -1887,16 +2622,26 @@
       "The trap bar deadlift is more quad-dominant than a straight bar deadlift.",
       "Excellent for athletes and beginners learning to deadlift safely."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A deadlift using a hex bar allowing a more upright torso position. More quad-dominant than straight-bar deadlifts and easier to learn.",
+    "aliases": [
+      "hex bar deadlift",
+      "trap bar pull"
+    ],
+    "commonMistakes": [
+      "Looking down instead of keeping a neutral neck position.",
+      "Allowing the knees to cave inward during the pull.",
+      "Not keeping the bar close to the center of gravity."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "smith_machine_shrug",
     "name": "Smith Machine Shrug",
-    "muscleGroup": "traps",
     "secondaryMuscles": [],
-    "equipment": "smith_machine",
+    "equipment": "smithMachine",
     "category": "isolation",
     "difficulty": "beginner",
     "instructions": [
@@ -1910,14 +2655,21 @@
       "Useful for training traps without worrying about bar path.",
       "Can add more range by standing on plates."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A shrug performed inside a Smith machine with the fixed bar path. Useful for focusing on trap contraction without balancing the bar.",
+    "aliases": [],
+    "commonMistakes": [
+      "Rolling the shoulders instead of a straight vertical shrug.",
+      "Using excessive range only possible due to the fixed bar path.",
+      "Not pausing at the peak contraction."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "leg_press_calf_raise",
     "name": "Leg Press Calf Raise",
-    "muscleGroup": "calves",
     "secondaryMuscles": [],
     "equipment": "machine",
     "category": "isolation",
@@ -1933,14 +2685,23 @@
       "Leg press calf raises allow very heavy loads.",
       "Full range of motion is more important than heavy weight."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "calves",
+    "description": "A calf raise performed on a leg press machine with just the balls of the feet. Allows very heavy loading with a full range of motion.",
+    "aliases": [
+      "plate loaded calf raise"
+    ],
+    "commonMistakes": [
+      "Not lowering the heels below the platform for a full stretch.",
+      "Performing partial range of motion with heavy weight.",
+      "Locking the knees fully during the movement."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "jump_rope",
     "name": "Jump Rope",
-    "muscleGroup": "calves",
     "secondaryMuscles": [
       "cardio",
       "shoulders"
@@ -1959,14 +2720,24 @@
       "Excellent for calf endurance and cardiovascular conditioning.",
       "Keep jumps low to the ground to reduce impact."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "calves",
+    "description": "A rhythmic cardiovascular exercise jumping over a spinning rope. Excellent for calf conditioning, coordination, and cardiovascular fitness.",
+    "aliases": [
+      "skipping",
+      "skip rope"
+    ],
+    "commonMistakes": [
+      "Landing heavily on the heels rather than the balls of the feet.",
+      "Jumping too high above the rope, wasting energy.",
+      "Using arm movements that are too large, slowing rotation."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "box_jump",
     "name": "Box Jump",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes",
       "calves"
@@ -1983,16 +2754,25 @@
     ],
     "tips": [
       "Start with a lower box and increase height progressively.",
-      "The landing should be soft \u2014 absorb with the ankles, knees, and hips."
+      "The landing should be soft — absorb with the ankles, knees, and hips."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "An explosive plyometric exercise jumping onto an elevated box. Develops lower body power, rate of force development, and coordination.",
+    "aliases": [
+      "plyo box jump"
+    ],
+    "commonMistakes": [
+      "Jumping down from the box instead of stepping down, risking Achilles injury.",
+      "Landing with stiff legs instead of soft absorbing flexion.",
+      "Not landing with both feet simultaneously."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "walking_lunge",
     "name": "Walking Lunge",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes",
       "hamstrings"
@@ -2011,14 +2791,24 @@
       "A longer stride increases glute activation; shorter stride emphasizes quads.",
       "Keep the front knee tracking over the toes."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "A forward-moving lunge stepping continuously with alternating legs. Trains quads, glutes, and hamstrings across a full range of motion.",
+    "aliases": [
+      "forward lunge",
+      "travelling lunge"
+    ],
+    "commonMistakes": [
+      "Allowing the front knee to travel far past the toes.",
+      "Taking too small a step, creating excessive knee flexion.",
+      "Losing balance and rushing through the movement."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "sumo_deadlift",
     "name": "Sumo Deadlift",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "back",
       "glutes",
@@ -2038,14 +2828,23 @@
       "Sumo is more quad and inner thigh dominant than conventional.",
       "Keeping the bar close to your body is crucial."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "A deadlift variant with a wide stance and toes pointed outward. More quad and inner-thigh dominant than conventional with a shorter range of motion.",
+    "aliases": [
+      "wide stance deadlift"
+    ],
+    "commonMistakes": [
+      "Allowing the knees to cave inward instead of tracking over the toes.",
+      "Not maintaining a neutral lower back under heavy loads.",
+      "Letting the bar drift forward away from the body during the pull."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "nordic_hamstring_curl",
     "name": "Nordic Hamstring Curl",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes"
     ],
@@ -2061,16 +2860,26 @@
     ],
     "tips": [
       "One of the best exercises for hamstring injury prevention and strength.",
-      "Eccentric-only training initially \u2014 use push-up assist on the way up."
+      "Eccentric-only training initially — use push-up assist on the way up."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "hamstrings",
+    "description": "A bodyweight exercise controlling a slow fall from kneeling with ankles secured. Exceptionally effective for hamstring eccentric strength and injury prevention.",
+    "aliases": [
+      "Nordic curl",
+      "leg curl Nordic"
+    ],
+    "commonMistakes": [
+      "Lowering too fast without controlling the eccentric phase.",
+      "Piking at the hips instead of maintaining a straight body line.",
+      "Attempting full reps before building sufficient eccentric strength."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "landmine_press",
     "name": "Landmine Press",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
       "chest",
       "triceps"
@@ -2089,17 +2898,26 @@
       "The arc of the landmine press is shoulder-friendly for those with impingement issues.",
       "Single-arm version also builds anti-rotation core stability."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A barbell press with one end anchored in a landmine attachment. The arc pattern is shoulder-friendly and works the anterior delt and upper chest.",
+    "aliases": [
+      "single arm landmine press"
+    ],
+    "commonMistakes": [
+      "Allowing the torso to rotate significantly during unilateral pressing.",
+      "Not maintaining a stable core during the arc of the press.",
+      "Setting the landmine at an angle that is too shallow."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "push_press",
     "name": "Push Press",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
       "triceps",
-      "legs"
+      "quads"
     ],
     "equipment": "barbell",
     "category": "compound",
@@ -2115,14 +2933,23 @@
       "Push press lets you lift 15-20% more weight than strict overhead press.",
       "The leg drive should initiate the bar movement, not the shoulders."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A shoulder press assisted by a leg drive to initiate the bar upward. Allows 15-20% heavier loads than strict pressing for overload stimulus.",
+    "aliases": [
+      "leg-assisted overhead press"
+    ],
+    "commonMistakes": [
+      "Dipping too deep, turning it into a full squat.",
+      "Not locking out the arms overhead at the top.",
+      "Pushing with the arms before the leg drive has transferred momentum."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "lat_pulldown_underhand",
     "name": "Underhand Lat Pulldown",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps"
     ],
@@ -2140,17 +2967,27 @@
       "The underhand grip increases bicep involvement compared to overhand.",
       "Lean back slightly (not excessively) for better lat activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A lat pulldown with an underhand (supinated) grip. Increases bicep involvement and some lifters find it easier to feel the lats working.",
+    "aliases": [
+      "reverse grip pulldown",
+      "underhand pulldown"
+    ],
+    "commonMistakes": [
+      "Leaning back excessively and turning it into a row.",
+      "Not fully extending the arms at the top.",
+      "Pulling past the chin level to the chest."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "chest_supported_row",
     "name": "Chest-Supported Row",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps",
-      "traps"
+      "back"
     ],
     "equipment": "dumbbell",
     "category": "compound",
@@ -2166,14 +3003,24 @@
       "Chest support eliminates body English and lower back involvement.",
       "The incline position better targets the mid-traps and rhomboids."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A dumbbell row with the chest supported on an inclined bench. Eliminates lower back involvement for strict mid-back and rhomboid training.",
+    "aliases": [
+      "incline DB row",
+      "prone row"
+    ],
+    "commonMistakes": [
+      "Not fully retracting the shoulder blades at the peak.",
+      "Allowing the chest to leave the pad during heavier reps.",
+      "Rowing to the upper chest instead of toward the hips."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "dumbbell_bench_press",
     "name": "Flat Dumbbell Bench Press",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "triceps",
       "shoulders"
@@ -2192,14 +3039,24 @@
       "Dumbbells allow each side to work independently, revealing imbalances.",
       "Rotate wrists slightly inward at the top for a better contraction."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "A flat bench press using dumbbells for independent arm movement. Allows a greater range of motion and reveals side-to-side strength imbalances.",
+    "aliases": [
+      "DB bench press",
+      "flat dumbbell press"
+    ],
+    "commonMistakes": [
+      "Allowing the dumbbells to drift too wide at the bottom.",
+      "Pressing the dumbbells straight up instead of together slightly.",
+      "Not controlling the eccentric with the extra range of motion."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "incline_cable_fly",
     "name": "Incline Cable Fly",
-    "muscleGroup": "chest",
     "secondaryMuscles": [
       "shoulders"
     ],
@@ -2217,14 +3074,24 @@
       "Better than dumbbell flies for the upper chest due to constant tension.",
       "Start light and focus on the squeeze."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "chest",
+    "description": "A fly movement on an incline bench using low cable pulleys. Provides constant tension through the full arc for upper chest development.",
+    "aliases": [
+      "high cable fly",
+      "cable incline fly"
+    ],
+    "commonMistakes": [
+      "Bending the elbows too much and turning it into a cable press.",
+      "Not maintaining the slight elbow bend throughout.",
+      "Allowing the cables to pull the arms too far below parallel."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "ez_bar_curl",
     "name": "EZ-Bar Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [
       "forearms"
     ],
@@ -2242,14 +3109,24 @@
       "The EZ-bar reduces wrist strain compared to a straight bar.",
       "The slight supination still targets the biceps effectively."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A bicep curl using an EZ-bar with angled grip positions. Reduces wrist strain compared to a straight bar while still effectively targeting the biceps.",
+    "aliases": [
+      "EZ curl",
+      "EZ-bar curl"
+    ],
+    "commonMistakes": [
+      "Still swinging the body to assist the curl.",
+      "Not reaching full extension at the bottom of each rep.",
+      "Gripping the wrong part of the EZ-bar, straining the wrists."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "tricep_overhead_cable",
     "name": "Overhead Cable Tricep Extension",
-    "muscleGroup": "triceps",
     "secondaryMuscles": [],
     "equipment": "cable",
     "category": "isolation",
@@ -2265,14 +3142,24 @@
       "Overhead position gives the long head of the tricep a full stretch.",
       "Lean slightly forward to increase range of motion."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "triceps",
+    "description": "A cable tricep extension performed overhead facing away from the machine. The overhead position fully stretches the long head of the tricep.",
+    "aliases": [
+      "cable overhead extension",
+      "rope overhead extension"
+    ],
+    "commonMistakes": [
+      "Letting the elbows flare out during the extension.",
+      "Not fully extending the arms at the end of the movement.",
+      "Leaning too far forward and losing core stability."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "ab_crunch_machine",
     "name": "Crunch Machine",
-    "muscleGroup": "abs",
     "secondaryMuscles": [],
     "equipment": "machine",
     "category": "isolation",
@@ -2285,19 +3172,28 @@
       "Return to the starting position with control."
     ],
     "tips": [
-      "Allows progressive overload \u2014 increase weight weekly.",
+      "Allows progressive overload — increase weight weekly.",
       "Exhale fully as you crunch for maximum contraction."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A machine-based crunch exercise allowing progressive loading. More consistent stimulus than bodyweight crunches due to added resistance.",
+    "aliases": [
+      "machine crunch"
+    ],
+    "commonMistakes": [
+      "Using momentum to swing forward instead of controlled contraction.",
+      "Not going through the full range of spinal flexion.",
+      "Pulling with the arms instead of using abdominal muscles."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "windshield_wipers",
     "name": "Windshield Wipers",
-    "muscleGroup": "abs",
     "secondaryMuscles": [
-      "hip flexors"
+      "abs"
     ],
     "equipment": "bodyweight",
     "category": "isolation",
@@ -2313,14 +3209,23 @@
       "Advanced oblique and core rotation exercise.",
       "Bend the knees for an easier version."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A supine rotational core exercise lowering legs side to side. An advanced oblique exercise requiring significant hip and core strength.",
+    "aliases": [
+      "hanging windshield wipers"
+    ],
+    "commonMistakes": [
+      "Allowing the shoulder blades to leave the floor.",
+      "Lowering legs so far that they touch the ground, using momentum to return.",
+      "Holding breath during the movement."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "side_plank",
     "name": "Side Plank",
-    "muscleGroup": "abs",
     "secondaryMuscles": [
       "shoulders",
       "glutes"
@@ -2339,14 +3244,23 @@
       "Side planks specifically target the obliques and quadratus lumborum.",
       "Add a hip dip (lower hip toward floor and back up) for extra challenge."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A lateral isometric hold on one forearm targeting the obliques. Essential for lateral core stability and oblique strength development.",
+    "aliases": [
+      "lateral plank"
+    ],
+    "commonMistakes": [
+      "Allowing the hips to sag toward the floor.",
+      "Rotating the torso toward the floor during the hold.",
+      "Not maintaining a straight line from head to feet."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "cable_woodchop",
     "name": "Cable Woodchop",
-    "muscleGroup": "abs",
     "secondaryMuscles": [
       "shoulders",
       "back"
@@ -2365,14 +3279,24 @@
       "The rotation should come from your core, not your arms.",
       "Low-to-high and high-to-low variations target different oblique fibers."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "abs",
+    "description": "A rotational cable exercise mimicking a chopping motion through the torso. Trains the obliques and rotational core strength functionally.",
+    "aliases": [
+      "cable chop",
+      "standing cable rotation"
+    ],
+    "commonMistakes": [
+      "Using the arms to pull rather than rotating from the core.",
+      "Planting the feet too close, reducing rotational stability.",
+      "Moving too quickly without controlled rotation on both directions."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "barbell_hip_thrust_glute",
     "name": "Single-Leg Hip Thrust",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [
       "hamstrings"
     ],
@@ -2390,14 +3314,24 @@
       "Single-leg version doubles load per glute.",
       "Add a barbell across your hips for extra resistance."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A single-leg hip thrust with one leg extended, doubling the load per glute. Excellent for addressing glute imbalances and increasing intensity.",
+    "aliases": [
+      "single leg hip thrust",
+      "unilateral hip thrust"
+    ],
+    "commonMistakes": [
+      "Not fully extending the hip of the working leg at the top.",
+      "Pressing through the toes instead of the heel.",
+      "Allowing the pelvis to tilt rather than staying level."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "frog_pump",
     "name": "Frog Pump",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [],
     "equipment": "bodyweight",
     "category": "isolation",
@@ -2413,14 +3347,23 @@
       "Great finisher exercise for glute pump.",
       "Add a resistance band above the knees for more activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A floor-based glute exercise with feet together and knees flared out. Provides an excellent glute pump and is effective as a high-rep finisher.",
+    "aliases": [
+      "frog bridge"
+    ],
+    "commonMistakes": [
+      "Not squeezing the glutes at the top of each rep.",
+      "Moving too fast and bouncing through reps.",
+      "Not keeping the soles of the feet firmly pressed together."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "seated_leg_curl",
     "name": "Seated Leg Curl",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "calves"
     ],
@@ -2436,19 +3379,28 @@
     ],
     "tips": [
       "Seated leg curl provides a stronger hamstring stretch than lying version.",
-      "Full range of motion is key \u2014 do not cheat with partial reps."
+      "Full range of motion is key — do not cheat with partial reps."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "hamstrings",
+    "description": "A seated machine exercise curling the legs against resistance. Provides a greater hamstring stretch than the lying leg curl variation.",
+    "aliases": [
+      "seated hamstring curl"
+    ],
+    "commonMistakes": [
+      "Not allowing full leg extension between reps.",
+      "Lifting the glutes off the seat during the curl.",
+      "Using momentum to swing the legs rather than controlled curling."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "pendlay_row",
     "name": "Pendlay Row",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps",
-      "traps"
+      "back"
     ],
     "equipment": "barbell",
     "category": "compound",
@@ -2464,14 +3416,23 @@
       "The dead-stop variation removes momentum for a stricter movement.",
       "The explosive pull trains power as well as strength."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A strict barbell row with the bar returned to the floor between each rep. The dead-stop removes momentum for a purer strength stimulus.",
+    "aliases": [
+      "dead-stop row"
+    ],
+    "commonMistakes": [
+      "Not returning the bar completely to the floor between reps.",
+      "Rounding the lower back due to a near-horizontal torso requirement.",
+      "Using a torso that is too upright, reducing the benefit over barbell rows."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "incline_hammer_curl",
     "name": "Incline Hammer Curl",
-    "muscleGroup": "biceps",
     "secondaryMuscles": [
       "forearms"
     ],
@@ -2489,14 +3450,23 @@
       "Incline position pre-stretches the brachialis for maximum activation.",
       "Often used as a finisher after regular curls."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "biceps",
+    "description": "A hammer curl performed seated on an inclined bench. The pre-stretched brachialis position increases activation of this arm muscle.",
+    "aliases": [
+      "incline neutral curl"
+    ],
+    "commonMistakes": [
+      "Not letting the arms hang completely straight at the start.",
+      "Swinging the upper arms forward during the curl.",
+      "Using too heavy a weight that eliminates the pre-stretch benefit."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "cable_face_pull_rope",
     "name": "Cable Face Pull with Rope",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
       "back"
     ],
@@ -2514,14 +3484,23 @@
       "Critical for shoulder health and balanced training.",
       "Include this in every push day workout."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A face pull using a rope attachment at forehead height. Critical for rear deltoid development and shoulder external rotation health.",
+    "aliases": [
+      "face pull"
+    ],
+    "commonMistakes": [
+      "Setting the cable too low so elbows drop below shoulder level.",
+      "Not separating the rope ends at the peak contraction.",
+      "Pulling the weight rather than focusing on external rotation."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "close_grip_pulldown",
     "name": "Close-Grip Lat Pulldown",
-    "muscleGroup": "back",
     "secondaryMuscles": [
       "biceps"
     ],
@@ -2539,18 +3518,28 @@
       "The close grip allows a greater range of elbow travel, increasing lat activation.",
       "Use a neutral grip handle for wrist comfort."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "back",
+    "description": "A lat pulldown with a close neutral grip attachment. Emphasizes the lower lats with an increased elbow travel range.",
+    "aliases": [
+      "close grip lat pulldown",
+      "neutral grip pulldown"
+    ],
+    "commonMistakes": [
+      "Leaning back too far and turning it into a cable row.",
+      "Not fully extending the arms between reps.",
+      "Gripping the handle asymmetrically."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "smith_machine_squat",
     "name": "Smith Machine Squat",
-    "muscleGroup": "legs",
     "secondaryMuscles": [
       "glutes"
     ],
-    "equipment": "smith_machine",
+    "equipment": "smithMachine",
     "category": "compound",
     "difficulty": "beginner",
     "instructions": [
@@ -2564,14 +3553,23 @@
       "Good for beginners learning the squat pattern safely.",
       "Place feet further forward to increase quad activation."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "quads",
+    "description": "A squat performed inside a Smith machine with a fixed bar path. Useful for beginners learning the squat pattern or isolating quads.",
+    "aliases": [
+      "Smith squat"
+    ],
+    "commonMistakes": [
+      "Placing feet too far forward and sitting back excessively.",
+      "Not achieving full depth due to the fixed bar path.",
+      "Over-relying on the Smith machine and neglecting free squat development."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "kettlebell_swing",
     "name": "Kettlebell Swing",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [
       "hamstrings",
       "back",
@@ -2591,18 +3589,28 @@
       "Power comes from the hip drive, not the arms.",
       "Keep the lats engaged throughout to protect the lower back."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A ballistic hip-hinge exercise swinging a kettlebell to shoulder height. Develops explosive posterior chain power and cardiovascular conditioning.",
+    "aliases": [
+      "KB swing",
+      "Russian swing"
+    ],
+    "commonMistakes": [
+      "Squatting the movement instead of performing a hip hinge.",
+      "Allowing the lower back to round during the hinge.",
+      "Using the arms to raise the kettlebell instead of hip drive."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "resistance_band_pull_apart",
     "name": "Band Pull-Apart",
-    "muscleGroup": "shoulders",
     "secondaryMuscles": [
       "back"
     ],
-    "equipment": "resistance_band",
+    "equipment": "resistanceBand",
     "category": "isolation",
     "difficulty": "beginner",
     "instructions": [
@@ -2616,14 +3624,24 @@
       "Excellent warm-up exercise and shoulder health movement.",
       "High reps (20-30) are ideal for this exercise."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "shoulders",
+    "description": "A shoulder health exercise pulling a resistance band apart at chest level. Excellent warm-up for the rear delts and scapular retractors.",
+    "aliases": [
+      "band pull apart",
+      "pull apart"
+    ],
+    "commonMistakes": [
+      "Using a band with too much resistance that limits range.",
+      "Not achieving full arm extension behind the body at the end.",
+      "Performing the movement too quickly without controlling the return."
+    ],
+    "thumbnailUrl": null
   },
   {
     "id": "reverse_hyper",
     "name": "Reverse Hyperextension",
-    "muscleGroup": "glutes",
     "secondaryMuscles": [
       "hamstrings",
       "back"
@@ -2636,14 +3654,752 @@
       "Hold the handles for support.",
       "Swing your legs up behind you by extending at the hips.",
       "Squeeze glutes at the top.",
-      "Lower with control \u2014 the pendulum motion decompresses the spine."
+      "Lower with control — the pendulum motion decompresses the spine."
     ],
     "tips": [
       "The reverse hyper is excellent for glute/hamstring development and lower back recovery.",
       "Use added weight in the strap for progressive overload."
     ],
-    "isPublic": true,
     "gifUrl": "",
-    "videoUrl": ""
+    "videoUrl": "",
+    "primaryMuscle": "glutes",
+    "description": "A machine exercise extending the legs behind the body while lying prone. Builds glutes and hamstrings while decompressing the lumbar spine.",
+    "aliases": [
+      "reverse hyperextension"
+    ],
+    "commonMistakes": [
+      "Hyperextending the lower back by swinging the legs too high.",
+      "Not controlling the pendulum return and losing tension.",
+      "Bending the knees excessively during the movement."
+    ],
+    "thumbnailUrl": null
+  },
+  {
+    "id": "incline_barbell_press",
+    "name": "Incline Barbell Press",
+    "description": "A compound pressing exercise on an inclined bench with a barbell. Targets the upper chest (clavicular pectorals) more directly than flat pressing.",
+    "primaryMuscle": "chest",
+    "secondaryMuscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "barbell",
+    "category": "compound",
+    "difficulty": "intermediate",
+    "instructions": [
+      "Set a bench to a 30-45 degree incline and rack a barbell at the appropriate height.",
+      "Lie back on the bench and grip the bar slightly wider than shoulder-width.",
+      "Unrack the bar and lower it to your upper chest with control.",
+      "Press the bar back up until arms are fully extended.",
+      "Keep your shoulder blades retracted and feet flat on the floor throughout."
+    ],
+    "tips": [
+      "A 30-degree incline is more effective than 45 degrees for upper chest activation.",
+      "Keep your wrists straight and directly above your elbows throughout the press."
+    ],
+    "commonMistakes": [
+      "Setting the bench angle too steep (above 45 degrees), shifting emphasis to front delts.",
+      "Flaring the elbows to 90 degrees, which stresses the shoulder joint.",
+      "Bouncing the bar off the chest instead of controlling the descent."
+    ],
+    "aliases": [
+      "incline press",
+      "incline bench press",
+      "incline BB press"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "incline_dumbbell_press",
+    "name": "Incline Dumbbell Press",
+    "description": "A compound pressing exercise on an inclined bench using dumbbells. Emphasizes the upper chest while allowing independent arm movement and a greater range of motion.",
+    "primaryMuscle": "chest",
+    "secondaryMuscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "dumbbell",
+    "category": "compound",
+    "difficulty": "intermediate",
+    "instructions": [
+      "Set a bench to a 30-45 degree incline.",
+      "Hold a dumbbell in each hand at chest level, palms facing forward.",
+      "Press the dumbbells up and slightly together until arms are fully extended.",
+      "Lower them slowly back to the starting position with control.",
+      "Keep your shoulder blades pinched together throughout the set."
+    ],
+    "tips": [
+      "A 30-degree incline focuses more on the upper chest than 45 degrees.",
+      "Avoid letting the dumbbells drift too wide at the bottom of the movement."
+    ],
+    "commonMistakes": [
+      "Setting the bench too steep, turning it into a shoulder press.",
+      "Allowing the dumbbells to drift too wide at the bottom.",
+      "Losing scapular retraction midway through the set."
+    ],
+    "aliases": [
+      "incline DB press",
+      "incline dumbbell bench press"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "dumbbell_fly",
+    "name": "Dumbbell Fly",
+    "description": "A chest isolation exercise lying flat on a bench with dumbbells moving through a wide arc. Provides a deep chest stretch and strong peak contraction.",
+    "primaryMuscle": "chest",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "equipment": "dumbbell",
+    "category": "isolation",
+    "difficulty": "beginner",
+    "instructions": [
+      "Lie flat on a bench holding a dumbbell in each hand directly over your chest.",
+      "With a slight bend in the elbows, lower the dumbbells out to your sides in a wide arc.",
+      "Feel the stretch across your pectorals at the bottom.",
+      "Squeeze the chest to bring the dumbbells back together over your chest.",
+      "Maintain the slight elbow bend throughout — do not straighten or over-bend."
+    ],
+    "tips": [
+      "Think of hugging a large barrel to get the correct arc movement.",
+      "Keep the elbow angle consistent throughout — do not let it change."
+    ],
+    "commonMistakes": [
+      "Bending the elbows too much, turning the movement into a dumbbell press.",
+      "Lowering the dumbbells too far and straining the shoulder joint.",
+      "Using too much weight that prevents a controlled range of motion."
+    ],
+    "aliases": [
+      "DB fly",
+      "dumbbell flye",
+      "flat dumbbell fly"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "cable_crossover",
+    "name": "Cable Crossover",
+    "description": "A chest isolation exercise using high cable pulleys, bringing the hands together in front of the body. Provides constant tension and an excellent peak contraction.",
+    "primaryMuscle": "chest",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "equipment": "cable",
+    "category": "isolation",
+    "difficulty": "beginner",
+    "instructions": [
+      "Set both cable pulleys to the highest position and attach D-handles.",
+      "Stand in the center of the cable machine, one foot slightly forward for stability.",
+      "With a slight bend in the elbows, bring both handles down and together in front of your hips.",
+      "Cross one hand over the other at the bottom for full contraction.",
+      "Slowly return to the starting position feeling the chest stretch."
+    ],
+    "tips": [
+      "The angle of the cable determines which part of the chest is targeted most.",
+      "Do not let the weight stacks touch between reps to maintain constant tension."
+    ],
+    "commonMistakes": [
+      "Straightening the elbows and turning it into a pressing movement.",
+      "Allowing the weight stacks to touch and losing muscle tension.",
+      "Leaning too far forward and losing a stable base."
+    ],
+    "aliases": [
+      "cable fly",
+      "high cable crossover",
+      "cable chest fly"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "push_up",
+    "name": "Push-Up",
+    "description": "A classic bodyweight pressing exercise performed on the floor. Develops the chest, triceps, and shoulders while engaging the core as a stabilizer.",
+    "primaryMuscle": "chest",
+    "secondaryMuscles": [
+      "triceps",
+      "shoulders",
+      "abs"
+    ],
+    "equipment": "bodyweight",
+    "category": "compound",
+    "difficulty": "beginner",
+    "instructions": [
+      "Start in a high plank position with hands slightly wider than shoulder-width.",
+      "Keep your body in a straight line from head to heels.",
+      "Lower your chest toward the floor by bending your elbows.",
+      "Push through your palms to return to the starting position.",
+      "Keep your core braced and hips level throughout the movement."
+    ],
+    "tips": [
+      "For more chest activation, use a wider hand position.",
+      "Elevate your feet to increase difficulty and upper chest emphasis."
+    ],
+    "commonMistakes": [
+      "Letting the hips sag, turning the movement into a back-bending exercise.",
+      "Only performing partial reps without lowering the chest to the floor.",
+      "Placing hands too wide and flaring the elbows to 90 degrees."
+    ],
+    "aliases": [
+      "press-up",
+      "floor push-up",
+      "push up"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "dumbbell_row",
+    "name": "Dumbbell Row",
+    "description": "A unilateral back exercise rowing a dumbbell with one hand braced on a bench. Allows a full range of motion and targets the lats and mid-back independently.",
+    "primaryMuscle": "back",
+    "secondaryMuscles": [
+      "biceps"
+    ],
+    "equipment": "dumbbell",
+    "category": "compound",
+    "difficulty": "beginner",
+    "instructions": [
+      "Place one knee and hand on a bench for support, body parallel to the floor.",
+      "Hold a dumbbell in the opposite hand with arm fully extended.",
+      "Pull the dumbbell toward your hip by driving your elbow back.",
+      "Squeeze the lat and rhomboids at the top of the movement.",
+      "Lower the dumbbell with control to full arm extension."
+    ],
+    "tips": [
+      "Allow the shoulder blade to fully protract at the bottom for a complete range of motion.",
+      "Think of pulling with your elbow, not your hand, to maximize lat engagement."
+    ],
+    "commonMistakes": [
+      "Rotating the hips to use momentum rather than isolating the back.",
+      "Not allowing the shoulder blade to fully protract at the bottom.",
+      "Pulling the dumbbell upward rather than back toward the hip."
+    ],
+    "aliases": [
+      "single arm dumbbell row",
+      "one arm DB row",
+      "one arm row"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "pullover",
+    "name": "Dumbbell Pullover",
+    "description": "A lying exercise lowering a dumbbell in an arc behind the head. Uniquely engages both the chest and lats depending on elbow position and torso angle.",
+    "primaryMuscle": "back",
+    "secondaryMuscles": [
+      "chest",
+      "triceps"
+    ],
+    "equipment": "dumbbell",
+    "category": "isolation",
+    "difficulty": "intermediate",
+    "instructions": [
+      "Lie perpendicular to a bench with your upper back supported and hips low.",
+      "Hold a single dumbbell with both hands directly over your chest.",
+      "Lower the dumbbell in an arc behind your head with elbows slightly bent.",
+      "Feel the deep stretch across your chest and lats at the bottom.",
+      "Pull the dumbbell back through the same arc to the starting position."
+    ],
+    "tips": [
+      "Keep your hips low to maximize the stretch across the ribcage.",
+      "Slightly bent elbows reduce elbow stress while maintaining chest/lat tension."
+    ],
+    "commonMistakes": [
+      "Bending the elbows too much, reducing the stretch and making it a tricep exercise.",
+      "Raising the hips during the movement, reducing the effectiveness.",
+      "Using too much weight before mastering the movement pattern."
+    ],
+    "aliases": [
+      "dumbbell pullover",
+      "straight-arm pullover",
+      "DB pullover"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "deadlift",
+    "name": "Deadlift",
+    "description": "The foundational barbell pulling movement lifting a loaded bar from the floor. Works the entire posterior chain and is one of the most effective strength exercises.",
+    "primaryMuscle": "back",
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings",
+      "abs"
+    ],
+    "equipment": "barbell",
+    "category": "compound",
+    "difficulty": "advanced",
+    "instructions": [
+      "Stand with feet hip-width apart and the bar over your mid-foot.",
+      "Hinge at the hips and grip the bar just outside your legs.",
+      "Take a deep breath, brace your core hard, and flatten your back.",
+      "Push the floor away with your legs while keeping the bar close to your shins.",
+      "Stand tall, driving hips forward, with shoulders and hips rising at the same rate."
+    ],
+    "tips": [
+      "Think 'push the floor away' rather than 'pull the bar up' for better leg drive.",
+      "Keep the bar in contact with your shins and thighs throughout the entire lift."
+    ],
+    "commonMistakes": [
+      "Rounding the lower back, especially on the initial pull from the floor.",
+      "Letting the bar drift forward away from the body during the pull.",
+      "Jerking the bar explosively from the floor instead of building steady tension."
+    ],
+    "aliases": [
+      "conventional deadlift",
+      "pull",
+      "barbell deadlift"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "dumbbell_shoulder_press",
+    "name": "Dumbbell Shoulder Press",
+    "description": "A seated or standing overhead pressing movement using dumbbells. Develops all three deltoid heads with independent arm movement revealing imbalances.",
+    "primaryMuscle": "shoulders",
+    "secondaryMuscles": [
+      "triceps"
+    ],
+    "equipment": "dumbbell",
+    "category": "compound",
+    "difficulty": "beginner",
+    "instructions": [
+      "Sit on a bench with back support or stand with core braced.",
+      "Hold a dumbbell in each hand at shoulder height with palms facing forward.",
+      "Press both dumbbells overhead until arms are fully extended.",
+      "Lower with control back to shoulder height.",
+      "Keep your core tight and avoid arching the lower back."
+    ],
+    "tips": [
+      "Seated with back support allows heavier loads and better safety.",
+      "Slightly angling the dumbbells inward at the top reduces shoulder impingement."
+    ],
+    "commonMistakes": [
+      "Hyperextending the lower back instead of maintaining a neutral spine.",
+      "Not reaching full arm extension overhead.",
+      "Pressing the dumbbells straight up instead of slightly inward at the top."
+    ],
+    "aliases": [
+      "DB shoulder press",
+      "dumbbell overhead press",
+      "seated dumbbell press"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "lateral_raise",
+    "name": "Lateral Raise",
+    "description": "An isolation exercise raising the arms out to the sides to shoulder height. The primary and most direct exercise for developing the medial deltoid head.",
+    "primaryMuscle": "shoulders",
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "category": "isolation",
+    "difficulty": "beginner",
+    "instructions": [
+      "Stand holding a dumbbell in each hand at your sides with palms facing inward.",
+      "With a slight bend at the elbows, raise both arms out to the sides.",
+      "Lift until your arms are parallel to the floor at shoulder height.",
+      "Hold briefly at the top then lower with control.",
+      "Lead with your pinky fingers to maximize medial deltoid activation."
+    ],
+    "tips": [
+      "Avoid using momentum by swinging your torso or shrugging your traps.",
+      "Slightly tilting the dumbbells pinky-side up increases lateral head activation."
+    ],
+    "commonMistakes": [
+      "Swinging the body to generate momentum and lifting too heavy.",
+      "Raising the dumbbells above shoulder height unnecessarily, loading the traps.",
+      "Bending the elbows too much, reducing lateral deltoid tension."
+    ],
+    "aliases": [
+      "dumbbell lateral raise",
+      "side raise",
+      "lateral dumbbell raise"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "rear_delt_fly",
+    "name": "Rear Delt Fly",
+    "description": "A bent-over isolation exercise raising dumbbells laterally to target the posterior deltoids. Essential for shoulder balance and upper back health.",
+    "primaryMuscle": "shoulders",
+    "secondaryMuscles": [
+      "back"
+    ],
+    "equipment": "dumbbell",
+    "category": "isolation",
+    "difficulty": "beginner",
+    "instructions": [
+      "Hinge at the hips until your torso is near-parallel to the floor.",
+      "Hold a dumbbell in each hand with arms hanging down, slight bend in elbows.",
+      "Raise the dumbbells out to your sides keeping movement in the plane of your back.",
+      "Squeeze the rear delts and shoulder blades together at the top.",
+      "Lower the dumbbells with control back to the starting position."
+    ],
+    "tips": [
+      "Keep the movement in the plane of your back, not in front of your torso.",
+      "Can be performed seated with chest resting on the thighs for strict isolation."
+    ],
+    "commonMistakes": [
+      "Rounding the back instead of maintaining a flat torso position.",
+      "Swinging the arms with momentum rather than controlled lateral raises.",
+      "Moving arms in front of the torso plane instead of directly to the side."
+    ],
+    "aliases": [
+      "reverse fly",
+      "bent-over fly",
+      "rear deltoid fly",
+      "bent over reverse fly"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "dumbbell_curl",
+    "name": "Dumbbell Curl",
+    "description": "A bilateral or alternating curl using dumbbells, allowing wrist supination for a stronger peak contraction. A fundamental bicep isolation exercise.",
+    "primaryMuscle": "biceps",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "dumbbell",
+    "category": "isolation",
+    "difficulty": "beginner",
+    "instructions": [
+      "Stand holding a dumbbell in each hand with arms at your sides.",
+      "With palms facing forward, curl both dumbbells simultaneously or alternate.",
+      "Supinate (rotate) your wrists outward as you curl for maximum contraction.",
+      "Pause at the top and squeeze the bicep.",
+      "Lower with control to full arm extension."
+    ],
+    "tips": [
+      "Supinating the wrist as you curl produces a stronger bicep contraction.",
+      "Keep elbows pinned to your sides to prevent shoulder involvement."
+    ],
+    "commonMistakes": [
+      "Swinging the torso to assist the curl with momentum.",
+      "Not supinating the wrists during the curl reducing contraction.",
+      "Allowing the elbow to drift forward at the top, reducing tension."
+    ],
+    "aliases": [
+      "DB curl",
+      "standing dumbbell curl",
+      "alternating curl"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "incline_dumbbell_curl",
+    "name": "Incline Dumbbell Curl",
+    "description": "A dumbbell curl performed on an inclined bench with arms hanging behind the torso. The pre-stretched position of the long head significantly increases bicep activation.",
+    "primaryMuscle": "biceps",
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "category": "isolation",
+    "difficulty": "intermediate",
+    "instructions": [
+      "Set a bench to 45-60 degrees and sit back against it.",
+      "Let your arms hang straight down behind the body holding dumbbells.",
+      "Curl the dumbbells up while keeping your upper arms perpendicular to the floor.",
+      "Supinate the wrists at the top for maximum peak contraction.",
+      "Lower fully to maximize the long head stretch on every rep."
+    ],
+    "tips": [
+      "The pre-stretched position of the long head significantly increases EMG activation.",
+      "Use lighter weight than standing curls due to the mechanical disadvantage."
+    ],
+    "commonMistakes": [
+      "Not allowing arms to hang completely straight at the start.",
+      "Using too heavy a weight that eliminates the pre-stretch benefit.",
+      "Swinging the upper arms forward away from vertical during the curl."
+    ],
+    "aliases": [
+      "incline curl",
+      "incline DB curl",
+      "seated incline curl"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "close_grip_bench_press",
+    "name": "Close-Grip Bench Press",
+    "description": "A barbell bench press with a shoulder-width grip to maximize tricep involvement. One of the best compound movements for overall tricep mass and strength.",
+    "primaryMuscle": "triceps",
+    "secondaryMuscles": [
+      "chest",
+      "shoulders"
+    ],
+    "equipment": "barbell",
+    "category": "compound",
+    "difficulty": "intermediate",
+    "instructions": [
+      "Lie on a flat bench and grip the barbell at shoulder-width.",
+      "Unrack the bar and keep your elbows close to your body.",
+      "Lower the bar to your lower chest in a controlled manner.",
+      "Press the bar back up explosively until arms are fully extended.",
+      "Keep elbows tucked throughout — do not let them flare wide."
+    ],
+    "tips": [
+      "Going too narrow (inside shoulder-width) strains the wrists — stay at shoulder-width.",
+      "This is one of the most effective compound tricep movements available."
+    ],
+    "commonMistakes": [
+      "Gripping too narrow which strains the wrists unnecessarily.",
+      "Flaring the elbows out wide rather than keeping them tucked.",
+      "Letting the bar drift too high toward the clavicle during the press."
+    ],
+    "aliases": [
+      "CGBP",
+      "close grip press",
+      "narrow grip bench press"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "back_squat",
+    "name": "Back Squat",
+    "description": "The foundational barbell squat with the bar resting on the upper or lower traps. The king of lower body exercises for quad, glute, and overall leg development.",
+    "primaryMuscle": "quads",
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings",
+      "abs"
+    ],
+    "equipment": "barbell",
+    "category": "compound",
+    "difficulty": "intermediate",
+    "instructions": [
+      "Place the barbell on your upper traps (high bar) or rear delts (low bar).",
+      "Stand with feet shoulder-width apart, toes slightly pointed out.",
+      "Brace your core and begin the descent by pushing your knees out over your toes.",
+      "Lower until your thighs are at least parallel to the floor.",
+      "Drive through your full foot to stand back up maintaining chest position."
+    ],
+    "tips": [
+      "Keep your chest up and avoid caving the knees inward during the ascent.",
+      "Depth depends on your anatomy — squat as deep as possible with good form."
+    ],
+    "commonMistakes": [
+      "Caving the knees inward (valgus collapse) during the descent or ascent.",
+      "Shifting onto the toes and losing heel contact with the floor.",
+      "Rounding the lower back at the bottom of the squat."
+    ],
+    "aliases": [
+      "barbell squat",
+      "BB squat",
+      "high bar squat",
+      "low bar squat",
+      "squat"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "front_squat",
+    "name": "Front Squat",
+    "description": "A barbell squat with the bar resting on the front deltoids, requiring a more upright torso. Places greater emphasis on the quads and core compared to the back squat.",
+    "primaryMuscle": "quads",
+    "secondaryMuscles": [
+      "glutes",
+      "abs"
+    ],
+    "equipment": "barbell",
+    "category": "compound",
+    "difficulty": "advanced",
+    "instructions": [
+      "Position the barbell in the front rack position on your front deltoids.",
+      "Keep your elbows high and parallel to the floor throughout the movement.",
+      "Stand with feet shoulder-width apart, toes slightly out.",
+      "Descend by pushing your knees out, maintaining an upright torso.",
+      "Drive through your full foot to stand up, keeping elbows high."
+    ],
+    "tips": [
+      "Keeping elbows high prevents the bar from rolling off the shoulders.",
+      "More ankle and thoracic mobility is required than for the back squat."
+    ],
+    "commonMistakes": [
+      "Dropping the elbows which causes the bar to roll forward off the shoulders.",
+      "Leaning forward excessively due to lack of thoracic or ankle mobility.",
+      "Not squatting to adequate depth due to mobility restrictions."
+    ],
+    "aliases": [
+      "front rack squat",
+      "BB front squat"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "lunge",
+    "name": "Lunge",
+    "description": "A unilateral lower body exercise stepping forward and lowering the back knee toward the floor. Develops quads, glutes, and balance simultaneously.",
+    "primaryMuscle": "quads",
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "equipment": "bodyweight",
+    "category": "compound",
+    "difficulty": "beginner",
+    "instructions": [
+      "Stand upright with feet together.",
+      "Step one foot forward and lower the back knee toward the floor.",
+      "Keep the front shin vertical and the torso upright.",
+      "Push through the front heel to return to the starting position.",
+      "Repeat on the opposite leg or perform all reps on one side."
+    ],
+    "tips": [
+      "A longer stride increases glute activation; a shorter stride emphasizes quads.",
+      "Hold dumbbells or add a barbell for progressive overload."
+    ],
+    "commonMistakes": [
+      "Allowing the front knee to travel far past the toes.",
+      "Taking too small a step, creating excessive knee flexion.",
+      "Leaning the torso forward instead of remaining upright."
+    ],
+    "aliases": [
+      "stationary lunge",
+      "split squat",
+      "forward lunge"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "hip_thrust",
+    "name": "Hip Thrust",
+    "description": "A barbell hip extension exercise with the upper back on a bench and hips driving upward. Considered the most effective exercise for glute hypertrophy through hip extension.",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": "barbell",
+    "category": "compound",
+    "difficulty": "intermediate",
+    "instructions": [
+      "Sit on the floor with your upper back against a bench and a barbell across your hips.",
+      "Plant your feet flat on the floor, shoulder-width apart.",
+      "Drive your hips upward by squeezing your glutes hard.",
+      "Hold at the top for one second with full hip extension.",
+      "Lower with control back toward the floor."
+    ],
+    "tips": [
+      "Use a barbell pad for comfort under the barbell across the hips.",
+      "Push through your heels rather than your toes for better glute activation."
+    ],
+    "commonMistakes": [
+      "Not achieving full hip extension at the top of the movement.",
+      "Letting the hips drop without controlling the descent.",
+      "Placing the barbell too high on the abdomen rather than on the hips."
+    ],
+    "aliases": [
+      "barbell hip thrust",
+      "glute thrust",
+      "glute bridge thrust"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "goblet_squat",
+    "name": "Goblet Squat",
+    "description": "A front-loaded squat holding a dumbbell or kettlebell at chest level. An excellent beginner squat variation that promotes an upright torso and good depth.",
+    "primaryMuscle": "quads",
+    "secondaryMuscles": [
+      "glutes",
+      "abs"
+    ],
+    "equipment": "dumbbell",
+    "category": "compound",
+    "difficulty": "beginner",
+    "instructions": [
+      "Hold a dumbbell or kettlebell vertically at chest height with both hands.",
+      "Stand with feet shoulder-width apart, toes slightly pointed out.",
+      "Keeping the weight close to your chest, descend into a squat.",
+      "Lower until thighs are at least parallel to the floor.",
+      "Drive through your full foot to stand back up."
+    ],
+    "tips": [
+      "The front-loaded position naturally encourages an upright torso.",
+      "Great for teaching squat mechanics before progressing to barbell squats."
+    ],
+    "commonMistakes": [
+      "Letting the knees cave inward during the squat.",
+      "Leaning forward and dropping the weight from the chest position.",
+      "Using insufficient depth and missing the squat's training benefits."
+    ],
+    "aliases": [
+      "goblet squat",
+      "dumbbell goblet squat",
+      "kettlebell goblet squat"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
+  },
+  {
+    "id": "leg_raise",
+    "name": "Leg Raise",
+    "description": "A supine core exercise raising the legs from the floor to vertical. Trains the lower abdominals and hip flexors through hip flexion.",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [],
+    "equipment": "bodyweight",
+    "category": "isolation",
+    "difficulty": "beginner",
+    "instructions": [
+      "Lie flat on your back with legs straight and hands under your lower back for support.",
+      "Keep your legs straight and raise them toward the ceiling.",
+      "Lift until your legs are perpendicular to the floor.",
+      "Slowly lower your legs back down without letting them touch the floor.",
+      "Keep your lower back pressed to the floor throughout."
+    ],
+    "tips": [
+      "Press your lower back into the floor to ensure abs are doing the work.",
+      "Bend the knees slightly to reduce difficulty if needed."
+    ],
+    "commonMistakes": [
+      "Allowing the lower back to arch off the floor as legs lower.",
+      "Using momentum to swing the legs up rather than controlled lifting.",
+      "Lowering legs completely to the floor and losing core tension."
+    ],
+    "aliases": [
+      "floor leg raise",
+      "lying leg raise",
+      "straight leg raise"
+    ],
+    "gifUrl": "",
+    "videoUrl": "",
+    "thumbnailUrl": null
   }
 ]
