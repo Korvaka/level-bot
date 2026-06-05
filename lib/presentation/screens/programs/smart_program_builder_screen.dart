@@ -903,6 +903,7 @@ class _SmartProgramBuilderScreenState
 
   Widget _buildPreviewStep(
       BuildContext context, List<ExerciseEntity> exercises) {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       children: [
         Padding(
@@ -959,7 +960,7 @@ class _SmartProgramBuilderScreenState
                     minimumSize: Size.zero,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
-                  child: const Text('Regenerate'),
+                  child: Text(l10n.regenerate, overflow: TextOverflow.ellipsis),
                 ),
               ),
               const SizedBox(width: 12),
@@ -967,7 +968,6 @@ class _SmartProgramBuilderScreenState
                 flex: 2,
                 child: FilledButton.icon(
                   onPressed: () {
-                    final l10n = AppLocalizations.of(context)!;
                     HapticFeedback.heavyImpact();
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -982,7 +982,7 @@ class _SmartProgramBuilderScreenState
                     context.pop();
                   },
                   icon: const Icon(Icons.save_rounded, size: 18),
-                  label: const Text('Save to Programs'),
+                  label: Text(l10n.saveToPrograms, overflow: TextOverflow.ellipsis),
                   style: FilledButton.styleFrom(
                     minimumSize: Size.zero,
                     padding: const EdgeInsets.symmetric(vertical: 14),
@@ -1098,7 +1098,7 @@ class _BottomNav extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 minimumSize: const Size(80, 48),
               ),
-              child: const Text('Back'),
+              child: Text(AppLocalizations.of(context)!.back, overflow: TextOverflow.ellipsis),
             ),
             const SizedBox(width: 12),
           ],
